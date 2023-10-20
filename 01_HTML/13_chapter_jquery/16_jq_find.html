@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="target">
+      <span class="lo">Lorem</span>
+      <span class="ip">Ipsum</span>
+      <span class="do">Dolor</span>
+    </p>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        // ip 를 찾아서 배경색 : skyblue
+        $(".target").find(".ip").css("background-color", "skyblue");
+      });
+    </script>
+  </body>
+</html>

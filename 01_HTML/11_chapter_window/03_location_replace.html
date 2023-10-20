@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location 객체 2</title>
+  </head>
+  <body>
+    <button onclick="moveNaver()">네이버로 이동</button>
+    <button onclick="moveGoogle()">구글 이동</button>
+
+    <script>
+      // 함수 정의
+      function moveNaver() {
+        // 이력 : 웹브라우저 기본기능(방문한 페이지는 자동 저장됨)
+        // 페이지 이동 : 이력(history)을 남기면서 이동(뒤로가기 가능)
+        location.href = "http://www.naver.com";
+      }
+      function moveGoogle() {
+        // 페이지 이동 : 이력(history)을 남기지않음(뒤로가기 불가능)
+        location.replace("http://www.google.com");
+      }
+    </script>
+  </body>
+</html>

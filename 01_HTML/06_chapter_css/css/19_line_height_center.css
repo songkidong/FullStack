@@ -1,0 +1,16 @@
+/* 박스 안에 글자 세로 중앙 정렬 */
+.wrapper {
+  width: 500px;
+  border: 1px solid lightgray;
+}
+
+h1 {
+  /* 글자 가로 중앙 정렬 */
+  text-align: center;
+  background-color: lightskyblue;
+  color: white;
+  height: 100px;
+  /* TODO: line-height(자간, 줄간격) */
+  /* line-height == height (글자 세로 중앙 정렬) */
+  line-height: 100px;
+}

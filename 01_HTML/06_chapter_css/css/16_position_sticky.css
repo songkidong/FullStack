@@ -1,0 +1,7 @@
+/* position : sticky */
+.top-bar {
+  height: 50px;
+  background-color: blue;
+  position: sticky;
+  top: 0;
+}

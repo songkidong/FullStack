@@ -1,0 +1,18 @@
+/* 문제 풀이 */
+/* 선택자들에게 공통된 속성 적용하기 */
+/* 사용법 :
+    선택자, 선택자2,...{
+    속성: 값;
+    }
+ */
+table,
+tr,
+th,
+td {
+  /* 외곽선 : border: 선두께 선스타일 선색상 */
+  border: 1px solid black;
+  /* 테이블 선사이 간격 붙이기 속성 */
+  border-collapse: collapse;
+  /* 안쪽 여백(padding) */
+  padding: 8px;
+}

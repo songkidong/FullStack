@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="title">선택자</h1>
+    <section>
+      <div>
+        <p class="txt1">내용</p>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <p class="txt2">내용</p>
+      </div>
+    </section>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        // 선택(.txt1)태그 위의 부모들 모두 선택
+        // 사용법 : $("css선택자").parents().함수();
+        $(".txt1").parents().css("border", "2px solid yellow");
+      });
+    </script>
+  </body>
+</html>

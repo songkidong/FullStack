@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 파일명.확장자 (.css,.js 등등) -->
+    <!-- 동영상 파일 : .mp4, webm 등등 -->
+    <!-- 비디오 태그 : video(부모태그) > source(자식태그) src="비디오경로" type="video/확장자"-->
+    <!-- video 속성 : width(가로크기), controls(동영상컨트롤 패널) -->
+    <video width="640" controls="controls">
+      <source
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        type="video/mp4"
+      />
+      <source
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.webm"
+        type="video/webm"
+      />
+    </video>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+/* 반응형 웹 css */
+/* 사용법 : @media (max-width: 최대크기) {선택자 { 속성:값; }} */
+/* 모니터 최대크기가 699px 이하일때 빨간색 : 테블릿 */
+@media (max-width: 699px) {
+  body {
+    background-color: red;
+  }
+}
+
+/* 사용법 : @media (min-width: 최소크기) {선택자 { 속성:값; }} */
+/* 모니터 최소크기가 900px 이상일때 파란색 : pc */
+@media (min-width: 900px) {
+  body {
+    background-color: blue;
+  }
+}
+
+/* 사용법 : @media (min-width: 최소크기) and (max-width) {선택자 { 속성:값; }} */
+/* 모니터 최소크기가 700px 이상이고 최대크기가 899px 사이일때 녹색 */
+@media (min-width: 700px) and (max-width: 899px) {
+  body {
+    background-color: green;
+  }
+}

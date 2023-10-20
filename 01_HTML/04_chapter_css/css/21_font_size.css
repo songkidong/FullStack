@@ -1,0 +1,19 @@
+/* 글자 단위 : px, em(rem), % */
+/* 1st p태그 선택 */
+p:nth-child(1) {
+  /* 상대 크기 단위(글자) */
+  /* 1.0em == 16px(웹 브라우저 기본 글자 단위 : 부모태그에서 상속받음) */
+  /* font-size : 100% == 1.0em == 16px */
+  /* 고정 크기 */
+  font-size: 1em;
+}
+
+/* 2nd p태그 선택 */
+p:nth-child(2) {
+  font-size: 1.5em;
+}
+
+/* 3rd p태그 선택 */
+p:nth-child(3) {
+  font-size: 2em;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>제이쿼리</h1>
+    <h2 id="tit">선택자</h2>
+    <h3>직접선택자</h3>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        // jquery 작성
+        // 예제 : 배경색:#ff0, border:2px solid black
+        // TODO: 메소드(함수) 체이닝
+        // 사용법 : $(css선택자).함수().함수()...
+        $("#tit")
+          .css("background-color", "#ff0")
+          .css("border", "2px solid black");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 연습문제 -->
+    <!-- btn1 클릭하면 p1 에 안녕하세요 출력 -->
+    <p id="p1"></p>
+    <!-- btn2 클릭하면 p2 에 <h3>안녕하세요</h3> -->
+    <p id="p2"></p>
+    <!-- btn3 클릭하면 html 태그 적용 -->
+    <!-- p3에 <span style='color:green;'>반갑습니다.</span> -->
+    <p id="p3"></p>
+    <!-- btn4 클릭하면 #phone 의 값에 010-1234-5678 -->
+    <!-- 힌트 : .text("문자열설정"), .html("문자열설정"), .val("123456") -->
+    <p>전화번호 : <input type="text" id="phone" /></p>
+    <button id="btn1">텍스트 설정하기-1</button>
+    <button id="btn2">텍스트 설정하기-2</button>
+    <button id="btn3">HTML 설정하기</button>
+    <!-- btn4 버튼을 클릭하면 #phone 의 값에 "010-1234-5678" -->
+    <button id="btn4">입력 창에 값 설정하기</button>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        // 1) p1에 안녕하세요 출력
+        $("#btn1").click(function () {
+          $("#p1").text("안녕하세요");
+        });
+
+        // 2) p2에 <h3>안녕하세요</h3> 출력
+        $("#btn2").click(function () {
+          $("#p2").text("<h3>안녕하세요</h3>");
+        });
+
+        // 3) p3에 초록색글자 반갑습니다 출력
+        $("#btn3").click(function () {
+          $("#p3").html("<span style='color:green'>반갑습니다.</span>");
+        });
+
+        // 4) #phone값에 010-1234-5678 출력
+        $("#btn4").click(function () {
+          $("#phone").val("010-1234-5678");
+        });
+      });
+    </script>
+  </body>
+</html>

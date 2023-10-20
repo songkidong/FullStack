@@ -1,0 +1,26 @@
+/* 디자인 공식 */
+/* 컨텐츠크기(순수한 이미지, 글자 등) */
+/* 전체 가로 크기 - 컨텐츠 가로 크기 + 2*padding + 2*margin */
+/* 전체 세로 크기 - 컨텐츠 세로 크기 + 2*padding + 2*margin */
+/* 예) 전체 body 가로 크기 : 700px */
+/* 700 = 컨텐츠 가로 크키 + 2*padding + 2*margin */
+
+/* 여백 초기화 */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url(../img/flower.png);
+}
+
+#shop {
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+#button {
+  margin-left: 180px;
+  margin-top: 20px;
+}

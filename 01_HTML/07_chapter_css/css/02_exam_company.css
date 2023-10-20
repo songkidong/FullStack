@@ -1,0 +1,88 @@
+/* 문제 풀이 */
+/* 여백 초기화 */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* 목록 점 없애기 */
+li {
+  list-style-type: none;
+}
+
+/* 전체 페이지 */
+#page {
+  width: 995px;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
+
+/* 머리말 디자인 */
+header {
+  width: 995px;
+  height: 100px;
+  border-bottom: 1px solid #cccccc;
+}
+
+/* 로고 디자인 : 왼쪽배치 */
+#logo {
+  float: left;
+}
+
+/* 소메뉴 디자인 : 오른쪽배치 */
+#top {
+  float: right;
+  margin-top: 30px;
+}
+
+/* 더미 div : float 영향 제거용 */
+.clear {
+  clear: both;
+}
+
+/* 대메뉴 크기 */
+nav {
+  width: 955px;
+  height: 70px;
+  margin-top: 10px;
+}
+
+/* 대메뉴(이미지들) 세로 --> 가로배치 */
+/* inline-block : 가로로 배치하되 크기가 모자라면 줄바꿈이 됨 */
+/* 세로 -> 가로배치 : display(inline-block), float:left */
+nav li {
+  display: inline-block;
+  width: 150px;
+}
+
+/* 본문 : 좌측 */
+section {
+  float: left;
+  width: 650px;
+}
+
+/* 사이드바 : 우측 */
+aside {
+  float: right;
+  width: 345px;
+}
+
+/* 꼬리말 */
+footer{
+    width: 995px;
+    height: 100px;
+    margin-top: 20px;
+    border-top: 1px solid #cccccc;
+}
+/* 꼬리말 - 주소 */
+#address{
+    float: left;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+/* 꼬리말 - 고객센터 */
+#customer{
+    float: right;
+    margin-top: 20px;
+    margin-right: 30px;
+}

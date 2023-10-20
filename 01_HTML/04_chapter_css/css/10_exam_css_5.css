@@ -1,0 +1,14 @@
+.font1 {
+  /* 글자색 */
+  color: red;
+  /* 밑줄 */
+  text-decoration: underline;
+  /* 굵은 글씨 */
+  font-weight: bold;
+}
+.font2 {
+  /* 글자색 */
+  color: blue;
+  /* 굵은 글씨 */
+  font-weight: bold;
+}

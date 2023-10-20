@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 프론트앤드(react) <-> (통신:axios) 백엔드(springboot) -->
+    <!-- 통신 : 데이터 전송시 한글이 인식이 안될경우 있음 -->
+    <!-- 인코딩/디코딩 : 데이터 전송시 인식 안되는 문자들을 
+    일시적으로 브라우저에서 인식할 수 있는 문자로 바꾸는 것(인코딩),
+    다시 한글등으로 되돌리는 것(디코딩) -->
+
+    <script>
+      // 예제 : "안녕하세요, 홍길동" 인코딩해서 출력하고
+      // 다시 디코딩해서 출력하세요
+
+      // 한글 인코딩
+      // 사용법 : encodeURIComponent("문자열");
+      let encodeKor = encodeURIComponent("안녕하세요");
+      let encodeName = encodeURIComponent("홍길동");
+      // url 주소 만들기
+      let encodeUrl = `http://www.google.com/${encodeKor}/${encodeName}`;
+      console.log(encodeUrl);
+
+      // 한글 디코딩(받는쪽)
+      console.log(decodeURIComponent(encodeKor)); // 안녕하세요
+      console.log(decodeURIComponent(encodeName)); // 홍길동
+    </script>
+  </body>
+</html>

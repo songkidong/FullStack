@@ -1,0 +1,21 @@
+body {
+  font-family: "돋음";
+}
+h3 {
+  color: blue;
+  font-family: "맑은 고딕";
+}
+p {
+  /* 자간 == 글자 세로 사이 간격 */
+  line-height: 150%;
+  /* 글자 크기 */
+  font-size: 14px;
+}
+
+li {
+  list-style-type: square;
+  font-size: 16px;
+}
+span {
+  font-weight: bold;
+}

@@ -1,0 +1,25 @@
+h3 {
+  /* 바깥여백 */
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+ul {
+  /* 가로 */
+  width: 500px;
+  /* 외곽선 */
+  border: 1px solid black;
+  /* 안쪽여백 */
+  padding: 20px 30px 30px 30px;
+  /* 바깥여백 */
+  margin: 20px 0 0 20px;
+}
+
+li {
+  /* 외곽선(점선) : dotted */
+  border-bottom: 1px dotted gray;
+  /* 안쪽 여백 */
+  padding: 10px 0 10px 0;
+  /* 목록 앞에 점 없애기 */
+  list-style-type: none;
+}

@@ -1,0 +1,45 @@
+/* position: absolute(절대좌표),
+특징 : 웹브라우저 화면에 좌표가 생김, 
+left/top을 이용해서 태그를 이동시킬 수 있다. */
+/* 참고 : position: static (기본, 생략, 좌표없음) */
+/* html 기본속성 : 태그가 코딩된 순서대로 밑으로 밀려서 화면에 표시됨 */
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  /* 절대 좌표(absolute) */
+  position: absolute;
+  /* 왼쪽(x좌표) */
+  left: 0;
+  /* 위쪽(y좌표) */
+  top: 0;
+  /* 겹칠 때 위에 올라오도록 우선순위를 정하는 속성 */
+  /* 수치가 클수록 위, 수치가 작을수록 아래 */
+  z-index: 30;
+}
+
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  /* 절대 좌표(absolute) */
+  position: absolute;
+  /* 왼쪽(x좌표) */
+  left: 40px;
+  /* 위쪽(y좌표) */
+  top: 40px;
+  z-index: 20;
+}
+
+.box3 {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  /* 절대 좌표(absolute) */
+  position: absolute;
+  /* 왼쪽(x좌표) */
+  left: 80px;
+  /* 위쪽(y좌표) */
+  top: 80px;
+  z-index: 10;
+}

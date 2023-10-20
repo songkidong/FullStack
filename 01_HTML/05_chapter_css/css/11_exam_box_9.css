@@ -1,0 +1,28 @@
+h3 {
+  /* 외곽선 */
+  border-left: 5px solid blue;
+  /* 바깥여백 */
+  margin: 10px;
+  /* 안쪽여백 - 왼쪽 */
+  padding-left: 10px;
+}
+p {
+  /* 바깥여백 - 왼쪽 */
+  margin-left: 20px;
+  /* 바깥여백 - 아래쪽 */
+  margin-bottom: 10px;
+}
+ul {
+  /* 외곽선 - 위쪽 */
+  border-top: 1px solid black;
+  /* 외곽선 - 아래쪽 */
+  border-bottom: 1px solid black;
+  /* 바깥여백 - 왼쪽 */
+  margin-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+li {
+  padding-top: 10px;
+  margin-left: 10px;
+}

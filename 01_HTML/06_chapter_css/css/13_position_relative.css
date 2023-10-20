@@ -1,0 +1,24 @@
+/* 상대좌표(relative) 예제 */
+/* 특징 : 현재 태그가 있는 위치부터 (0,0) 시작됨 */
+/* vs절대좌표 : 0,0(웹브라우저 왼쪽/위 모서리) */
+/* 절대좌표로 설정된 박스 */
+.abox {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  /* 절대좌표 : 태그무시 */
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 상대좌표로 설정된 박스 */
+.rbox {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  /* 상대좌표 */
+  position: relative;
+  left: 0;
+  top: 0;
+}

@@ -1,0 +1,12 @@
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.con3 img,
+.con3 span {
+  /* 이미지 + 텍스트 세로 중앙 정렬 */
+  /* TODO: 주의점 : 이미지, 텍스트 모두 적용해야함 */
+  /* vertical-align: middle(top, bottom) */
+  vertical-align: middle;
+}

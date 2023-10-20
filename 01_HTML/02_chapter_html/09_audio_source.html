@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <!—- 첫번째 오디오 -—> -->
+    <!-- audio 속성 src="오디오파일경로" -->
+    <!-- 인터넷 주소 : http://주소(url) -->
+    <!-- https(보안 프로토콜), http: 프로토콜 -->
+    <!-- 오디오 확장자 : .mp3, ogg 등 -->
+    <!-- source src = "오디오파일경로" type="audio/확장자"-->
+    <audio
+      src="https://ccrma.stanford.edu/~jos/mp3/harpsi-cs.mp3"
+      controls="controls"
+    ></audio>
+    <hr />
+
+    <!-- <!— 두번째 오디오 —> -->
+    <audio controls="controls">
+      <source
+        src="https://ccrma.stanford.edu/~jos/mp3/harpsi-cs.mp3"
+        type="audio/mp3"
+      />
+      <source
+        src="https://ccrma.stanford.edu/~jos/mp3/harpsi-cs.ogg"
+        type="audio/ogg"
+      />
+    </audio>
+  </body>
+</html>

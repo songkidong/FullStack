@@ -1,0 +1,23 @@
+/* box 기본 속성 : 상세 */
+div {
+  /* 가로 */
+  width: 100px;
+  /* 세로 */
+  height: 100px;
+  /* 외곽선 */
+  /* border: 선두께 선스타일 선색깔 */
+  border: 5px solid orange;
+  /* 안쪽여백 : 상/우/하/좌 */
+  /* 축약형 : 
+    padding: 상 우 하 좌(12시 기준으로 한바뀌 돈다); */
+  padding: 30px 0 30px 0;
+  /* padding-top: 30px;
+    padding-right: 0px;
+    padding-bottom: 30px;
+    padding-left: 0px; */
+  /* 바깥여백 : 상/좌/하/우 */
+  margin-top: 10px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 기술면접 대비 -->
+    <script>
+        // 이론) 자바스크립트 함수의 특징
+        // 호이스팅 : 함수의 위치를 강제로 위로 이동시키는 것
+        // 대상 : 1) 함수 2) 변수
+        // 예제 : 함수선언식 호이스팅 예제
+        let hello = "안녕하세요";
+        // 1) 함수선언식 (함수표현식, 화살표함수 : 호이스팅 없음)
+        function sample() {
+            alert("안녕");
+        }
+
+        // 예제2) : 변수 호이스팅 예제
+        var num; // 변수 호이스팅이 일어남
+        // 위의 코딩 문제점 발생 : 1) 변수의 순서가 뒤죽박죽 됨
+        //                       2) 중복 변수 정의 : 버그를 일으킬 수 있음
+        // => let / const 변수명으로 사용할 것(추천, 호이스팅 없음)
+    </script>
+</body>
+</html>

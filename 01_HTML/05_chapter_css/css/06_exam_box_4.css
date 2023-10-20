@@ -1,0 +1,27 @@
+#title1 {
+  /* 가로 크기 */
+  width: 400px;
+  /* 외곽선 (위쪽만) : border-top */
+  border-top: 2px solid black;
+  /* 안쪽 여백 */
+  padding: 5px;
+}
+
+#title2 {
+  /* 외곽선 (왼쪽만) : border-left */
+  border-left: 5px solid red;
+  /* 안쪽 여백 */
+  padding: 5px;
+}
+
+#title3 {
+  /* 가로 크기 */
+  width: 400px;
+  /* 외곽선 */
+  border: 2px solid skyblue;
+  /* TODO: 둥근 사각형(모서리) 속성 */
+  /* TODO: 사용법 - border-radius: 크키;(크기가 클수록 원이됨 */
+  border-radius: 5px;
+  /* 안쪽 여백 */
+  padding: 5px;
+}

@@ -1,0 +1,14 @@
+/* *(wildcard) : 전체 선택자 */
+/* 사용법 :
+*{
+ 속성 : 값;
+}
+*/
+* {
+  color: red;
+}
+
+h1 {
+  color: aqua;
+  background-color: blue;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>class 추가/삭제</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      .hover {
+        background-color: blue;
+        border-radius: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        $(".box").hover(
+          function () {
+            // 마우스 위로
+            // this : 현재 선택한 태그
+            $(".box").addClass("hover");
+          },
+          function () {
+            // 마우스가 나갔을때
+            $(".box").removeClass("hover");
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

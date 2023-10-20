@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hover : 마우스 위로/나가기</title>
+  </head>
+  <body>
+    <h1>Click</h1>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        // 사용법 : $("css선택자").hover(function(){실행1}, function(){실행2})
+        // 마우스가 올라가면 실행1이 실행, 마우스가 나가면 실행2가 실행
+        $("h1").hover(
+          function () {
+            // 마우스 위로
+            $(this).css({ background: "red" });
+          },
+          function () {
+            // 마우스 나갔을때
+            $(this).css({ background: "" });
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 열병합 -->
+    <!-- 사용법 <td clospan="열병합 할 개수">내용</td> -->
+    <table border="1">
+      <thead>
+        <!-- 1행 -->
+        <tr>
+          <!-- 열병합 -->
+          <td colspan="2">글쓰기 게시판</td>
+        </tr>
+      </thead>
+      <!-- 제목끝 -->
+      <!-- 본문 시작 -->
+      <!-- 2행 -->
+      <tr>
+        <!-- 1행 -->
+        <th>제목</th>
+        <!-- 2행 -->
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+      <!-- 3행 -->
+      <tr>
+        <!-- 1행 -->
+        <th>내용</th>
+        <!-- 2행 -->
+        <td>
+          <textarea cols="30" rows="15"></textarea>
+        </td>
+      </tr>
+      <!-- 4행 -->
+      <tr>
+        <!-- 1행 -->
+        <th>파일첨부</th>
+        <!-- 2행 -->
+        <td>
+          <input type="file" name="file" value="file" />
+        </td>
+      </tr>
+      <!-- 5행 -->
+      <tr>
+        <!-- 1행 -->
+        <th></th>
+        <!-- 2행 -->
+        <td>5M 이하의 파일만 첨부 가능합니다.</td>
+      </tr>
+      <!-- 6행 -->
+      <tr>
+        <!-- 열병합 -->
+        <td colspan="2"><input type="button" value="확인" /></td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,127 @@
+/* 여백 초기화 */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* 목록 점 없애기 */
+li {
+  list-style-type: none;
+}
+
+/* 폰트, 글자크기, 색깔 */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #444444;
+}
+
+/* 더미 div : float 영향 제거용 */
+.clear {
+  clear: both;
+}
+
+/* 머리말 디자인 */
+header {
+  width: 1140px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+/* 머리말 - 로고 (왼쪽) */
+#logo {
+  float: left;
+  margin: 20px 0 0 20px;
+}
+
+/* 머리말 - 소메뉴 (오른쪽) */
+#menus {
+  float: right;
+}
+
+/* 머리말 - 소메뉴 - 소소메뉴#1 */
+#top_menu {
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* 머리말 - 소메뉴 - 소소메뉴#2 */
+#main_menu {
+  margin-top: 20px;
+  font-size: 20px;
+  color: black;
+}
+
+/* 소소메뉴#2 : 세로->가로배치 */
+#main_menu li {
+  display: inline-block;
+  margin-left: 80px;
+}
+
+/* 대메뉴 부분 - 큰 로고 이미지 */
+#main_img {
+  /* 배경이미지 넣기 */
+  background-image: url("../img/main_img.png");
+  /* 배경이미지 반복중지 */
+  background-repeat: no-repeat;
+  /* 배경이미지 크기 */
+  /* TODO: background-size: cover;(최대한 이미지를 늘려서 화면을 채움, 원본 훼손) */
+  background-size: cover;
+  /* 배경이미지 위치지정 */
+  background-position: center;
+  height: 281px;
+  margin-top: 20px;
+}
+
+/* 본문(소본문(main_contents) + 사이드바(sub_menu)) : 1140px */
+#contents {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+/* 본문 - 사이드바(왼쪽) */
+#sub_menu {
+  float: left;
+  width: 250px;
+  margin-top: 25px;
+}
+
+/* 본문 - 사이드바(왼쪽) - li : 밑줄(점선) */
+#sub_menu li {
+  border-bottom: 1px dotted #cccccc;
+  padding: 10px;
+}
+
+/* 본문 - 소본문 */
+#main_contents {
+  float: right;
+  width: 890px;
+  margin-top: 25px;
+}
+
+/* 꼬리말 : 로고(왼쪽) + 주소(오른쪽) */
+#footer_box {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+footer {
+  height: 150px;
+  background-color: #2c2a29;
+  margin-top: 30px;
+}
+
+/* 꼬리말 : 로고(왼쪽) */
+#footer_logo {
+  float: left;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+
+/* 꼬리말 : 주소(오른쪽) */
+#address {
+  float: right;
+  color: white;
+  margin-top: 50px;
+  margin-right: 30px;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 - 특수선택자(포함되는 것 : 비슷한 것)</title>
+    <style>
+        /* 값이 단어인것들을 선택 */
+        img[alt~="blank"]{
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 빈(더미) 이미지를 인터넷에서 가져오는 링크 소개 -->
+    <img src="http://placehold.it/300x200" alt="white blank">
+    <img src="http://placehold.it/300x200" alt="blank b1">
+    <img src="http://placehold.it/300x200" alt="blank b2">
+</body>
+</html>

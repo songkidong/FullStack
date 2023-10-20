@@ -1,0 +1,31 @@
+div {
+  width: 100px;
+  height: 100px;
+  margin: 30px;
+  float: left;
+}
+
+.bg-tr {
+  background-color: skyblue;
+  /* TODO: 애니메이션 부여 */
+  /* ease : 시작(천천히효과부여) 중간(빨리효과부여) 끝(천천히효과부여) */
+  /* 사용법: transition: 속성 효과 지속시간(s,ms);s */
+  transition: all ease 1s;
+}
+
+/* 1st 박스에 마우스 위로 */
+.bg-tr:hover {
+  background-color: blue;
+}
+
+.border-tr {
+  background-color: orange;
+  /* linear : 등속, 시작 - 중간 - 끝 모두 속도가 같음 */
+  transition: all linear 1s;
+}
+
+/* 2st 박스에 마우스 위로 */
+.border-tr:hover {
+  background-color: red;
+  border-radius: 50%;
+}

@@ -1,0 +1,47 @@
+/* 여백 초기화 */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* 전체 페이지 크기 정하기 */
+#container {
+  width: 1200px;
+  /* 중앙정렬 : auto(오른쪽/왼쪽 여백을 똑같이 정함(중앙정렬이 됨))*/
+  /* 사용법 : margin: 상/하 auto */
+  margin: 20px auto;
+}
+
+/* 머리말 */
+#header {
+  height: 120px;
+  /* 임시 (크기를 알기 위해서) */
+  background-color: gray;
+}
+
+/* 디자인 계산 : 전체(1200px) == 사이드(300px) + 본문(900px) */
+/* 사이드바(좌측메뉴) */
+#sidebar {
+  width: 300px;
+  height: 600px;
+  /* 임시 */
+  background-color: aqua;
+  /* 좌측배치 */
+  float: left;
+}
+
+/* 본문(우측) */
+#contents {
+  width: 900px;
+  height: 600px;
+  background-color: aquamarine;
+  float: right;
+}
+
+/* 꼬리말 */
+#footer {
+  /* float 영향 제거 */
+  clear: both;
+  height: 100px;
+  background-color: beige;
+}

@@ -1,0 +1,16 @@
+h3 {
+  /* 왼쪽 외곽선 */
+  border-left: 8px solid blue;
+  /* 안쪽 여백(왼쪽) */
+  padding-left: 10px;
+}
+p {
+  /* 외곽선 */
+  border: 1px solid black;
+  /* 가로 */
+  width: 500px;
+  /* 안쪽 여백 */
+  padding: 10px;
+  /* 바깥 여백(위쪽) */
+  margin-top: 20px;
+}

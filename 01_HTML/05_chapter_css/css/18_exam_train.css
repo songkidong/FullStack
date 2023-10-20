@@ -1,0 +1,48 @@
+/* viewport : 모니터의 화면(pc 모니터에 맞추어 보임, 테이블에 맞추어 보임) */
+/* 예) 코딩 시 100vw(가로) -> pc, 테블릿 등에서 적절하게 화면을 맞추어 줌 */
+
+/* 같은 선택자일 경우(기본) : 디자인 적용 우선순위 -> 밑으로 갈수록 우선됨 */
+table {
+  border-collapse: collapse;
+  width: 620px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #cccccc;
+}
+/* 행 */
+tr {
+  text-align: center;
+}
+/* 열 */
+td,
+th {
+  padding: 5px;
+}
+
+#table_title {
+  height: 30px;
+  background-color: #eeeeee;
+}
+
+.train {
+  background-color: #fbdbf2;
+  color: #f1477b;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#col1,
+#col4 {
+  width: 90px;
+}
+#col2,
+#clo3 {
+  width: 60px;
+}
+#col5,
+#col6 {
+  width: 80px;
+}

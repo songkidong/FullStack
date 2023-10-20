@@ -1,0 +1,25 @@
+/* 꼬리말 영역 */
+footer {
+  width: 1200px;
+  height: 100px;
+  border-top: 2px solid black;
+  margin-top: 50px;
+}
+
+/* 꼬리말 - li */
+#bottomMenu ul li {
+  display: inline-block;
+  border-right: 1px dotted gray;
+  padding: 5px 20px;
+}
+
+#bottomMenu ul {
+  margin-top: 15px;
+  margin-left: 60px;
+}
+
+/* 꼬리말 - a태그 */
+#bottomMenu ul li a {
+  font-size: 15px;
+  color: blue;
+}

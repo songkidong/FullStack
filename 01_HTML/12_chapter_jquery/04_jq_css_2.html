@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- 연습문제: 1) id tit 선택해서
+                2) background-color : #ff0
+                3) border : 2px dashed black
+    -->
+  <body>
+    <h1>제이쿼리</h1>
+    <h2 id="tit">선택자</h2>
+    <h3>직접선택자</h3>
+
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        $("#tit")
+          .css("background-color", "#ff0")
+          .css("border", "2px dashed black");
+      });
+    </script>
+  </body>
+</html>

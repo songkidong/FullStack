@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>인접 관계 선택자</h1>
+      <p>내용1</p>
+      <p class="txt">내용2</p>
+      <p>내용3</p>
+      <p>내용4</p>
+    </div>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      // .txt 선택태그 앞/뒤에 태그 선택하기
+      // 사용법 : $("css선택자").prev().함수() // 앞에 태그 선택
+      $(function () {
+        $(".txt").prev().css("background-color", "#0ff");
+      });
+
+      // 사용법 : $("css선택자").next().함수() // 뒤에 태그 선택
+      $(function () {
+        $(".txt").next().css("background-color", "#f00");
+      });
+    </script>
+  </body>
+</html>

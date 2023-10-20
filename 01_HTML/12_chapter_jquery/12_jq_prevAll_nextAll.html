@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>인접 관계 선택자</h1>
+      <p>내용1</p>
+      <p class="txt">내용2</p>
+      <p>내용3</p>
+      <p>내용4</p>
+    </div>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      // 앞/뒤에 모든 태그 선택하기
+      // 사용법 : $("css선택자").prevAll().함수() // 앞에 모든 태그 선택
+      $(function () {
+        $(".txt").prevAll().css("background-color", "plum");
+      });
+
+      // 사용법 : $("css선택자").nextAll().함수() // 뒤에 모든 태그 선택
+      $(function () {
+        $(".txt").nextAll().css("background-color", "orange");
+      });
+    </script>
+  </body>
+</html>

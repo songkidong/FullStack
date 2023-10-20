@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 연습문제 : 버튼을 클릭하면 입력내용을 화면에 alert으로 출력
+    단, jquery로 코딩하세요 -->
+    <p>이름 : <input type="text" id="name" value="홍길동" /></p>
+    <button id="btn">입력 내용 가져오기</button>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        $("button").click(function () {
+          // 클릭하면 실행
+          let result = $("#name").val(); // 현재 입력된 값 가져오기
+          alert(result);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+fieldset{
+    width: 30vw;
+    /* 중앙 정렬 */
+    margin: 0 auto;
+}
+
+label, input{
+    /* 라벨 + 이미지를 모두 세로 중앙 정렬 */
+    vertical-align: middle;
+}
+

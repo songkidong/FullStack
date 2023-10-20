@@ -1,0 +1,21 @@
+#title1 {
+  color: purple;
+}
+
+#title2 {
+  color: green;
+}
+
+#weather {
+  color: red;
+  font-weight: bold;
+}
+
+#location {
+  font-weight: bold;
+}
+
+#notice {
+  color: blue;
+  font-weight: bold;
+}

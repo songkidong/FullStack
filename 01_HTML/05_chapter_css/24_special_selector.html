@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인접한 형제 선택자</title>
+    <link rel="stylesheet" href="./css/24_special_selector.css" />
+    <style>
+      /* css작성 : 권고하지는 않음 */
+      /* 사용법 : 
+            형제태그1 + 형제태그2{
+                속성 : 값;
+            }
+        */
+      h3 + p {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>인접한 형제 선택자</h3>
+    <p>p로 감싸여져 있는 현재 문단은 h3과 인접한 형제간입니다.</p>
+    <p>body로 감싸여져 있는 현재 문단은 h3과 인접한 형제간이 아닙니다.</p>
+  </body>
+</html>

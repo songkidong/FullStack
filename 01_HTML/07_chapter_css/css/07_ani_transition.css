@@ -1,0 +1,23 @@
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  border: 1px solid black;
+  margin: 20px auto;
+
+  /* TODO: 애니메이션 추가 */
+  /* transition-property: 애니메이션 효과를 부여할 속성 나열 */
+  /* 사용법 : transition-property: 속성1, 속성2 ... */
+  transition-property: width, height;
+  /* 사용법 : transition-duration: 지속시간1, 지속시간2 ... */
+  /* 지속시간 : 애니메이션 효과를 지속할 시간 
+    s(second) : 초, m(minutes) : 분, h(hour) : 시간
+  */
+  transition-duration: 2s, 1s;
+}
+
+/* 박스에 마우스가 위로 올라가면 :hover */
+.box:hover {
+  width: 200px;
+  height: 120px;
+}

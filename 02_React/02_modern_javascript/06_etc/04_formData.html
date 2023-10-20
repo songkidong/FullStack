@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 파일 업로드 할때 일부 사용함 -->
+    <!-- form 양식 태그 : html 태그, input 태그 -->
+    <!-- 특징 : 페이지 이동시 데이터를 전송할 수 있음 -->
+    <!-- 예제 -->
+    <form id="sign">
+      <input type="text" name="first" , value="Bora" />
+      <input type="text" name="last" , value="Kim" />
+    </form>
+
+    <script>
+      // 1) form 태그 데이터 가져오기
+      // html : form 태그 : <form></form>
+      // js : FormData 객체(form 태그와 같음)
+      // 선택함수 :document.querySelector("#css선택자")
+      let sign = document.querySelector("#sign"); // form 태그
+      let formData = new FormData(sign); // html form과 연결됨
+      // 출력
+      console.log("formData.get()", formData.get("first")); // Bora
+      console.log("formData.get()", formData.get("last")); // Kim
+
+      // **2) FormData 빈 객체를 만들어서 조작
+      // 이미지 및 문자열등을 저장해서 다른 페이지로 전송할 수 있음
+      // 활용 예) 이미지 업로드
+      let formData2 = new FormData(); // 빈 객체 생성
+      // (1) formData에 값 추가
+      // 사용법 : formData변수명.append("키이름", "값");
+      formData2.append("name", "Minjae");
+      formData2.append("first", "Kim");
+      // 출력
+      // 사용법 : formData변수명.get("키이름")
+      console.log("name", formData2.get("name")); // Minjae
+      console.log("first", formData2.get("first")); // Kim
+
+      // (2) formData 값 수정
+      // 사용법 : formData변수명.set("키이름", "수정될값");
+      formData2.set("name", "Jinsu"); // Jinsu
+      console.log("name", formData2.get("name")); // Jinsu
+
+      // (3) formData 값 삭제
+      // 사용법 : form변수명.delete("키이름");
+      formData2.delete("name"); // 키삭제
+      console.log("name", formData2.get("name")); // null
+    </script>
+  </body>
+</html>

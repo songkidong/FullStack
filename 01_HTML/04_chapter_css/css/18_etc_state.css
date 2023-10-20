@@ -1,0 +1,15 @@
+/* 상태 선택자 */
+/* input:enabled = 현재 입력가능한 상태일때 디자인 적용 */
+input:enabled{
+    background-color: white;
+}
+
+/* input:disabled = 현재 입력 불가능한 상태일때 디자인 적용 */
+input:disabled{
+    background-color: gray;
+}
+
+/* input:foucs = 커서가 있을때(포커스) 디자인 적용 */
+input:focus{
+    background-color: orange;
+}

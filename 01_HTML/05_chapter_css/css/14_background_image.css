@@ -1,0 +1,19 @@
+/* body : 웹브라우저 창크기를 의미 */
+body {
+  /* 배경이미지 : 기본, 모든 화면을 꽉 채움 */
+  /* css 이미지 넣기 : url("이미지경로") */
+  /* 사용법 : background-image: url("이미지경로") */
+  background-image: url("https://picsum.photos/id/10/200/300");
+
+  /* 배경이미지 반복 중지 속성 */
+  background-repeat: no-repeat;
+
+  /* 배경이미지를 위치(좌표) 이동 : 단위(%, px) */
+  /* 사용법 : background-position: 왼쪽 위쪽; */
+  background-position: 20% 20px;
+
+  /* 배경이미지 크기 */
+  /* 화면 단위 : %, px, vw(뷰포트가로크기), vh(뷰포트세로크기) : 반응형 디자인 단위 */
+  /* 사용법 : background-size: 가로크키 세로크키 */
+  background-size: 50vw 50vh;
+}

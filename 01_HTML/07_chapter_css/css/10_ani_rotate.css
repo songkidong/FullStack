@@ -1,0 +1,35 @@
+/* 전체 div */
+#container {
+  width: 200px;
+  margin: 30px auto;
+}
+
+/* 애니메이션 효과 부여 대상 */
+img {
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  /* TODO: 애니메이션 효과 부여(함수 사용) */
+  animation: rotateBear 2.5s infinite;
+}
+
+/* css 함수 */
+/* @keyframes 함수명 */
+/* from {} : 최초 실행 위치 */
+/* 50% {} : 중간 실행 위치 */
+/* to {} : 마지막 실행 위치 */
+@keyframes rotateBear {
+  /* TODO: 음수 : 왼쪽으로 회전, 양수: 오른쪽으로 회전 */
+  /* TODO: rotateX(도(0~360)) : x축을 기준으로 회전 */
+  /* TODO: rotateY(도(0~360)) : y축을 기준으로 회전 */
+  /* TODO: perspective(픽셀) : 원근감 */
+  /* 사용법 : transform: perspective(위치) rotateY(0도~360도); */
+  from {
+    transform: perspective(200px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(200px) rotateY(-180deg);
+  }
+  to {
+    transform: perspective(200px) rotateY(-360deg);
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 연습문제 : #wrap 바로 밑에 h1태그만 선택해서 디자인 적용
+    background-color : yellow 
+    border : 2px dashed #f00 -->
+    <div id="wrap">
+      <h1>인접 관계 선택자</h1>
+      <p>내용1</p>
+      <section>
+        <h1>하위 요소 선택자</h1>
+        <p>내용2</p>
+      </section>
+    </div>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        $("#wrap > h1")
+          .css("background-color", "yellow")
+          .css("border", "2px dashed #f00");
+      });
+    </script>
+  </body>
+</html>

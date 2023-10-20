@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 연습문제 : 1) #menu li 중에서 1st인것만 선택해서
+    css : background-color 속성 -> #ff0
+    2) #menu li 목록중 마지막 것을 선택
+    css : background-color 속성 -> #0ff -->
+    <h1>탐색 선택자</h1>
+    <ul id="menu">
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+      <li>내용4</li>
+    </ul>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        // 1) 메뉴중에 첫번째 선택해서 디자인 적용
+        $("#menu > li:first").css("background-color", "#ff0");
+        // 2) 메뉴중에 마지막 선택해서 디자인 적용
+        $("#menu > li:last").css("background-color", "#0ff");
+      });
+    </script>
+  </body>
+</html>

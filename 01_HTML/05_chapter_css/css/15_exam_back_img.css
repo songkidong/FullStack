@@ -1,0 +1,25 @@
+body{
+    /* 배경이미지 */
+    background-image: url(../img/X-mas.jpg);
+    /* 배경이미지 반복중지 */
+    background-repeat: no-repeat;
+}
+
+p{
+    font-size: 20px;
+    /* 바깥여백 - 왼쪽 */
+    margin-left: 130px;
+    /* 바깥여백 - 위 */
+    margin-top: 150px;
+    width: 280px;
+}
+
+div{
+    margin-top: 30px;
+    margin-left: 210px;
+    padding: 5px;
+    width: 120px;
+    text-align: center;
+    background-color: blue;
+    color: white;
+}

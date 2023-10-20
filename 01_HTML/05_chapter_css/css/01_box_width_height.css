@@ -1,0 +1,16 @@
+/* box 속성 : 높이, 가로, 바깥여백, 안쪽여백, 외곽선 */
+div {
+  /* 가로 */
+  width: 100px;
+  /* 세로 */
+  height: 100px;
+  /* 배경색 */
+  background-color: red;
+  /* 외곽선 */
+  /* 사용법 : border: 선두께 선스타일 선색깔 */
+  border: 5px solid orange;
+  /* 안쪽여백(padding) */
+  padding: 30px;
+  /* 바깥여백(margin) */
+  margin: 30px;
+}

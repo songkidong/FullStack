@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html 태그 적용하기</title>
+  </head>
+  <body>
+    <div id="box">
+      <p>문장이 변경됩니다.</p>
+    </div>
+    <button id="btn1">텍스트 변경</button>
+    <button id="btn2">html 변경</button>
+  </body>
+
+  <!-- jquery cdn -->
+  <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+  <script>
+    $(function () {
+      $("#btn1").click(function () {
+        // 클릭 : 텍스트 변경
+        // 태그도 문자열로 취급되어 화면에 그대로 출력
+        $("#box").text("<b>문장이 변경되었습니다.</b>");
+      });
+
+      $("#btn2").click(function () {
+        // 클릭 : html 변경
+        // 태그 효과가 적용되어 화면에 출력됨
+        $("#box").html("<b>문장이 변경되었습니다.</b>");
+      });
+    });
+  </script>
+</html>

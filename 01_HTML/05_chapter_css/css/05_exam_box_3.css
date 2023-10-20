@@ -1,0 +1,8 @@
+h3 {
+  /* 가로 */
+  width: 400px;
+  /* 안쪽 여백 */
+  padding: 10px;
+  /* 외곽선 */
+  border: 5px solid red;
+}

@@ -1,0 +1,17 @@
+/* 기본선택자 : html 태그선택자 */
+
+/* 사용법 : 
+    태그선택자 {
+    속성 : 값;
+} */
+
+h1 {
+  /* 글자색 */
+  color: burlywood;
+  /* 바탕색 */
+  background-color: blue;
+}
+h2 {
+  color: blueviolet;
+  background-color: greenyellow;
+}

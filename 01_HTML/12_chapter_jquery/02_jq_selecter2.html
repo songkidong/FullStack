@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h3>직접선택자</h3>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        // * : 전체 선택자
+        // 전체 태그를 선택해서 외곽선을 1px solid blue 해라
+        // jquery 함수 : $("*").css("속성", "값"); // 디자인 조작
+        $("*").css("border", "1px solid blue");
+      });
+    </script>
+  </body>
+</html>

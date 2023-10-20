@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>요소의 표시와 숨김</h1>
+    <button id="showBtn">요소 표시</button>
+    <button id="hideBtn">요소 숨김</button>
+    <p id="text">이 단락을 숨기거나 나타나게 할거에요!</p>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      // 클릭 : 1) $().click(함수());
+      // 2) .addEventListener("click", 함수())와 비슷
+      $(function () {
+        $("#showBtn").on("click", function () {
+          // 사용법 : $("css선택자").show(); 선택태그가 나타남
+          $("#text").show();
+        });
+
+        $("#hideBtn").on("click", function () {
+          // 사용법 : $("css선택자").hide(); 선택태그가 사라짐
+          $("#text").hide();
+        });
+      });
+    </script>
+  </body>
+</html>

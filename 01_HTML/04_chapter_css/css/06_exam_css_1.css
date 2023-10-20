@@ -1,0 +1,12 @@
+h3 {
+/* 글자색 */
+
+  color: blue;
+  /* font-family : (폰트 스타일) 궁서체, 맑은고딕 등 */
+  font-family: '궁서체';
+}
+li {
+  /* 목록 앞에 점 없애기 */
+  /* list-style-type: none; : 없음 */
+  list-style-type: none;
+}

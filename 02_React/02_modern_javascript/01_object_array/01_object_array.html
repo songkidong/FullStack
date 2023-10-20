@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 객체 배열 : 배열안에 객체가 들어가 있는 형태 -->
+    <script>
+      // let object = {}; // 객체
+      let data = [
+        {
+          name: "혼자 공부하는 자바",
+          price: 18000,
+          publisher: "한빛미디어",
+        },
+        {
+          name: "HTML5 웹 프로그래밍 입문",
+          price: 26000,
+          publisher: "한빛아카데미",
+        },
+      ]; // 객체 배열
+
+      // 자료를 출력
+      console.log(data);
+      // 객체 -> 문자열로 변경하는 함수
+      console.log(JSON.stringify(data));
+    </script>
+  </body>
+</html>

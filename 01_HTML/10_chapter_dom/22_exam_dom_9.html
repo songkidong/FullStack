@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="border: solid 1px gray; padding: 10px; margin-bottom: 10px">
+      - 책값 : <span id="price"> 원</span> - 할인율 :
+      <span id="discount"> %</span> - 배송료 : <span id="shipping"> 원</span> -
+      지불금액 : <span id="pay"> 원</span>
+    </div>
+    <button onclick="get_pay(25000, 10, 5000)">지불금액 계산하기</button>
+    <!-- 공식 : pay(지불금액) =
+     price(책값) - (price * (discount(할인율/100)) + shipping(배송료) -->
+    <!-- get_pay(price, discount, shipping) -->
+    <!-- 힌트 : innerHTML -->
+    <!-- 자바스크립트 소스 -->
+    <script src="./js/22_exam_dom_9.js"></script>
+  </body>
+</html>

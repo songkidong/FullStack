@@ -1,0 +1,21 @@
+h2 {
+  color: black;
+  font-size: 25px;
+}
+
+li {
+  /* ./ 현재경로 */
+  /* ../ 상위경로(부모경로) */
+  list-style-image: url("../img/1.gif");
+}
+
+span {
+    /* 굵은 글씨 */
+  font-weight: bold;
+}
+
+p {
+  color: green;
+  /* 글자 밑줄 */
+  text-decoration: underline;
+}

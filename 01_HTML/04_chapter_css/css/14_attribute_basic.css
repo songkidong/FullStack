@@ -1,0 +1,12 @@
+/* 속성 선택자 : 특수 선택자 */
+/* 사용법 :
+    태그[속성="값"]{
+        속성 : 값;
+    }
+*/
+input[type="text"]{
+background-color: red;;
+}
+input[type="password"]{
+background-color: blue;
+}

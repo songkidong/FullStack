@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>HTML</li>
+      <li class="two" style="color: green">CSS</li>
+      <li>Vanila js</li>
+    </ul>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      // 선택 태그의 앞/뒤에 추가 또는 태그 삭제하기
+      $(function () {
+        $(".two").before("<li>HTML5</li>"); // css 앞에 추가
+        $(".two").after("<li>React</li>"); // css 뒤에 추가
+        $(".two").remove(); // css 삭제
+      });
+    </script>
+  </body>
+</html>

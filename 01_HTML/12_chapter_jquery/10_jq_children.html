@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>인접 관계 선택자</h1>
+      <p>내용1</p>
+      <section>
+        <h1>하위 요소 선택자</h1>
+        <p>내용2</p>
+      </section>
+    </div>
+
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      // #warp > section 아래 자식 태그를 선택하기
+      $(function () {
+        $("#wrap > section")
+          .children()
+          .css("background-color", "yellow")
+          .css("border", "2px solid #f00");
+      });
+    </script>
+  </body>
+</html>

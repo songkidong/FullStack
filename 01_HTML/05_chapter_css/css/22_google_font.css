@@ -1,0 +1,15 @@
+/* 웹폰트 : 어떤 기기로 접속해도 같은 글꼴을 보여주고 싶다면
+    웹폰트 사용을 고려 
+*/
+/* 사용법 : css파일 import 방법
+    @import url(css 파일경로)
+*/
+/* 구글 웹 폰트 import */
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+
+h1{
+    font-size: 60px;
+    /* 웹폰트 사용 */
+    /* cursive : 웹브라우저 기본 글꼴 중에 하나 */
+    font-family: 'Nanum Pen Script', cursive;
+}

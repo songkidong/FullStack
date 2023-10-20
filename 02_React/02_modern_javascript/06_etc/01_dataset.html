@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- HTML3 > HTML4 > HTML5 -->
+    <!-- dataset 예제 : 태그안에서 속성으로 사용 -->
+    <!-- 속성에 값을 저장할 용도로 사용 : 변수 -->
+    <!-- 표기법 : 단어-단어 (마이너스표기법 사용) -->
+    <!-- 사용법 : data-변수명 = "값" -->
+    <!-- 사용법 : (js에서) 태그.dataset.변수명 -->
+    <h1 data-big-subject>일일 문제 풀이</h1>
+    <p data-id="0" data-quest-string="question">
+        - 문제의 영어 스펠링은?</p>
+    <script>
+        // 태그 가져오기 : 선택함수 : document.querySelector("css선택자");
+        let pData = document.querySelector("p");
+        // 출력 : data-변수명(html)
+        // (js에서) 태그.dataset.변수명
+        console.log(pData.dataset.id); // 0
+        console.log(pData.dataset.questString); // question
+    </script>
+  </body>
+</html>

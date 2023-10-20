@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100%;
+        /* 스크롤 가능하게 크게 세로 지정 */
+        height: 2000px;
+      }
+      p {
+        font-size: 3em;
+      }
+      button {
+        margin: 10px;
+        width: 200px;
+        height: 200px;
+        font-size: 2em;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <!-- 자바스크립트 : 바닐라 자바스크립트(추천,성능우수) vs Jquery(과거) -->
+    <!-- 예제 : 지정된 좌표로 강제 이동 -->
+    <button onclick="myScrollTo()">scrollTo</button><br />
+    이동 좌표 : <span id="absolute"></span>
+
+    <script>
+      function myScrollTo() {
+        // 사용법 : window.scrollTo(x좌표, y좌표);
+        window.scrollTo(0, 300);
+        // window.scrollY : 웹브라우저에서 y축기준 스크롤된 위치값
+        document.querySelector("#absolute").innerHTML = window.scrollY;
+      }
+    </script>
+  </body>
+</html>

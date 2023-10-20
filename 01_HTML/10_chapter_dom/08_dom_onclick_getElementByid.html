@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <!-- 함수의 사용 : myImgClick(event) -->
+      <img src="./img/cup.png" alt="컵" id="cup" onclick="myImgClick(event)" />
+    </div>
+
+    <script>
+      // 권장하는 방식은 아님
+      // 함수의 정의
+      function myImgClick(event) {
+        // event 객체 : event.target(클릭한 태그가 선택 == img)
+        // TODO : event.target == 현재 클릭한 태그
+        alert("클릭한 이미지 파일명 : " + event.target.src);
+      }
+      // 참고) 다른 선택 함수 : getElementById()
+      // let img = document.querySelector("#cup"); // img 태그 선택
+      // querySelector() 함수 == getElementById(id값);
+      // document.getElementById("cup");
+    </script>
+  </body>
+</html>

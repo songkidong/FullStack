@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 - 특수선택자(부분 문자열로 시작하는 것 선택)</title>
+    <style>
+        /* 부분 문자열로 시작되는 태그(요소) 선택 */
+        /* 코딩 : ^(문자열의 시작을 의미) */
+        img[alt^="wh"]{
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 빈(더미) 이미지를 인터넷에서 가져오는 링크 소개 -->
+    <!-- css에서 표준 명명법 : 단어와 단어사이는 -(마이너스, 대쉬) 붙임 -->
+    <img src="http://placehold.it/300x200" alt="white-blank">
+    <img src="http://placehold.it/300x200" alt="blank b1">
+    <img src="http://placehold.it/300x200" alt="blank b2">
+</body>
+</html>

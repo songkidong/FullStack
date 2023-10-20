@@ -1,0 +1,110 @@
+<!-- 03_exam_photo_academy.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/03_exam_photo_academy.css" />
+    <!-- TODO: 힌트 -->
+    <!-- TODO: 전체 페이지(header) :  width: 1140px; height: 100px; -->
+    <!-- TODO: 큰 로고 이미지(#main_img) background-size: cover;  height: 281px; -->
+  </head>
+
+  <body>
+    <header>
+      <!-- 로고 시작 -->
+      <div id="logo">
+        <img src="img/logo.png" />
+      </div>
+      <!-- 로고 끝 -->
+
+      <!-- 소메뉴 시작 -->
+      <nav id="menus">
+        <!-- 소소메뉴 #1 시작 -->
+        <div id="top_menu">로그인 | 회원가입 | 공지사항</div>
+        <!-- 소소메뉴 #1 끝 -->
+
+        <!-- 소소메뉴 #2 시작 -->
+        <ul id="main_menu">
+          <li>사진이론</li>
+          <li>사진구도</li>
+          <li>사진작가</li>
+          <li>갤러리</li>
+          <li>커뮤니티</li>
+        </ul>
+        <!-- 소소메뉴 #2 끝 -->
+      </nav>
+      <!-- 소메뉴 끝 -->
+    </header>
+    <!-- 단축키 : 찾기/바꾸기 ctrl + f/r -->
+    <!-- 이미지 헤더 -->
+    <section id="main_img"></section>
+
+    <!-- 본문( 소본문 + 사이드바 ) 시작 -->
+    <section id="contents">
+      <!-- 사이드바 시작 -->
+      <nav id="sub_menu">
+        <h3>사진이론</h3>
+        <ul>
+          <li>카메라 동작 원리</li>
+          <li>무조건 찍어보자!</li>
+          <li>피사체의 배경</li>
+          <li>조리개와 심도</li>
+          <li>카메라 촬영 모드</li>
+        </ul>
+      </nav>
+      <!-- 사이드바 끝 -->
+
+      <!-- 소본문 시작 -->
+      <div id="main_contents">
+        <h3>카메라 동작 원리 background-position: top center;</h3>
+        <p>
+          DSLR 카메라에서 DSLR은 “Digital Single Lens Reflex”의 약어로써
+          우리말로는 디지털 일안 반사식 카메라을 의미합니다. DSLR은 디지털
+          카메라로써 카메라 내부에 들어온 빛이 상단의 펜타프리즘을 통하여
+          뷰파인더에 맺히게 되어 셔터를 누르기 전에 뷰 파인더를 통하여 피사체를
+          확인할 수 있게 됩니다.
+        </p>
+        <div id="figure">
+          <img src="./img/dslr.png" />
+        </div>
+        <p>
+          [그림 1]은 DSLR 카메라에서 셔터를 누르기 전의 상태를 보여주는데 렌즈를
+          통해 들어오는 빛은 카메라 내부에서 다음과 같은 과정을 거치게 됩니다.
+        </p>
+        <ul>
+          <li>① 빛이 카메라 렌즈를 통과합니다.</li>
+          <li>② 빛이 반사 거울에 반사되어 위쪽으로 향합니다.</li>
+          <li>③ 빛이 펜타프리즘 거울에 반사되어 뷰파인더로 향합니다.</li>
+          <li>④ 들어온 빛에 의해 뷰파인터들 통하여 피사체를 볼 수 있습니다.</li>
+        </ul>
+      </div>
+      <!-- 소본문 끝 -->
+    </section>
+    <!-- 본문( 소본문 + 사이드바 ) 끝 -->
+
+    <div class="clear"></div>
+    <!-- float 속성 해제 -->
+    <footer>
+      <!-- 전체 꼬리말 div 시작 -->
+      <div id="footer_box">
+        <!-- 꼬리말 로고 시작 -->
+        <div id="footer_logo">
+          <img src="img/footer_logo.png" />
+        </div>
+        <!-- 꼬리말 로고 끝 -->
+
+        <!-- 꼬리말 주소 시작 -->
+        <ul id="address">
+          <li>서울시 강남구 삼성동 1234 우:123-1234</li>
+          <li>TEL:031-123-1234 Email : email@domain.com</li>
+          <li>COPYRIGHT (C) 루바토 ALL RIGHTS RESERVED</li>
+        </ul>
+        <!-- 꼬리말 주소 끝 -->
+      </div>
+      <!-- 전체 꼬리말 div 끝 -->
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+/* 전체 div(부모 div) */
+#container {
+  width: 800px;
+  height: 200px;
+  margin: 20px auto;
+}
+
+/* 1st, 2nd, 3rd 박스들(자식 div) */
+.origin {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  float: left;
+  margin: 40px;
+}
+
+/* 손자 div들 */
+.origin > div {
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+}
+
+/* TODO: 애니메이션 부여 */
+/* 1st 손자 div : #movex 에 마우스가 올라 갔을 때*/
+#movex:hover {
+  /* 이동 효과 부여 */
+  /* 사용법 : transform: translateX(x좌표거리); */
+  transform: translateX(50px);
+}
+
+/* 2nd 손자 div : #movey 에 마우스가 올라 갔을 때*/
+#movey:hover {
+  /* 이동 효과 부여 */
+  /* 사용법 : transform: translateY(y좌표거리); */
+  transform: translateY(50px);
+}
+
+/* 3rd 손자 div : #movexy 에 마우스가 올라 갔을 때*/
+#movexy:hover {
+  /* 이동 효과 부여 */
+  /* 사용법 : transform: translate(x좌표거리, y좌표거리); */
+  transform: translate(50px, 50px);
+}

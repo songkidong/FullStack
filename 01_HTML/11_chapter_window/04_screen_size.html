@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        max-width: 30vw;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>화면 설명</h1>
+    <img src="./img/screen.png" alt="화면설명" />
+
+    <h2>screen</h2>
+
+    <h3>컴퓨터 화면의 해상도 가로, 세로를 표시합니다.</h3>
+    <p>
+      screenWidth : <span id="screenWidth"></span><br />
+      screenHeight : <span id="screenHeight"></span><br />
+    </p>
+
+    <h2>browser</h2>
+
+    <h3>웹 브라우저 화면의 가로, 세로를 표시합니다.</h3>
+    <p>
+      browserWidth : <span id="browserWidth"></span><br />
+      browserHeight : <span id="browserHeight"></span><br />
+    </p>
+
+    <h3>html 페이지의 가로, 세로를 표시합니다.</h3>
+    <p>
+      pageWidth : <span id="pageWidth"></span><br />
+      pageHeight : <span id="pageHeight"></span><br />
+    </p>
+
+    <p>
+      참조 :
+      https://www.delftstack.com/ko/howto/javascript/javascript-get-screen-size/
+    </p>
+
+    <script>
+      // TODO: 모니터
+      // 화면의 가로 크기
+      let screenWidth = screen.width;
+      // 출력
+      document.querySelector("#screenWidth").innerHTML = screenWidth;
+      // 화면의 세로 크기
+      let screenHeight = screen.height;
+      // 출력
+      document.querySelector("#screenHeight").innerHTML = screenHeight;
+
+      // TODO: 웹브라우저
+      // 웹브라우저의 가로 크기(메뉴 등은 제외한 부분)
+      let browserWidth = window.innerWidth;
+      // 출력
+      document.querySelector("#browserWidth").innerHTML = browserWidth;
+      // 웹브라우저의 세로 크기(메뉴 등은 제외한 부분)
+      let browserHeight = window.innerHeight;
+      // 출력
+      document.querySelector("#browserHeight").innerHTML = browserHeight;
+    
+        // TODO: html 문서
+        // html 문서의 가로 크기
+        let pageWidth = document.documentElement.scrollWidth;
+        // 출력
+        document.querySelector("#pageWidth").innerHTML = pageWidth;
+        // html 문서의 세로 크기
+        let pageHeight = document.documentElement.scrollHeight;
+        // 출력
+        document.querySelector("#pageHeight").innerHTML = pageHeight;
+    </script>
+  </body>
+</html>

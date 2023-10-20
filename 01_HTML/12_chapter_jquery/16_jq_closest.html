@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="title">선택자</h1>
+    <div>
+      <div>
+        <p class="txt1">내용</p>
+      </div>
+    </div>
+    <!-- jquery cdn -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+      $(function () {
+        // 선택태그(.txt1)에서 부모태그들 중 가장 가까이 있는 태그 선택
+        // 사용법 : $("css선택자").closest("부모태그").함수();
+        $(".txt1").closest("div").css("border", "2px dashed #f00");
+      });
+    </script>
+  </body>
+</html>

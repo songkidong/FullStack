@@ -1,0 +1,55 @@
+body {
+  margin-top: 20px;
+  list-style: none;
+}
+
+/* 본문 영역 */
+.contents {
+  width: 1000px;
+  margin: 50px auto;
+}
+
+main > section {
+  margin-top: 60px;
+}
+
+/* 본문 - 글 */
+.detail p {
+  margin-bottom: 30px;
+  color: black;
+}
+
+/* 본문 - 이미지 */
+.detail > img {
+  border-radius: 5%;
+  float: left;
+  margin-right: 50px;
+}
+
+/* 여백들 추가 */
+/* 본문 - 제목 */
+main h2 {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+
+/* div : 이미지 + 상세설명 */
+main div {
+  margin-top: 20px;
+}
+
+/* main - 소제목 */
+main h3 {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* 기타 등등 */
+/* main - 상세일정 */
+.schedule h3 {
+  font-size: 1.2em;
+}
+/* main - 상세일정(li) */
+.schedule ul li {
+  margin-bottom: 20px;
+}
