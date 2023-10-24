@@ -43,7 +43,7 @@ import javax.persistence.*;
 @Where(clause = "DELETE_YN = 'N'")
 @SQLDelete(sql = "UPDATE TB_DEPT SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE DNO = ?")
 public class Dept extends BaseTimeEntity {
-    //    부서넘버
+//    부서넘버
 //    @Id : Primary Key 에 해당
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE

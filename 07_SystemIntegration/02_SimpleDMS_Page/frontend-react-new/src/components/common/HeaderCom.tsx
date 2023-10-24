@@ -94,7 +94,7 @@ function HeaderCom() {
                       {/* <!-- 3행 시작--> */}
                       <li className="sidebar-nav-item col-3">
                         <a href="/qna" className="nav-link active ms-2">
-                          Qna(다양한검색))
+                          Qna(다양한검색)
                         </a>
                       </li>
                       <li className="sidebar-nav-item col-3">
