@@ -1,5 +1,6 @@
 package com.example.simpledms.service.normal;
 
+import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.model.entity.normal.Faq;
 import com.example.simpledms.repository.normal.FaqRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class FaqService {
     @Autowired
     FaqRepository faqRepository; // DI
 
-//  title like 조회 + 페이징
+    //    title like 조회 + 페이징
     public Page<Faq> findAllByTitleContaining(String title, Pageable pageable) {
         Page<Faq> page
                 = faqRepository.findAllByTitleContaining(title, pageable);
@@ -34,5 +35,11 @@ public class FaqService {
         return page;
     }
 
+    //    저장함수(수정함수)
+    public Faq save(Faq faq) {
 
+        Faq faq2 = faqRepository.save(faq);
+
+        return faq2;
+    }
 }
