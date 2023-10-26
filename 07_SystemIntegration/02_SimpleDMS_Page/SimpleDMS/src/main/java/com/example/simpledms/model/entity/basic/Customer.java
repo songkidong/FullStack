@@ -23,12 +23,12 @@ import javax.persistence.*;
  * 2023-10-24         GGG          최초 생성
  */
 @Entity
-@Table(name = "TB_CUSTOMER")
+@Table(name="TB_CUSTOMER")
 @SequenceGenerator(
-        name = "SQ_CUSTOMER_GENERATOR",
-        sequenceName = "SQ_CUSTOMER",
-        initialValue = 1,
-        allocationSize = 1
+        name = "SQ_CUSTOMER_GENERATOR"
+        , sequenceName = "SQ_CUSTOMER"
+        , initialValue = 1
+        , allocationSize = 1
 )
 @Getter
 @Setter
@@ -42,12 +42,11 @@ import javax.persistence.*;
 @Where(clause = "DELETE_YN = 'N'")
 @SQLDelete(sql = "UPDATE TB_CUSTOMER SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE CID = ?")
 public class Customer extends BaseTimeEntity {
-//  속성
+//    속성
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "SQ_CUSTOMER_GENERATOR"
-    )
-    private Integer cid; // 기본키(@Id), 시퀀스
+                    generator = "SQ_CUSTOMER_GENERATOR")
+    private Integer cid; // 기본키, 시퀀스
 
     private String fullName;
 

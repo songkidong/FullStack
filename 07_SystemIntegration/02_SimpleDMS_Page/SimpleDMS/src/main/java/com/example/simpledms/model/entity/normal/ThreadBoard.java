@@ -11,22 +11,22 @@ import javax.persistence.*;
 
 /**
  * packageName : com.example.simpledms.model.entity.normal
- * fileName : Faq
+ * fileName : ThreadBoard
  * author : GGG
- * date : 2023-10-24
- * description : Faq 엔티티
+ * date : 2023-10-26
+ * description :
  * 요약 :
  * <p>
  * ===========================================================
  * DATE            AUTHOR             NOTE
  * —————————————————————————————
- * 2023-10-24         GGG          최초 생성
+ * 2023-10-26         GGG          최초 생성
  */
 @Entity
-@Table(name = "TB_FAQ")
+@Table(name="TB_THREAD_BOARD")
 @SequenceGenerator(
-        name = "SQ_FAQ_GENERATOR"
-        , sequenceName = "SQ_FAQ"
+        name = "SQ_THREAD_BOARD_GENERATOR"
+        , sequenceName = "SQ_THREAD_BOARD"
         , initialValue = 1
         , allocationSize = 1
 )
@@ -40,15 +40,23 @@ import javax.persistence.*;
 @DynamicUpdate
 // soft delete
 @Where(clause = "DELETE_YN = 'N'")
-@SQLDelete(sql = "UPDATE TB_FAQ SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE NO = ?")
-public class Faq extends BaseTimeEntity {
+@SQLDelete(sql = "UPDATE TB_REPLY_BOARD SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE TID = ?")
+public class ThreadBoard extends BaseTimeEntity {
+//    속성
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE
-            , generator = "SQ_FAQ_GENERATOR"
-    )
-    private Integer no; // 기본키, 시퀀스
+            , generator = "SQ_THREAD_BOARD_GENERATOR")
+    private Integer tid; // 기본키, 시퀀스
 
-    private String title;
+    private String subject;
 
-    private String content;
+    private String mainText;
+
+    private String writer;
+
+    private Integer views;
+
+    private Integer tGroup;
+
+    private Integer tParent;
 }

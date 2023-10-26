@@ -2,9 +2,9 @@ package com.example.simpledms.repository.normal;
 
 import com.example.simpledms.model.entity.normal.Faq;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Pageable;
 
 /**
  * packageName : com.example.simpledms.repository.normal
@@ -21,9 +21,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FaqRepository extends JpaRepository<Faq, Integer> {
-//  title like 검색
+//    title like 검색
     Page<Faq> findAllByTitleContaining(String title, Pageable pageable);
-
-//  content like 검색
-    Page<Faq> findAllByContentContaining(String content, Pageable pageable);
 }

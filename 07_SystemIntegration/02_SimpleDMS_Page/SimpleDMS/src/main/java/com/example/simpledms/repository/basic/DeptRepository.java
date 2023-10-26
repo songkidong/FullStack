@@ -21,7 +21,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface DeptRepository extends JpaRepository<Dept, Integer> {
-//  dname like : 쿼리메소드 + 페이징(리턴:Page, 매개변수:Pageable)
+//    dname like : 쿼리메소드 + 페이징(리턴:Page, 매개변수:Pageable)
     Page<Dept> findAllByDnameContaining(String dname, Pageable pageable);
-
 }

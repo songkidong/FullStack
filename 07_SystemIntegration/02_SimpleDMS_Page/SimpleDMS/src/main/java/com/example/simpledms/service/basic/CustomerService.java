@@ -1,6 +1,7 @@
 package com.example.simpledms.service.basic;
 
 import com.example.simpledms.model.entity.basic.Customer;
+import com.example.simpledms.model.entity.basic.Qna;
 import com.example.simpledms.repository.basic.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,28 +29,31 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository; // DI
 
-//  fullName like 검색
+    //    fullName like 검색
     public Page<Customer> findAllByFullNameContaining(String fullName, Pageable pageable) {
-        Page<Customer> page = customerRepository.findAllByFullNameContaining(fullName, pageable);
+        Page<Customer> page
+                = customerRepository.findAllByFullNameContaining(fullName, pageable);
 
         return page;
     }
 
-//  email like 검색
+    //    email like 검색
     public Page<Customer> findAllByEmailContaining(String email, Pageable pageable) {
-        Page<Customer> page = customerRepository.findAllByEmailContaining(email, pageable);
+        Page<Customer> page
+                = customerRepository.findAllByEmailContaining(email, pageable);
 
         return page;
     }
 
-//  저장 함수(수정 함수)
+    //    저장함수(수정함수)
     public Customer save(Customer customer) {
+
         Customer customer2 = customerRepository.save(customer);
 
         return customer2;
     }
 
-//  상세조회(1건조회)
+    //    상세조회(1건조회)
     public Optional<Customer> findById(int cid) {
         Optional<Customer> optionalCustomer
                 = customerRepository.findById(cid);
@@ -57,7 +61,7 @@ public class CustomerService {
         return optionalCustomer;
     }
 
-//  삭제함수
+    //    삭제함수
     public boolean removeById(int cid) {
         if(customerRepository.existsById(cid)) { // cid 있는지 확인
             customerRepository.deleteById(cid); // 삭제 진행

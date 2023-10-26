@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * fileName : EmpRepository
  * author : GGG
  * date : 2023-10-23
- * description : JPA CRUD 인터페이스
+ * description : 사원 CRUD 레포지토리
  * 요약 :
  * <p>
  * ===========================================================
@@ -21,7 +21,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface EmpRepository extends JpaRepository<Emp, Integer> {
-//  ename like : 쿼리메소드 + 페이징(리턴:Page, 매개변수:Pageable)
+//    ename like : 쿼리메소드 + 페이징(리턴 : Page, 매개변수 : Pageable )
     Page<Emp> findAllByEnameContaining(String ename, Pageable pageable);
-
 }

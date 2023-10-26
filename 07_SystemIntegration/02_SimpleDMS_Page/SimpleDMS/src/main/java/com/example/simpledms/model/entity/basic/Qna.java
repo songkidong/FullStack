@@ -42,11 +42,11 @@ import javax.persistence.*;
 @Where(clause = "DELETE_YN = 'N'")
 @SQLDelete(sql = "UPDATE TB_QNA SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE QNO = ?")
 public class Qna extends BaseTimeEntity {
-//  속성
-//  대/소문자 변경 단축키 : ctrl + shift + u
+//    속성
+//    단축키 : ctrl + shift + u
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "SQ_QNA_GENERATOR")
+                    generator = "SQ_QNA_GENERATOR")
     private Integer qno; // 기본키(@Id), 시퀀스
 
     private String question;

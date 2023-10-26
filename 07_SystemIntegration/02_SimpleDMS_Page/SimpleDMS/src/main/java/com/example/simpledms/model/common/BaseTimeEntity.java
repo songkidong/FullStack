@@ -2,15 +2,17 @@ package com.example.simpledms.model.common;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.SQLDelete;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.*;
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * packageName : com.example.simpledms.model.common
+ * packageName : com.example.jpaexam.model
  * fileName : BaseTimeEntity
  * author : kangtaegyung
  * date : 2022/10/16
@@ -36,19 +38,19 @@ public abstract class BaseTimeEntity {
 
     private String updateTime;
 
-    private String deleteYn;
+    private String deleteYn;  // 소프트 삭제
 
-    private String deleteTime;
+    private String deleteTime; // 소프트 삭제
 
     @PrePersist
-//  해당 엔티티 저장하기 전
+        //해당 엔티티 저장하기 전
     void onPrePersist(){
         this.insertTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         this.deleteYn = "N";
     }
 
     @PreUpdate
-//  해당 엔티티 수정 하기 전
+        //해당 엔티티 수정 하기 전
     void onPreUpdate(){
         this.updateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         this.insertTime = this.updateTime;

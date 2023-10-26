@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * packageName : com.example.simpledms.config
+ * packageName : com.example.dongsungsi.controller
  * fileName : WebConfig
  * author : kangtaegyung
  * date : 2022/06/14

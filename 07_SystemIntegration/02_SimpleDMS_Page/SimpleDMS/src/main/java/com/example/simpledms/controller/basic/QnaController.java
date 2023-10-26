@@ -1,5 +1,6 @@
 package com.example.simpledms.controller.basic;
 
+import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.model.entity.basic.Qna;
 import com.example.simpledms.service.basic.QnaService;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +37,7 @@ public class QnaController {
     @Autowired
     QnaService qnaService; // DI
 
-//  전체 조회 + question/questioner like 검색
+    //    전체 조회 + question/questioner like 검색
     @GetMapping("/qna")
     public ResponseEntity<Object> findAllByContaining(
             @RequestParam(defaultValue = "question") String searchSelect,
@@ -50,10 +51,10 @@ public class QnaController {
             Page<Qna> qnaPage; // qna 페이지 정의
 
             if(searchSelect.equals("question")) {
-//              question like 검색
+                //            question like 검색
                 qnaPage = qnaService.findAllByQuestionContaining(searchKeyword, pageable);
             } else {
-//              questioner like 검색
+                //            questioner like 검색
                 qnaPage = qnaService.findAllByQuestionerContaining(searchKeyword, pageable);
             }
 
@@ -65,10 +66,10 @@ public class QnaController {
             response.put("totalPages", qnaPage.getTotalPages()); // 총페이지수
 
             if (qnaPage.isEmpty() == false) {
-//              성공
+//                성공
                 return new ResponseEntity<>(response, HttpStatus.OK);
             } else {
-//              데이터 없음
+//                데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
         }catch (Exception e) {
@@ -77,7 +78,7 @@ public class QnaController {
         }
     }
 
-//  저장 함수
+    //    저장 함수
     @PostMapping("/qna")
     public ResponseEntity<Object> create(@RequestBody Qna qna) {
 
@@ -86,68 +87,68 @@ public class QnaController {
 
             return new ResponseEntity<>(qna2, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  수정 함수
+    //    수정 함수
     @PutMapping("/qna/{qno}")
     public ResponseEntity<Object> update(
             @PathVariable int qno,
-            @RequestBody Qna qna
-    ) {
+            @RequestBody Qna qna) {
 
         try {
             Qna qna2 = qnaService.save(qna); // db 수정
 
             return new ResponseEntity<>(qna2, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  상세조회
+    // 상세조회
     @GetMapping("/qna/{qno}")
     public ResponseEntity<Object> findById(@PathVariable int qno) {
 
         try {
-//          상세조회 실행
+//            상세조회 실행
             Optional<Qna> optionalQna = qnaService.findById(qno);
 
             if (optionalQna.isPresent()) {
-//              성공
+//                성공
                 return new ResponseEntity<>(optionalQna.get(), HttpStatus.OK);
             } else {
-//              데이터 없음
+//                데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
         } catch (Exception e) {
-//          서버 에러
+//            서버 에러
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  삭제함수
+    // 삭제함수
     @DeleteMapping("/qna/deletion/{qno}")
     public ResponseEntity<Object> delete(@PathVariable int qno) {
 
-//      프론트엔드 쪽으로 상태정보를 보내줌
+//        프론트엔드 쪽으로 상태정보를 보내줌
         try {
-//          삭제함수 호출
+//            삭제함수 호출
             boolean bSuccess = qnaService.removeById(qno);
 
             if (bSuccess == true) {
-//              delete 문이 성공했을 경우
+//                delete 문이 성공했을 경우
                 return new ResponseEntity<>(HttpStatus.OK);
             }
-//          delete 실패했을 경우( 0건 삭제가 될경우 )
+//            delete 실패했을 경우( 0건 삭제가 될경우 )
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
 //            DB 에러가 날경우
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
 }

@@ -21,9 +21,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface QnaRepository extends JpaRepository<Qna, Integer> {
-//  1) question(질문) like 검색
+//    1) question(질문) like 검색
     Page<Qna> findAllByQuestionContaining(String question, Pageable pageable);
 
-//  2) questioner(질문자) like 검색
+//    2) questioner(질문자) like 검색
     Page<Qna> findAllByQuestionerContaining(String questioner, Pageable pageable);
 }

@@ -1,6 +1,7 @@
 package com.example.simpledms.controller.basic;
 
 import com.example.simpledms.model.entity.basic.Customer;
+import com.example.simpledms.model.entity.basic.Qna;
 import com.example.simpledms.service.basic.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import java.util.Optional;
  * fileName : CustomerController
  * author : GGG
  * date : 2023-10-24
- * description :
+ * description : 고객 컨트롤러
  * 요약 :
  * <p>
  * ===========================================================
@@ -36,7 +37,7 @@ public class CustomerController {
     @Autowired
     CustomerService customerService; // DI
 
-//  전체 조회 + fullName/email like 검색
+    //    전체 조회 + fullName/email like 검색
     @GetMapping("/customer")
     public ResponseEntity<Object> findAllByContaining(
             @RequestParam(defaultValue = "fullName") String searchSelect,
@@ -50,11 +51,13 @@ public class CustomerController {
             Page<Customer> customerPage; // customer 페이지 정의
 
             if(searchSelect.equals("fullName")) {
-//              fullName like 검색
-                customerPage = customerService.findAllByFullNameContaining(searchKeyword, pageable);
+                //            fullName like 검색
+                customerPage
+                        = customerService.findAllByFullNameContaining(searchKeyword, pageable);
             } else {
-//              email like 검색
-                customerPage = customerService.findAllByEmailContaining(searchKeyword, pageable);
+                //            email like 검색
+                customerPage
+                        = customerService.findAllByEmailContaining(searchKeyword, pageable);
             }
 
 //          리액트 전송 : customer배열 , 페이징정보 [자료구조 : Map<키이름, 값>]
@@ -65,10 +68,10 @@ public class CustomerController {
             response.put("totalPages", customerPage.getTotalPages()); // 총페이지수
 
             if (customerPage.isEmpty() == false) {
-//              성공
+//                성공
                 return new ResponseEntity<>(response, HttpStatus.OK);
             } else {
-//              데이터 없음
+//                데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
         }catch (Exception e) {
@@ -77,7 +80,7 @@ public class CustomerController {
         }
     }
 
-//  저장 함수
+    //    저장 함수
     @PostMapping("/customer")
     public ResponseEntity<Object> create(@RequestBody Customer customer) {
 
@@ -86,67 +89,68 @@ public class CustomerController {
 
             return new ResponseEntity<>(customer2, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  수정 함수
+
+    //    수정 함수
     @PutMapping("/customer/{cid}")
     public ResponseEntity<Object> update(
             @PathVariable int cid,
-            @RequestBody Customer customer
-    ) {
+            @RequestBody Customer customer) {
 
         try {
             Customer customer2 = customerService.save(customer); // db 수정
 
             return new ResponseEntity<>(customer2, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  상세조회
+    // 상세조회
     @GetMapping("/customer/{cid}")
     public ResponseEntity<Object> findById(@PathVariable int cid) {
 
         try {
-//          상세조회 실행
+//            상세조회 실행
             Optional<Customer> optionalCustomer = customerService.findById(cid);
 
             if (optionalCustomer.isPresent()) {
-//              성공
+//                성공
                 return new ResponseEntity<>(optionalCustomer.get(), HttpStatus.OK);
             } else {
-//              데이터 없음
+//                데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
         } catch (Exception e) {
-//          서버 에러
+//            서버 에러
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  삭제함수
+    // 삭제함수
     @DeleteMapping("/customer/deletion/{cid}")
     public ResponseEntity<Object> delete(@PathVariable int cid) {
 
-//      프론트엔드 쪽으로 상태정보를 보내줌
+//        프론트엔드 쪽으로 상태정보를 보내줌
         try {
-//          삭제함수 호출
+//            삭제함수 호출
             boolean bSuccess = customerService.removeById(cid);
 
             if (bSuccess == true) {
-//              delete 문이 성공했을 경우
+//                delete 문이 성공했을 경우
                 return new ResponseEntity<>(HttpStatus.OK);
             }
-//          delete 실패했을 경우( 0건 삭제가 될경우 )
+//            delete 실패했을 경우( 0건 삭제가 될경우 )
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
 //            DB 에러가 날경우
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 }

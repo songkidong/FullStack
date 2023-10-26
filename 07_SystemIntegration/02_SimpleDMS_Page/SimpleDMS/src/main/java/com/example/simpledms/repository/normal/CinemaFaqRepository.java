@@ -21,6 +21,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CinemaFaqRepository extends JpaRepository<CinemaFaq, Integer> {
-    //    question like 검색 + 정렬(sortOrder desc)
+//    question like 검색 + 정렬(sortOrder desc)
     Page<CinemaFaq> findAllByQuestionContainingOrderBySortOrderDesc(String question, Pageable pageable);
 }

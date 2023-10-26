@@ -1,5 +1,6 @@
 package com.example.simpledms.service.basic;
 
+import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.model.entity.basic.Emp;
 import com.example.simpledms.repository.basic.EmpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,38 +29,40 @@ public class EmpService {
     @Autowired
     EmpRepository empRepository; // DI
 
-//  전체 조회 + 페이징
+    //    전체 조회 + 페이징
     public Page<Emp> findAll(Pageable pageable) {
         Page<Emp> page = empRepository.findAll(pageable);
 
         return page;
     }
 
-//  ename like 조회 + 페이징
+    //    ename like 조회 + 페이징
     public Page<Emp> findAllByEnameContaining(String ename, Pageable pageable) {
-        Page<Emp> page = empRepository.findAllByEnameContaining(ename, pageable);
+        Page<Emp> page
+                = empRepository.findAllByEnameContaining(ename, pageable);
 
         return page;
     }
 
-//  저장 함수(수정 함수)
+    // 저장 함수(수정함수)
     public Emp save(Emp emp) {
+
         Emp emp2 = empRepository.save(emp);
 
         return emp2;
     }
 
-//  상세 조회(1건 조회)
+    //    상세조회(1건조회)
     public Optional<Emp> findById(int eno) {
-        Optional<Emp> optionalEmp = empRepository.findById(eno);
+        Optional<Emp> optionalEmp
+                = empRepository.findById(eno);
 
         return optionalEmp;
     }
 
-//  삭제 함수
+    //    삭제함수
     public boolean removeById(int eno) {
-        if(empRepository.existsById(eno) // eno 있는지 확인
-        ) {
+        if(empRepository.existsById(eno)) { // eno 있는지 확인
             empRepository.deleteById(eno); // 삭제 진행
             return true;
         }

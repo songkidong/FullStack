@@ -10,7 +10,7 @@ import org.hibernate.annotations.Where;
 import javax.persistence.*;
 
 /**
- * packageName : com.example.simpledms.model.entity.basic
+ * packageName : com.example.modelexam.model
  * fileName : Member
  * author : kangtaegyung
  * date : 2022/10/14

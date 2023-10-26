@@ -21,9 +21,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-//  1) fullName like 검색
+//    fullName like 검색
     Page<Customer> findAllByFullNameContaining(String fullName, Pageable pageable);
 
-//  2) email like 검색
+//    email like 검색
     Page<Customer> findAllByEmailContaining(String email, Pageable pageable);
 }
