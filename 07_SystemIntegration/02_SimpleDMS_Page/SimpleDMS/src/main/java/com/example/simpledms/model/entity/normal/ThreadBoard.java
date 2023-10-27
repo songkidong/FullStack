@@ -13,14 +13,14 @@ import javax.persistence.*;
  * packageName : com.example.simpledms.model.entity.normal
  * fileName : ThreadBoard
  * author : GGG
- * date : 2023-10-26
+ * date : 2023-10-27
  * description :
  * 요약 :
  * <p>
  * ===========================================================
  * DATE            AUTHOR             NOTE
  * —————————————————————————————
- * 2023-10-26         GGG          최초 생성
+ * 2023-10-27         GGG          최초 생성
  */
 @Entity
 @Table(name="TB_THREAD_BOARD")
@@ -40,9 +40,9 @@ import javax.persistence.*;
 @DynamicUpdate
 // soft delete
 @Where(clause = "DELETE_YN = 'N'")
-@SQLDelete(sql = "UPDATE TB_REPLY_BOARD SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE TID = ?")
+@SQLDelete(sql = "UPDATE TB_THREAD_BOARD SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE TID = ?")
 public class ThreadBoard extends BaseTimeEntity {
-//    속성
+    //    속성
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE
             , generator = "SQ_THREAD_BOARD_GENERATOR")
@@ -56,7 +56,10 @@ public class ThreadBoard extends BaseTimeEntity {
 
     private Integer views;
 
-    private Integer tGroup;
+    private Integer tgroup;
 
-    private Integer tParent;
+    private Integer tparent;
+
+
+
 }

@@ -1,9 +1,10 @@
 package com.example.simpledms.controller.normal;
 
 import com.example.simpledms.model.dto.normal.ReplyBoardDto;
-import com.example.simpledms.model.entity.basic.Dept;
+import com.example.simpledms.model.dto.normal.ThreadBoardDto;
 import com.example.simpledms.model.entity.normal.ReplyBoard;
-import com.example.simpledms.service.normal.ReplyBoardService;
+import com.example.simpledms.model.entity.normal.ThreadBoard;
+import com.example.simpledms.service.normal.ThreadBoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -19,96 +20,96 @@ import java.util.Optional;
 
 /**
  * packageName : com.example.simpledms.controller.normal
- * fileName : ReplyBoardController
+ * fileName : ThreadBoardController
  * author : GGG
- * date : 2023-10-26
+ * date : 2023-10-27
  * description :
  * 요약 :
  * <p>
  * ===========================================================
  * DATE            AUTHOR             NOTE
  * —————————————————————————————
- * 2023-10-26         GGG          최초 생성
+ * 2023-10-27         GGG          최초 생성
  */
 @Slf4j
 @RestController
 @RequestMapping("/api/normal")
-public class ReplyBoardController {
+public class ThreadBoardController {
 
     @Autowired
-    ReplyBoardService replyBoardService;
+    ThreadBoardService threadBoardService;
 
-//  전체 조회(계층형, dto) : like 검색
-    @GetMapping("/reply-board")
+    //    전체 조회(계층형, dto) : like 검색
+    @GetMapping("/thread-board")
     public ResponseEntity<Object> selectByConnectByPage(
-            @RequestParam(defaultValue = "") String boardTitle,
+            @RequestParam(defaultValue = "") String subject,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "3") int size
-    ) {
+    ){
         try {
             Pageable pageable = PageRequest.of(page, size);
 
-            Page<ReplyBoardDto> replyBoardDtoPage
-                    = replyBoardService
-                    .selectByConnectByPage(boardTitle, pageable);
+            Page<ThreadBoardDto> threadBoardDtoPage
+                    = threadBoardService
+                    .selectByConnectByPage(subject, pageable);
 
-            Map<String, Object> response = new HashMap<>();
-            response.put("replyBoard", replyBoardDtoPage.getContent()); // 배열
-            response.put("currentPage", replyBoardDtoPage.getNumber()); // 현재페이지번호
-            response.put("totalItems", replyBoardDtoPage.getTotalElements()); // 총건수(개수)
-            response.put("totalPages", replyBoardDtoPage.getTotalPages()); // 총페이지수
+            Map<String , Object> response = new HashMap<>();
+            response.put("threadBoard", threadBoardDtoPage.getContent()); // 배열
+            response.put("currentPage", threadBoardDtoPage.getNumber()); // 현재페이지번호
+            response.put("totalItems", threadBoardDtoPage.getTotalElements()); // 총건수(개수)
+            response.put("totalPages", threadBoardDtoPage.getTotalPages()); // 총페이지수
 
-            if (replyBoardDtoPage.isEmpty() == false) {
-//              성공
+            if (threadBoardDtoPage.isEmpty() == false) {
+//                성공
                 return new ResponseEntity<>(response, HttpStatus.OK);
             } else {
-//              데이터 없음
+//                데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-        } catch (Exception e) {
+        }catch (Exception e) {
             log.debug(e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  답변글 저장
-    @PostMapping("/reply")
-    public ResponseEntity<Object> create(@RequestBody ReplyBoard replyBoard) {
+    //    답변글 저장
+    @PostMapping("/thread")
+    public ResponseEntity<Object> create(@RequestBody ThreadBoard threadBoard) {
 
         try {
-            ReplyBoard replyBoard2 = replyBoardService.save(replyBoard); // db 저장
+            ThreadBoard threadBoard2 = threadBoardService.save(threadBoard); // db 저장
 
-            return new ResponseEntity<>(replyBoard2, HttpStatus.OK);
+            return new ResponseEntity<>(threadBoard2, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  게시물 저장
-    @PostMapping("/reply-board")
-    public ResponseEntity<Object> createBoard(@RequestBody ReplyBoard replyBoard) {
+    //    게시물 저장
+    @PostMapping("/thread-board")
+    public ResponseEntity<Object> createBoard(@RequestBody ThreadBoard threadBoard) {
 
         try {
-            int insertCount = replyBoardService.saveBoard(replyBoard); // db 저장
+            int insertCount = threadBoardService.saveBoard(threadBoard); // db 저장
 
             return new ResponseEntity<>(insertCount, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
 //  수정함수
-    @PutMapping("/reply-board/{bid}")
+    @PutMapping("/thread-board/{tid}")
     public ResponseEntity<Object> update(
-            @PathVariable int bid,
-            @RequestBody ReplyBoard replyBoard) {
+            @PathVariable int tid,
+            @RequestBody ThreadBoard threadBoard) {
 
         try {
-            ReplyBoard replyBoard2 = replyBoardService.save(replyBoard); // db 수정
+            ThreadBoard threadBoard2 = threadBoardService.save(threadBoard); // db 수정
 
-            return new ResponseEntity<>(replyBoard2, HttpStatus.OK);
+            return new ResponseEntity<>(threadBoard2, HttpStatus.OK);
         } catch (Exception e) {
 //          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -116,16 +117,16 @@ public class ReplyBoardController {
     }
 
 //  상세조회
-    @GetMapping("/reply-board/{bid}")
-    public ResponseEntity<Object> findById(@PathVariable int bid) {
+    @GetMapping("/thread-board/{tid}")
+    public ResponseEntity<Object> findById(@PathVariable int tid) {
 
         try {
 //          상세조회 실행
-            Optional<ReplyBoard> optionalReplyBoard = replyBoardService.findById(bid);
+            Optional<ThreadBoard> optionalThreadBoard = threadBoardService.findById(tid);
 
-            if (optionalReplyBoard.isPresent()) {
+            if (optionalThreadBoard.isPresent()) {
 //              성공
-                return new ResponseEntity<>(optionalReplyBoard.get(), HttpStatus.OK);
+                return new ResponseEntity<>(optionalThreadBoard.get(), HttpStatus.OK);
             } else {
 //              데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -136,16 +137,15 @@ public class ReplyBoardController {
         }
     }
 
-
 //  답변만 삭제
-//  TODO: /reply-board/{bid} => /reply/deletion/{bid} 수정
-    @DeleteMapping("/reply/deletion/{bid}")
-    public ResponseEntity<Object> delete(@PathVariable int bid) {
+//  TODO: /thread-board/{tid} => /thread/deletion/{tid} 수정
+    @DeleteMapping("/thread/deletion/{tid}")
+    public ResponseEntity<Object> delete(@PathVariable int tid) {
 
 //      프론트엔드 쪽으로 상태정보를 보내줌
         try {
 //          삭제함수 호출
-            boolean bSuccess = replyBoardService.removeById(bid);
+            boolean bSuccess = threadBoardService.removeById(tid);
 
             if (bSuccess == true) {
 //              delete 문이 성공했을 경우
@@ -160,15 +160,15 @@ public class ReplyBoardController {
     }
 
 //  게시물 + 답변 2개이상 삭제
-//  TODO: /reply-board/deletion/{boardGroup}
-    @DeleteMapping("/reply-board/deletion/{boardGroup}")
-    public ResponseEntity<Object> deleteBoard(@PathVariable int boardGroup) {
+//  TODO: /thread-board/deletion/{tgroup}
+    @DeleteMapping("/thread-board/deletion/{tgroup}")
+    public ResponseEntity<Object> deleteBoard(@PathVariable int tgroup) {
 
 //      프론트엔드 쪽으로 상태정보를 보내줌
         try {
 //          삭제함수 호출
-//          TODO: removeById() =>  removeAllByBoardGroup 수정
-            boolean bSuccess = replyBoardService.removeAllByBoardGroup(boardGroup);
+//          TODO: removeById() =>  removeAllByTgroup 수정
+            boolean bSuccess = threadBoardService.removeAllByTgroup(tgroup);
 
             if (bSuccess == true) {
 //              delete 문이 성공했을 경우
@@ -181,5 +181,4 @@ public class ReplyBoardController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }
