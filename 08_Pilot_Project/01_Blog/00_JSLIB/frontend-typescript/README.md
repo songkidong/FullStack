@@ -63,6 +63,28 @@ npm i @types/owl.carousel
 # <!-- isotope 이미지 겹침 문제로 사용 -->
 # <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
 
+# 7) easing 라이브러리
+# (cdn(진행), npm) : index.html
+# 공홈 : https://gsgd.co.uk/sandbox/jquery/easing/
+# 예) 처음(천천히) -> 중간(빨리) -> 끝(천천히) : 시간의 흐름(애니메이션)
+# 예) 처음(빨리) -> 중간(빨리) -> 끝(천천히) : 시간의 흐름(애니메이션)
+# <script src="/lib/easing/easing.min.js"></script>
+
+# 8) 달력 :
+# 8-1) jquery-ui 달력 : (cdn 진행) index.html
+# 공홈 : https://jqueryui.com/datepicker/
+# css 링크
+# <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+# js 링크
+# <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+# 8-2) range calendar 달력 : (cdn 진행) index.html
+# 공홈 : https://www.daterangepicker.com/
+# css 링크
+# <link rel="stylesheet" href="css/daterangepicker.css" />
+# js 링크
+# <script src="js/moment.min.js"></script>
+# <script src="js/daterangepicker.js"></script>
 
 
 # 공통) 외부 lib 타입 없을때 대처하는 방법

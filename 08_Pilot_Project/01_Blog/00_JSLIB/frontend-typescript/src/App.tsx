@@ -21,6 +21,11 @@ import SimpleLightboxCom from "./pages/SimpleLightboxCom";
 import SimpleLightboxComExam from "./pages/SimpleLightboxComExam";
 import OwlCarouselCom from "./pages/OwlCarouselCom";
 import OwlCarouselComExam from "./pages/OwlCarouselComExam";
+import ISotopeCom from "./pages/IsotopeCom";
+import IsotopeComExam from "./pages/IsotopeComExam";
+import EasingCom from "./pages/EasingCom";
+import Datepicker from "./pages/Datepicker";
+import DaterangePicker from "./pages/DaterangePicker";
 
 function App() {
   return (
@@ -62,6 +67,18 @@ function App() {
           <Route path="/owl-carousel" element={<OwlCarouselCom />} />
           {/* 연습 4) 주어진 html 이용해서 carousel을 구현하세요 */}
           <Route path="/owl-carousel-exam" element={<OwlCarouselComExam />} />
+
+          {/* isotope(동위원소) */}
+          <Route path="/isotope" element={<ISotopeCom />} />
+          {/* 연습 5) first, second, third 로 div 태그를 지정하고 isotope 기능을 추가하세요 */}
+          <Route path="/isotope-exam" element={<IsotopeComExam />} />
+
+          {/* easing */}
+          <Route path="/easing" element={<EasingCom />} />
+
+          {/* calendar */}
+          <Route path="/datepicker" element={<Datepicker />} />
+          <Route path="/daterange-picker" element={<DaterangePicker />} />
 
         </Routes>
       </div>
