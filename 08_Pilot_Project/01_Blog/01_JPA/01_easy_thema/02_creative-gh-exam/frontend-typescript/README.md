@@ -32,7 +32,9 @@ npm i --save-dev @types/jqueryui
 npm install simplelightbox
 
 # 7-1) import SimpleLightbox from "simplelightbox" 설치
-import SimpleLightbox from "simplelightbox";
+import SimpleLightbox from "simplelightbox"; // js
+// todo: simplelightbox css import
+import "simplelightbox/dist/simple-lightbox.css"; // css
 
 # 8) bootstrap npm 설치
 npm i bootstrap

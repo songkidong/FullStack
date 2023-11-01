@@ -14,7 +14,6 @@ import SimpleLightbox from "simplelightbox";
 
 // window.addEventListener == useEffect()
 // window.addEventListener('DOMContentLoaded', event => {
-
 export default function initMain() {
   // Navbar shrink function
   var navbarShrink = function () {
@@ -58,7 +57,7 @@ export default function initMain() {
   });
 
   // Activate SimpleLightbox plugin for portfolio items
-  // 사용법 : new SimpleLightbox(선택자)
+//  사용법 : new SimpleLightbox(선택자)
   new SimpleLightbox("#portfolio a.portfolio-box");
 }
 

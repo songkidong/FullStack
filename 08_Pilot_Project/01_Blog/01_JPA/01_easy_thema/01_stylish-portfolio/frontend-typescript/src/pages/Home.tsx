@@ -1,18 +1,59 @@
 // Home.tsx : rfce
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import initMain from "../assets/js/scripts";
 
-// styles.css import : react 의 최고 부모 컴포넌트 : (App.tsx)
+//  styles.css import : react 의 최고 부모 컴포넌트 (App.tsx)
 import "../assets/css/styles.css";
+import DeptList from "./basic/dept/DeptList";
+import AddDept from "./basic/dept/AddDept";
+import CustomerList from "./basic/customer/CustomerList";
+import AddCustomer from "./basic/customer/AddCustomer";
+import Dept from "./basic/dept/Dept";
 
 function Home() {
+  // 바인딩 변수
+  // 화면명을 저장할 변수
+  const [viewName, setViewName] = useState<string>("");
+  // 기본키를 저장할 변수
+  const [pid, setPid] = useState<number>(0);
+
   // 화면이 뜰때 실행되는 이벤트
   useEffect(() => {
     initMain(); // 사이트메뉴 실행
   }, []);
 
+  // todo : 함수 정의
+  // 버튼 메뉴에 따라 다른 화면 보여주기 함수 : 클릭 이벤트 함수
+  // 사용법 : 함수(매개변수, 매개변수=값)
+  // 매개변수=값 : 매개변수의 값이 지정되지 않으면 설정된 값으로 전달됨
+  // 예) 함수(a, b = 0){}
+  //  => 함수 (1, 2) => a = 1, b = 2
+  //  => 함수(1) => a = 1, b = 0 (디폴트 매개변수)
+  const handleChange = (viewName: string, pid = 0) => {
+    setViewName(viewName); // 클릭하면 viewName 변수에 저장
+    setPid(pid); // 기본키 저장
+  };
+
+  //  화면 바꿔 보여주기 함수
+  const changeView = () => {
+    if (viewName === "deptList") {
+      // props : 자식쪽으로 함수(handleChange) 전달
+      return <DeptList handleChange={handleChange} />;
+    } else if (viewName === "addDept") {
+      return <AddDept />;
+    } else if (viewName === "dept") {
+      // props : 자식쪽으로 변수(dno) 전달
+      return <Dept dno = {pid} />;
+    } else if (viewName === "customerList") {
+      return <CustomerList />;
+    } else if (viewName === "addCustomer") {
+      return <AddCustomer />;
+    }
+  };
+
   return (
-    <body id="page-top">
+    // 여기
+    <div id="page-top">
       {/* <!-- Navigation--> */}
       <a className="menu-toggle rounded" href="#">
         <i className="fas fa-bars"></i>
@@ -42,9 +83,9 @@ function Home() {
       {/* <!-- Header--> */}
       <header className="masthead d-flex align-items-center">
         <div className="container px-4 px-lg-5 text-center">
-          <h1 className="mb-1">Stylish Portfolio</h1>
+          <h1 className="mb-1">Simple Coding</h1>
           <h3 className="mb-5">
-            <em>A Free Bootstrap Theme by Start Bootstrap</em>
+            <em>안녕하세요 저의 블로거에 오신것을 환영합니다.</em>
           </h3>
           <a className="btn btn-primary btn-xl" href="#about">
             Find Out More
@@ -143,7 +184,7 @@ function Home() {
           </a>
         </div>
       </section>
-      {/* <!-- Portfolio--> */}
+      {/* <!-- Portfolio : 부서/고객 메뉴 --> */}
       <section className="content-section" id="portfolio">
         <div className="container px-4 px-lg-5">
           <div className="content-section-heading text-center">
@@ -151,14 +192,29 @@ function Home() {
             <h2 className="mb-5">Recent Projects</h2>
           </div>
           <div className="row gx-0">
+            {/* 부서 시작 */}
             <div className="col-lg-6">
               <a className="portfolio-item" href="#!">
                 <div className="caption">
                   <div className="caption-content">
-                    <div className="h2">Stationary</div>
+                    <div className="h2">Department 예제</div>
                     <p className="mb-0">
-                      A yellow pencil with envelopes on a clean, blue backdrop!
+                      부서게시판을 만들면서 <br />
+                      React & Springboot & Oracle 연동하기
                     </p>
+                    <span
+                      className="badge text-bg-success"
+                      onClick={() => handleChange("deptList")}
+                    >
+                      Department 조회
+                    </span>
+                    &nbsp;&nbsp;
+                    <span
+                      className="badge text-bg-danger"
+                      onClick={() => handleChange("addDept")}
+                    >
+                      Department 추가
+                    </span>
                   </div>
                 </div>
                 <img
@@ -168,15 +224,33 @@ function Home() {
                 />
               </a>
             </div>
+            {/* 부서 끝 */}
+
+            {/* 고객 시작 */}
             <div className="col-lg-6">
               <a className="portfolio-item" href="#!">
                 <div className="caption">
                   <div className="caption-content">
-                    <div className="h2">Ice Cream</div>
+                    <div className="h2">Customer 예제</div>
                     <p className="mb-0">
-                      A dark blue background with a colored pencil, a clip, and
-                      a tiny ice cream cone!
+                      Customer 게시판을 만들면서 <br />
+                      React & Springboot & Oracle 연동 예제 2
                     </p>
+                    {/* 버튼 메뉴 시작 */}
+                    <span
+                      className="badge text-bg-warning"
+                      onClick={() => handleChange("customerList")}
+                    >
+                      Customer 조회
+                    </span>
+                    &nbsp;&nbsp;
+                    <span
+                      className="badge text-bg-info"
+                      onClick={() => handleChange("addCustomer")}
+                    >
+                      Customer 추가
+                    </span>
+                    {/* 버튼 메뉴 끝 */}
                   </div>
                 </div>
                 <img
@@ -186,6 +260,7 @@ function Home() {
                 />
               </a>
             </div>
+            {/* 고객 끝 */}
             <div className="col-lg-6">
               <a className="portfolio-item" href="#!">
                 <div className="caption">
@@ -225,6 +300,25 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* 여기 */}
+      {/* <!-- Portfolio - result : 부서/고객 결과 --> */}
+      <section className="content-section" id="portfolio">
+        <div className="container px-4 px-lg-5">
+          {/* 제목 시작 */}
+          <div className="content-section-heading text-center">
+            <h3 className="text-secondary mb-0">맛보기 샘플 - 결과</h3>
+            <h2 className="mb-5">Recent Result</h2>
+          </div>
+          {/* 제목 끝 */}
+          {/* 게시판 결과 시작 */}
+          <div className="row gx-0">
+            <div className="col-lg-12">{changeView()}</div>
+          </div>
+          {/* 게시판 결과 끝 */}
+        </div>
+      </section>
+
       {/* <!-- Call to Action--> */}
       <section className="content-section bg-primary text-white">
         <div className="container px-4 px-lg-5 text-center">
@@ -284,7 +378,7 @@ function Home() {
       </a>
       {/* <!-- Bootstrap core JS--> */}
       {/* <!-- Core theme JS--> */}
-    </body>
+    </div>
   );
 }
 
