@@ -1,21 +1,81 @@
 // Home.tsx : rfce
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+// 개발자 작성 css 
+import "../assets/css/style.css";
+import initMain from "../assets/js/main";
+import EmpList from "./basic/emp/EmpList";
+import AddEmp from "./basic/emp/AddEmp";
+import Emp from "./basic/emp/Emp";
+import QnaList from "./basic/qna/QnaList";
+import AddQna from "./basic/qna/AddQna";
+import Qna from "./basic/qna/Qna";
 
 function Home() {
 
-  // todo: 함수 정의
-  const handleChangeBoard = (viewBoard: string) => {}
+    // todo: 바인딩 변수
+    // emp 게시판 이름 저장 변수
+    const [viewBoard, setViewBoard] = useState<string>("");
+    // qna 게시판 이름 저장 변수
+    const [viewQna, setViewQna] = useState<string>("");
+    // 기본키를 저장할 변수
+    const [pid, setPid] = useState<number>(0);
+    // todo: 함수 정의
+    useEffect(()=>{
+      initMain();
+    },[])
 
-  const changeBoard = () => {}
+    // 사원조회/추가 버튼 클릭시 실행
+    const handleChangeBoard = (viewBoard: string, pid = 0) => { 
+      setViewBoard(viewBoard); // 화면명 저장
+      setPid(pid);             // 기본키 저장
+     }
 
-  const handleChangeQna = (viewQna: string) => {}
+    //  화면명에 따라 다른 컴포넌트를 보여주는 함수
+    const changeBoard = () => { 
+      if(viewBoard === "empList") {
+        // props : handleChangeBoard 함수를 전송
+        return <EmpList handleChangeBoard={handleChangeBoard} />;
+      } else if(viewBoard === "addEmp") {
+        return <AddEmp />;
+      } else if(viewBoard === "emp") {
+        // props : Emp 컴포넌트에 eno로 데이터 전송
+        return <Emp eno={pid} />;
+      }
+     }
 
-  const changeQna = () => {}
+    //  qna조회/추가 버튼 클릭시 실행되는 함수
+    const handleChangeQna = (viewQna: string, pid=0) => { 
+      setViewQna(viewQna); // 화면명 저장
+      setPid(pid);         // 기본키 저장
+     }
 
+    //  qna화면명에 따라 다른 컴포넌트를 보여주는 함수
+    const changeQna = () => { 
+      if(viewQna === "qnaList") {
+        // props : QnaList 컴포넌트 handleChangeQna 함수 전달
+        return <QnaList handleChangeQna={handleChangeQna}/>;
+      } else if(viewQna === "addQna") {
+        return <AddQna />;
+      } else if(viewQna === "qna") {
+        // props : Qna 컴포넌트 qno 값을 전달
+        return <Qna qno={pid} />;
+      }
+     }
+
+    // todo: html -> react 고칠때 주의점
+    // 1) class -> className 수정
+    // 2) label 태그 for -> htmlFor 수정
+    // 3) html 태그 여느태그 반드시 닫는태그
+    // 예) <input id="detp"> => <input id="detp" />
+    //     <img src="경로"> => <img src="경로" />
+    // 4) html 속성에러발생시 빨간글씨로 에러 가이드 있음
+    //   예) tabindex="-1" => tabIndex={-1}
   return (
+    // 여기
     <div data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51">
-      {/* <!-- Header Start --> */}
+      {/* <!-- todo: Header Start (비데오 버튼) --> */}
       <div className="container-fluid bg-light my-6 mt-0" id="home">
         <div className="container">
           <div className="row g-5 align-items-center">
@@ -31,11 +91,12 @@ function Home() {
                 <a href="" className="btn btn-primary py-3 px-4 me-5">
                   Download CV
                 </a>
+                {/* 유튜브 경로 추가 */}
                 <button
                   type="button"
                   className="btn-play"
                   data-bs-toggle="modal"
-                  data-src="https://www.youtube.com/embed/Ci52Iq_IQso?si=_SjejqE2vzcClmDQ"
+                  data-src="https://www.youtube.com/embed/bZ3zapq9Jaw?si=IlHEcNig4jUMI7Wa"
                   data-bs-target="#videoModal"
                 >
                   <span></span>
@@ -371,14 +432,14 @@ function Home() {
               <Link
                 to="#!"
                 className="btn btn-primary py-3 px-5"
-                onClick={() => handleChangeBoard("ReplyBoardList")}
+                onClick={() => handleChangeBoard("empList")}
               >
-                답변 게시판 조회
+                Emp 조회
               </Link>
               <Link
                 to="#!"
                 className="btn btn-success py-3 px-5 ms-3"
-                onClick={() => handleChangeBoard("AddReplyBoard")}
+                onClick={() => handleChangeBoard("addEmp")}
               >
                 새글 쓰기
               </Link>
@@ -564,14 +625,14 @@ function Home() {
               <a
                 href="#!"
                 className="btn btn-primary py-3 px-5"
-                onClick={() => handleChangeQna("QnaList")}
+                onClick={() => handleChangeQna("qnaList")}
               >
                 Q&A 조회
               </a>
               <a
                 href="#!"
                 className="btn btn-success py-3 px-5 ms-3"
-                onClick={() => handleChangeQna("AddQna")}
+                onClick={() => handleChangeQna("addQna")}
               >
                 새글 쓰기
               </a>
