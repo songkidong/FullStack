@@ -1,4 +1,4 @@
-// CustomerListPage.tsx : rfce
+// CustomerListPage.tsx
 import React, { useEffect } from "react";
 import CustomerList from "../../components/basic/customer/CustomerList";
 import initScripts from "../../assets/js/scripts";
@@ -9,6 +9,7 @@ function CustomerListPage() {
     initScripts();
     initCustom();
   }, []);
+
   return (
     <>
       {/* 테마 디자인 적용 : 컨택트 소스 */}
@@ -20,7 +21,7 @@ function CustomerListPage() {
               <div className="intro-wrap">
                 <h1 className="mb-0">고객 조회</h1>
                 <p className="text-white">
-                    여기에서 고객 정보를 확인하실 수 있습니다.
+                  여기에서 고객 정보를 확인하실 수 있습니다.
                 </p>
               </div>
             </div>
@@ -33,6 +34,7 @@ function CustomerListPage() {
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
+            {/* 여기 */}
             <CustomerList />
           </div>
         </div>

@@ -22,7 +22,7 @@ npm i --save-dev @types/jquery
 npm i --save-dev @types/jqueryui
 
 
-# 6) npm i aos 설치 === wowjs(날라다니는 lib)
+# 6) npm i aos 설치 === wowjs (날라다니는 lib)
 npm i aos
 npm i @types/aos
 

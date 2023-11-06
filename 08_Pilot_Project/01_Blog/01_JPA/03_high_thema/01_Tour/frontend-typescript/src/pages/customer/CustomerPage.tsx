@@ -11,7 +11,6 @@ function CustomerPage() {
   }, []);
   return (
     <>
-      {/* 테마 디자인 적용 : 컨택트 소스 */}
       {/* 테마 제목 시작 */}
       <div className="hero hero-inner">
         <div className="container">
@@ -20,7 +19,7 @@ function CustomerPage() {
               <div className="intro-wrap">
                 <h1 className="mb-0">고객 상세 조회</h1>
                 <p className="text-white">
-                  고객 상세 조회는 여기서 확인하실 수 있습니다.
+                  여기에서 고객 상세 조회를 확인하실 수 있습니다.
                 </p>
               </div>
             </div>
@@ -33,7 +32,8 @@ function CustomerPage() {
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
-            <Customer />
+            {/* 여기 */}
+            <Customer/>
           </div>
         </div>
       </div>

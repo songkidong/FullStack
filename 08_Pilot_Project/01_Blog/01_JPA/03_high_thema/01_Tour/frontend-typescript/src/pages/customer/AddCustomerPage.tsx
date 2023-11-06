@@ -1,4 +1,4 @@
-// AddCustomerPage.tsx : rfce
+// AddCustomerPage.tsx
 import React, { useEffect } from "react";
 import AddCustomer from "../../components/basic/customer/AddCustomer";
 import initScripts from "../../assets/js/scripts";
@@ -9,9 +9,10 @@ function AddCustomerPage() {
     initScripts();
     initCustom();
   }, []);
+
   return (
-    <>
-      {/* 테마 디자인 적용 : 컨택트 소스 */}
+    <div>
+      {/* 테마 디자인 적용 :  */}
       {/* 테마 제목 시작 */}
       <div className="hero hero-inner">
         <div className="container">
@@ -20,7 +21,7 @@ function AddCustomerPage() {
               <div className="intro-wrap">
                 <h1 className="mb-0">고객 추가</h1>
                 <p className="text-white">
-                  고객추가는 여기서 확인하실 수 있습니다.
+                  여기에서 고객 추가를 하실 수 있습니다.
                 </p>
               </div>
             </div>
@@ -33,12 +34,13 @@ function AddCustomerPage() {
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
+            {/* 여기 */}
             <AddCustomer />
           </div>
         </div>
       </div>
       {/* 본문 끝 */}
-    </>
+    </div>
   );
 }
 

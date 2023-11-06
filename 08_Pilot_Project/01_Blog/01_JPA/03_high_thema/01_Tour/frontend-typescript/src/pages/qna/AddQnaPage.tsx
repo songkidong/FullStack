@@ -11,7 +11,6 @@ function AddQnaPage() {
   }, []);
   return (
     <>
-      {/* 테마 디자인 적용 : 컨택트 소스 */}
       {/* 테마 제목 시작 */}
       <div className="hero hero-inner">
         <div className="container">
@@ -20,7 +19,7 @@ function AddQnaPage() {
               <div className="intro-wrap">
                 <h1 className="mb-0">Q & A 추가</h1>
                 <p className="text-white">
-                  여기에서 Q & A 를 추가하실 수 있습니다.
+                  여기에서 Q & A를 추가하실 수 있습니다.
                 </p>
               </div>
             </div>
@@ -33,6 +32,7 @@ function AddQnaPage() {
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
+            {/* 여기 */}
             <AddQna />
           </div>
         </div>

@@ -76,6 +76,7 @@ function CustomerList() {
       {/* 제목 end */}
 
       {/* fullName start(다양한 검색어 부분) */}
+      {/* 여기 */}
       <div className="col-md-8 offset-2">
         <div className="col-12 input-group mb-3">
           <select

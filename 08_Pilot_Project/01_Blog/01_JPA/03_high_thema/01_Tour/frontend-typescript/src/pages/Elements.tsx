@@ -1,15 +1,18 @@
+// Element.tsx
 import React, { useEffect } from "react";
 import initScripts from "../assets/js/scripts";
 import initCustom from "../assets/js/custom";
 
 function Elements() {
-  useEffect(() => {
+
+  useEffect(()=>{
     initScripts();
     initCustom();
-  }, []);
+  },[])
+
   return (
     <>
-      {/* -- 1 -- */}
+      {/* 여기 */}
       <div className="hero hero-inner">
         <div className="container">
           <div className="row align-items-center">
@@ -26,7 +29,6 @@ function Elements() {
         </div>
       </div>
 
-      {/* -- 2 -- */}
       <div className="untree_co-section">
         <div className="container my-5">
           <div className="mb-5">
@@ -336,10 +338,7 @@ function Elements() {
                   <div className="form-group">
                     <label className="control control--checkbox">
                       <span className="caption">Custom checkbox</span>
-                      <input
-                        type="checkbox"
-                        //  checked="checked"
-                      />
+                      <input type="checkbox" checked={true} />
                       <div className="control__indicator"></div>
                     </label>
                   </div>
@@ -515,7 +514,6 @@ function Elements() {
         </div>
       </div>
 
-      {/* -- 3 -- */}
       <div className="py-5 cta-section">
         <div className="container">
           <div className="row text-center">

@@ -1,8 +1,8 @@
 // QnaPage.tsx : rfce
-import React, { useEffect } from 'react'
-import initScripts from '../../assets/js/scripts';
-import initCustom from '../../assets/js/custom';
-import Qna from '../../components/basic/qna/Qna';
+import React, { useEffect } from "react";
+import initScripts from "../../assets/js/scripts";
+import initCustom from "../../assets/js/custom";
+import Qna from "../../components/basic/qna/Qna";
 
 function QnaPage() {
   useEffect(() => {
@@ -11,7 +11,6 @@ function QnaPage() {
   }, []);
   return (
     <>
-          {/* 테마 디자인 적용 : 컨택트 소스 */}
       {/* 테마 제목 시작 */}
       <div className="hero hero-inner">
         <div className="container">
@@ -20,7 +19,7 @@ function QnaPage() {
               <div className="intro-wrap">
                 <h1 className="mb-0">Q & A 상세 조회</h1>
                 <p className="text-white">
-                  여기에서 Q & A 를 상세 조회 하실 수 있습니다.
+                  여기에서 Q & A 상세 조회를 확인하실 수 있습니다.
                 </p>
               </div>
             </div>
@@ -33,13 +32,14 @@ function QnaPage() {
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
+            {/* 여기 */}
             <Qna />
           </div>
         </div>
       </div>
       {/* 본문 끝 */}
     </>
-  )
+  );
 }
 
-export default QnaPage
+export default QnaPage;

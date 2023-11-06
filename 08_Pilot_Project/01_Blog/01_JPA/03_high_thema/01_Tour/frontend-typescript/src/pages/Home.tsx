@@ -1,16 +1,18 @@
 // pages/Home.tsx : rfce
-import React, { useEffect } from "react";
+import React,{useEffect} from "react";
 import initScripts from "../assets/js/scripts";
 import initCustom from "../assets/js/custom";
 
 function Home() {
-  useEffect(() => {
+
+  useEffect(()=>{
     initScripts();
     initCustom();
-  }, []);
+  },[])
 
   return (
     <>
+      {/* 여기 */}
       {/* 1 */}
       <div className="hero">
         <div className="container">

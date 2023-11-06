@@ -1,17 +1,19 @@
-// Contact.tsx : rfce
-import React, { useEffect } from "react";
+// Contact.tsx
+import React from "react";
 import initScripts from "../assets/js/scripts";
 import initCustom from "../assets/js/custom";
+import { useEffect } from 'react';
 
 function Contact() {
-  useEffect(() => {
-    initScripts();
-    initCustom();
-  }, []);
+
+    useEffect(()=>{
+        initScripts();
+        initCustom();
+    },[])
+
   return (
     <>
-      {/* <!-- 본문 시작 --> */}
-      {/* 1 */}
+      {/* 여기 */}
       <div className="hero hero-inner">
         <div className="container">
           <div className="row align-items-center">
@@ -28,7 +30,6 @@ function Contact() {
         </div>
       </div>
 
-      {/* 2 */}
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
@@ -101,7 +102,6 @@ function Contact() {
         </div>
       </div>
 
-      {/* 3 */}
       <div className="untree_co-section testimonial-section mt-5 bg-white">
         <div className="container">
           <div className="row justify-content-center">
@@ -167,7 +167,6 @@ function Contact() {
           </div>
         </div>
       </div>
-      {/* <!-- 본문 끝 --> */}
     </>
   );
 }

@@ -4,6 +4,7 @@ import React from "react";
 function Footer() {
   return (
     <>
+      {/* 여기 */}
       {/* <!-- 꼬리말 시작 --> */}
       <div className="site-footer">
         <div className="inner first">
@@ -121,8 +122,8 @@ function Footer() {
               <div className="col-md-8 mb-3 mb-md-0 mx-auto">
                 <p>
                   Copyright &copy;
-                  {new Date().getFullYear()}. All Rights Reserved. &mdash;
-                  Designed with love by{" "}
+                  {new Date().getFullYear()}.
+                  All Rights Reserved. &mdash; Designed with love by{" "}
                   <a href="https://untree.co" className="link-highlight">
                     Untree.co
                   </a>{" "}

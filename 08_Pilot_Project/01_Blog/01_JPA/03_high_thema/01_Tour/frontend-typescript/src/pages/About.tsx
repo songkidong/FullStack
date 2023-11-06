@@ -2,16 +2,18 @@
 import React from "react";
 import initScripts from "../assets/js/scripts";
 import initCustom from "../assets/js/custom";
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 function About() {
-  useEffect(() => {
-    initScripts();
-    initCustom();
-  }, []);
+
+    useEffect(()=>{
+        initScripts();
+        initCustom();
+    },[])
 
   return (
     <>
+      {/* 여기 */}
       {/* <!-- 1 --> */}
       <div className="hero hero-inner">
         <div className="container">

@@ -10,10 +10,11 @@ import Swiper from "swiper";
 // todo: aos import
 import AOS from "aos";
 // todo: @srexi/purecounterjs import
-import PureCounter from "@srexi/purecounterjs";
+import PureCounter from "@srexi/purecounterjs"
 
 /* eslint-disable */
 export default function initMain() {
+  // 여기
   (function () {
     "use strict";
 

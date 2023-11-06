@@ -1,12 +1,20 @@
 // Services.tsx : rfce
 import React from "react";
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import initScripts from "../assets/js/scripts";
+import initCustom from "../assets/js/custom";
 
 function Services() {
 
+    useEffect(()=>{
+        initScripts();
+        initCustom();
+    },[])
+
   return (
     <>
+      {/* 여기 */}
+      {/* 1 */}
       <div className="hero hero-inner">
         <div className="container">
           <div className="row align-items-center">
@@ -23,6 +31,7 @@ function Services() {
         </div>
       </div>
 
+      {/* <!-- 2 --> */}
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
@@ -122,6 +131,7 @@ function Services() {
         </div>
       </div>
 
+      {/* <!-- 3 --> */}
       <div className="untree_co-section">
         <div className="container">
           <div className="row">
@@ -169,6 +179,7 @@ function Services() {
         </div>
       </div>
 
+      {/* <!-- 4 --> */}
       <div className="untree_co-section">
         <div className="container">
           <div className="row mb-5 justify-content-center">
@@ -247,6 +258,7 @@ function Services() {
         </div>
       </div>
 
+      {/* <!-- 5 --> */}
       <div className="py-5 cta-section">
         <div className="container">
           <div className="row text-center">
@@ -270,7 +282,6 @@ function Services() {
           </div>
         </div>
       </div>
-
     </>
   );
 }

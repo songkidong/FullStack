@@ -1,4 +1,4 @@
-// AddQna.tsx
+// AddQna.tsx : rfce
 import React, { useState } from "react";
 import TitleCom from "../../../components/common/TitleCom";
 import IQna from "../../../types/basic/IQna";
@@ -9,14 +9,14 @@ function AddQna() {
   const initialQna = {
     qno: null,
     question: "",
-    questioner: "",
     answer: "",
+    questioner: "",
     answerer: "",
   };
 
-  // qna 객체
+  // qna객체
   const [qna, setQna] = useState<IQna>(initialQna);
-  // 저장버튼 클릭 후 submitted == true 변경됨
+  // 저장버튼 클릭후 submitted = true 변경됨
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   // input 태그에 수동 바인딩
@@ -29,10 +29,10 @@ function AddQna() {
   const saveQna = () => {
     // 임시 qna 객체
     var data = {
-      question: qna.question,
-      questioner: qna.questioner,
-      answer: qna.answer,
-      answerer: qna.answerer,
+        question: qna.question,
+        answer: qna.answer,
+        questioner: qna.questioner,
+        answerer: qna.answerer,        
     };
 
     QnaService.create(data) // 저장 요청
@@ -47,11 +47,12 @@ function AddQna() {
 
   // 새폼 보여주기 함수 : 변수값 변경 -> 화면 자동 갱신(리액트 특징)
   const newQna = () => {
-    setQna(initialQna); // qna 초기화
+    setQna(initialQna); // Qna 초기화
     setSubmitted(false); // submitted 변수 초기화
   };
 
   return (
+    // 여기
     <>
       {submitted ? (
         <div className="col-6 mx-auto">
@@ -94,11 +95,14 @@ function AddQna() {
 
             {/* questioner 입력창 시작 */}
             <div className="row g-3 align-items-center mb-3">
+              {/* 라벨 시작 */}
               <div className="col-3">
                 <label htmlFor="questioner" className="col-form-label">
                   Questioner
                 </label>
               </div>
+              {/* 라벨 끝 */}
+
               <div className="col-9">
                 <input
                   type="text"
@@ -116,11 +120,14 @@ function AddQna() {
 
             {/* answer 입력창 시작 */}
             <div className="row g-3 align-items-center mb-3">
+              {/* 라벨 시작 */}
               <div className="col-3">
                 <label htmlFor="answer" className="col-form-label">
                   Answer
                 </label>
               </div>
+              {/* 라벨 끝 */}
+
               <div className="col-9">
                 <input
                   type="text"
@@ -138,11 +145,14 @@ function AddQna() {
 
             {/* answerer 입력창 시작 */}
             <div className="row g-3 align-items-center mb-3">
+              {/* 라벨 시작 */}
               <div className="col-3">
                 <label htmlFor="answerer" className="col-form-label">
                   Answerer
                 </label>
               </div>
+              {/* 라벨 끝 */}
+
               <div className="col-9">
                 <input
                   type="text"
@@ -158,6 +168,7 @@ function AddQna() {
             </div>
             {/* answerer 입력창 끝 */}
 
+            {/* 저장 버튼 시작 */}
             <div className="row g-3 mt-3 mb-3">
               <button
                 onClick={saveQna}
@@ -166,6 +177,7 @@ function AddQna() {
                 Submit
               </button>
             </div>
+            {/* 저장 버튼 끝 */}
           </div>
         </>
       )}
