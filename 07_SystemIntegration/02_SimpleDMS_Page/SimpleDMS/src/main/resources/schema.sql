@@ -88,7 +88,7 @@ CREATE TABLE TB_EMP
     DELETE_TIME VARCHAR2(255)
 );
 
--- 코드성 테이블 : 공통 코드 유형 테이블
+-- 코드성 테이블 : 공통 코드 유형(분류) 테이블
 CREATE TABLE TB_CODE_CATEGORY
 (
     CATEGORY_ID   NUMBER NOT NULL
@@ -289,4 +289,3 @@ CREATE TABLE TB_GALLERY
     UPDATE_TIME       VARCHAR2(255),
     DELETE_TIME       VARCHAR2(255)
 );
-
