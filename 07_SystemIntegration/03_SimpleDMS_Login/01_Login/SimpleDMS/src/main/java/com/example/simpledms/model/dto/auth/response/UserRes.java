@@ -23,9 +23,9 @@ import lombok.*;
 @AllArgsConstructor
 public class UserRes {
 
-  private String accessToken;
+  private String accessToken; // 웹토큰
 
-  private String tokenType = "Bearer";
+  private String tokenType = "Bearer"; // 웹토큰 타입
 
   private String email;
 
