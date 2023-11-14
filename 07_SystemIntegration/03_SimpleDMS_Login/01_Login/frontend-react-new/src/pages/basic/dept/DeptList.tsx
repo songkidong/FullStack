@@ -50,6 +50,21 @@ function DeptList() {
       });
   };
 
+  // todo: async ~ await 비동기 코딩 방식(최근)
+  // todo: 주의점) useEffect(()=>{},[]) 이 형태로 사용해야 에러가 발생않함
+  // const retrieveDept = async () => {
+  //   try {
+  //     // 벡엔드 매개변수 전송 : + 현재페이지(page), 1페이지당개수(pageSize)
+  //     const response: any = await DeptService.getAll(searchDname,page - 1,pageSize); // 벡엔드 전체조회요청
+  //     const { dept, totalPages } = response.data;
+  //     setDept(dept);
+  //     setCount(totalPages);
+  //     console.log("response", response.data);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
+
   // 검색어 수동 바인딩 함수
   const onChangeSearchDname = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchDname = e.target.value;

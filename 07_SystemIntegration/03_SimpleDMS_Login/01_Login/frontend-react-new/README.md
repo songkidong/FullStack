@@ -41,3 +41,12 @@ npm i formik
 # 7-2) yup
 npm i yup
 npm i @types/yup
+
+# 로그인 추가 순서
+0) App.tsx : /home 라우터  추가
+0) index.tsx : <Provider store={store}></Provider> 추가
+1) types - auth 생성
+2) store 생성
+3) services - auth 생성
+4) pages - auth 생성
+5) components/common - HeaderCom.tsx : 추가 로직 작성
