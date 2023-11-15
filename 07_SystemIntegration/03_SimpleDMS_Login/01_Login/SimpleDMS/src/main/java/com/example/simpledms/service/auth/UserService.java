@@ -71,7 +71,7 @@ public class UserService {
     }
 
 //    TODO: email 있는지 확인하는 함수
-    public boolean existById(String email) {
+    public boolean existsById(String email) {
         boolean bResult = userRepository.existsById(email);
 
         return bResult;

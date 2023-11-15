@@ -26,7 +26,12 @@ import java.util.List;
  */
 @Repository
 public interface CodeRepository extends JpaRepository<Code, Integer> {
-//    like 검색 : 대분류코드 + 소분류코드 조인
+
+    //   todo: 유저 회원생성 사용
+//         codeName(권한:ROLE_USER, ROLE_ADMIN) 있는지 확인하는 함수
+    boolean existsByCodeName(String codeName);
+
+    //    like 검색 : 대분류코드 + 소분류코드 조인
     @Query(value = "SELECT CO.CODE_ID       AS codeId  " +
             "     , CO.CODE_NAME      AS codeName " +
             "     ,CO.CATEGORY_ID    AS categoryId " +
@@ -47,7 +52,7 @@ public interface CodeRepository extends JpaRepository<Code, Integer> {
             Pageable pageable
     );
 
-    /** 전체 조회(조인) : 페이징 없음, DTO 필요 */
+    /** 전체 조회(조인) : 페이징 없음 , DTO 필요 */
     @Query(value = "SELECT CO.CODE_ID       AS codeId  " +
             "     , CO.CODE_NAME      AS codeName " +
             "     ,CO.CATEGORY_ID    AS categoryId " +
