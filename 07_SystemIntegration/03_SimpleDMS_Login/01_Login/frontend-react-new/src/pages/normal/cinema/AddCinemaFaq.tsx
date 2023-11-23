@@ -30,9 +30,9 @@ function AddCinemaFaq() {
   const saveCinemaFaq = () => {
     // 임시 객체
     var data = {
-      question: cinemaFaq.question,
-      answer: cinemaFaq.answer,
-      sortOrder: cinemaFaq.sortOrder,
+        question: cinemaFaq.question,
+        answer: cinemaFaq.answer,
+        sortOrder: cinemaFaq.sortOrder
     };
 
     CinemaFaqService.create(data) // 저장 요청
@@ -117,7 +117,7 @@ function AddCinemaFaq() {
             <div className="row g-3 align-items-center mb-3">
               <div className="col-3">
                 <label htmlFor="sortOrder" className="col-form-label">
-                  SortOrder
+                    Sort Order
                 </label>
               </div>
               <div className="col-9">

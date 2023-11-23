@@ -2,19 +2,19 @@
 import React, { useEffect, useState } from "react";
 import TitleCom from "../../../components/common/TitleCom";
 import { useParams } from "react-router-dom";
-import ISimpleProduct from "../../../types/shop/ISimpleProduct";
+import ISimpleProduct from './../../../types/shop/ISimpleProduct';
 import ICode from "../../../types/admin/code/ICode";
 import SimpleProductService from "../../../services/shop/SimpleProductService";
 import CodeService from "../../../services/admin/code/CodeService";
 
 function SimpleProduct() {
-  // TODO: 변수 정의
+  // todo: 변수 정의
   // 전체조회 페이지에서 전송한 기본키(spno)
   const { spno } = useParams();
   // 강제페이지 이동 함수
-  //   let navigate = useNavigate();
+//   let navigate = useNavigate();
 
-  // 객체 초기화(상세조회 : 기본키 있음)
+  // todo: 객체 초기화
   const initialSimpleProduct = {
     spno: null,
     codeId: 0,
@@ -24,18 +24,17 @@ function SimpleProduct() {
     useYn: "Y",
   };
 
-  // code 배열 변수 : select 태그용
+//   todo: code 배열 변수 : select 태그용
   const [code, setCode] = useState<Array<ICode>>([]);
-  // 수정 될 객체
-  const [simpleProduct, setSimpleProduct] =
-    useState<ISimpleProduct>(initialSimpleProduct);
+  // 수정될객체 : simpleProduct
+  const [simpleProduct, setSimpleProduct] = useState<ISimpleProduct>(initialSimpleProduct);
   // 화면에 수정 성공에 메세지 찍기 변수
   const [message, setMessage] = useState<string>("");
 
-  // TODO: 함수 정의
+  // todo: 함수 정의
   // 상세조회 함수
   const getSimpleProduct = (spno: string) => {
-    SimpleProductService.get(spno) // 백엔드로 상세조회 요청
+    SimpleProductService.get(spno)         // 벡엔드로 상세조회 요청
       .then((response: any) => {
         setSimpleProduct(response.data);
         console.log(response.data);
@@ -44,6 +43,7 @@ function SimpleProduct() {
         console.log(e);
       });
   };
+
   // 화면이 뜰때 실행되는 이벤트 + spno 값이 바뀌면 실행
   useEffect(() => {
     if (spno) getSimpleProduct(spno);
@@ -55,7 +55,7 @@ function SimpleProduct() {
     setSimpleProduct({ ...simpleProduct, [name]: value });
   };
 
-  // select 태그 수동 바인딩
+  // todo: select 태그 수동 바인딩
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
     setSimpleProduct({ ...simpleProduct, [name]: value });
@@ -63,7 +63,7 @@ function SimpleProduct() {
 
   // 수정 함수
   const updateSimpleProduct = () => {
-    SimpleProductService.update(simpleProduct.spno, simpleProduct) // 백엔드로 수정요청
+    SimpleProductService.update(simpleProduct.spno, simpleProduct) // 벡엔드로 수정요청
       .then((response: any) => {
         console.log(response.data);
         setMessage("수정되었습니다.");
@@ -73,8 +73,8 @@ function SimpleProduct() {
       });
   };
 
-  // select 태그에 반복문으로 code 데이터를 출력하는 함수
-  // code 전체 조회 함수(페이징 없음)
+  //   todo: select 태그 에 반복문으로 code 데이터를 출력하는 함수
+  //   todo: code 전체 조회 함수(페이징 없음)
   const retrieveCodeAll = () => {
     CodeService.getAllNoPage()
       .then((response) => {
@@ -91,6 +91,7 @@ function SimpleProduct() {
   }, []);
 
   return (
+    // 여기
     <>
       {/* 제목 start */}
       <TitleCom title="SimpleProduct Detail" />

@@ -2,6 +2,7 @@ package com.example.simpledms.controller.admin;
 
 import com.example.simpledms.model.dto.admin.CodeDto;
 import com.example.simpledms.model.entity.admin.Code;
+import com.example.simpledms.model.entity.admin.CodeCategory;
 import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.service.admin.CodeService;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +40,10 @@ public class CodeController {
     @Autowired
     CodeService codeService; // DI
 
-//    전체 조회 + codeName like 검색(페이징)
+    /**
+     * like 검색 : 페이징
+     */
+//    전체 조회 + like 검색
     @GetMapping("/code")
     public ResponseEntity<Object> findAllByCodeNameContaining(
             @RequestParam(defaultValue = "") String codeName,
@@ -50,7 +54,8 @@ public class CodeController {
             Pageable pageable = PageRequest.of(page, size);
 
             Page<CodeDto> codeDtoPage
-                    = codeService.selectByCodeNameContaining(codeName, pageable);
+                    = codeService
+                    .selectByCodeNameContaining(codeName, pageable);
 
             Map<String, Object> response = new HashMap<>();
             response.put("code", codeDtoPage.getContent()); // 조인배열
@@ -71,26 +76,7 @@ public class CodeController {
         }
     }
 
-//    전체 조회 : 페이징 없음 + 조인
-    @GetMapping("/code/all")
-    public ResponseEntity<Object> selectAllNoPage() {
-        try {
-            List<CodeDto> list = codeService.selectAllNoPage();
-
-            if (list.isEmpty() == false) {
-//                성공
-                return new ResponseEntity<>(list, HttpStatus.OK);
-            } else {
-//                데이터 없음
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-        } catch (Exception e) {
-            log.debug(e.getMessage());
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-//    저장 함수
+    //    저장 함수
     @PostMapping("/code")
     public ResponseEntity<Object> create(@RequestBody Code code) {
 
@@ -104,12 +90,12 @@ public class CodeController {
         }
     }
 
-//    수정 함수
+    //    수정 함수
     @PutMapping("/code/{codeId}")
     public ResponseEntity<Object> create(
-            @RequestBody Code code,
-            @PathVariable int codeId
-    ) {
+            @PathVariable int codeId,
+            @RequestBody Code code) {
+
         try {
             Code code2 = codeService.save(code); // db 수정
 
@@ -120,7 +106,7 @@ public class CodeController {
         }
     }
 
-//    상세조회 함수
+    // 상세조회
     @GetMapping("/code/{codeId}")
     public ResponseEntity<Object> findById(@PathVariable int codeId) {
 
@@ -140,4 +126,25 @@ public class CodeController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    //  전체 조회 : 페이징 없음 + 조인
+    @GetMapping("/code/all")
+    public ResponseEntity<Object> selectAllNoPage() {
+        try {
+            List<CodeDto> list
+                    = codeService.selectAllNoPage();
+
+            if (list.isEmpty() == false) {
+//                성공
+                return new ResponseEntity<>(list, HttpStatus.OK);
+            } else {
+//                데이터 없음
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+        } catch (Exception e) {
+            log.debug(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

@@ -31,6 +31,7 @@ const getAll = (boardTitle:string, page:number, size:number) => {
   // 삭제함수 : 게시물(부모글) + 답변글(자식글) 모두 삭제
 //      그룹번호 : 부모글과 자식글은 모두 그룹번호가 같음
   const removeBoard = (boardGroup:any) => {
+    console.log(boardGroup);
     return http.delete<any>(`/normal/reply-board/deletion/${boardGroup}`);
   };
 

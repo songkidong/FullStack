@@ -31,18 +31,17 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User extends BaseTimeEntity {
-//    속성 : TB_USER 테이블 참고
-//    EMAIL       VARCHAR2(1000) NOT NULL CONSTRAINT PK_USER PRIMARY KEY, -- id (email)
-//    PASSWORD    VARCHAR2(1000),                                         -- 암호
-//    USERNAME    VARCHAR2(1000),                                         -- 유저명
-//    CODE_NAME   VARCHAR2(1000),
+//    속성 : TB_USER
     @Id
-    private String email;       // 기본키
-    private String password;
-    private String username;
-    private String codeName;    // 권한컬럼(속성) : ROLE_USER, ROLE_ADMIN
+    private String email; // 기본키
 
-//    생성자 : 매개변수 3개짜리(권한컬럼(codeName)제외)
+    private String password;
+
+    private String username;
+
+    private String codeName; // 권한컬럼(속성) : ROLE_USER, ROLE_ADMIN
+
+//    생성자 : 3개짜리(codeName 제외)
     public User(String email, String password, String username) {
         this.email = email;
         this.password = password;

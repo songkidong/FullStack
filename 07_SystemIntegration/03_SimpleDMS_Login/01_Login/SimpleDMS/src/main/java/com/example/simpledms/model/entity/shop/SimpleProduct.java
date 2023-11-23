@@ -15,9 +15,9 @@ import javax.persistence.*;
  * date : 2023-11-08
  * description : 상품 정보 클래스 : 마스터성 데이터
  * 요약 :
- *      1) 삭제 안함 : 삭제 기능 없음
- *      => uesYn : 사용 여부로 대체
- *      2) 공통컬럼 없음 : (생성일자, 수정일자, 삭제일자) 사용 안함
+ *      1) 삭제 않함 : 삭제 기능 없음
+ *       => useYn : 사용여부로 대체
+ *      2) 공통컬럼 없음 : (생성일자, 수정일자, 삭제일자) 사용 않함
  * <p>
  * ===========================================================
  * DATE            AUTHOR             NOTE
@@ -46,15 +46,15 @@ public class SimpleProduct {
     @GeneratedValue(strategy = GenerationType.SEQUENCE
             , generator = "SQ_SIMPLE_PRODUCT_GENERATOR"
     )
-    private Integer spno;       // 기본키, 시퀀스
+    private Integer spno; // 기본키, 시퀀스
 
-    private Integer codeId;     // 상품종류코드
+    private Integer codeId;
 
-    private String title;       // 상품명
+    private String  title;
 
-    private String imgPath;     // 이미지 경로
+    private String  imgPath;
 
-    private Integer unitPrice;  // 단가
+    private Integer unitPrice;
 
-    private String useYn;       // 사용여부
+    private String  useYn;
 }

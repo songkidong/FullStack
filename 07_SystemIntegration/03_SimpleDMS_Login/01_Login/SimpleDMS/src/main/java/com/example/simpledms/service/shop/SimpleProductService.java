@@ -1,5 +1,6 @@
 package com.example.simpledms.service.shop;
 
+import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.model.entity.shop.SimpleProduct;
 import com.example.simpledms.repository.shop.SimpleProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class SimpleProductService {
     @Autowired
     SimpleProductRepository simpleProductRepository; // DI
 
-//    title like 검색
+    //    title like 검색
     public Page<SimpleProduct> findAllByTitleContaining(String title, Pageable pageable) {
         Page<SimpleProduct> page
                 = simpleProductRepository.findAllByTitleContaining(title, pageable);
@@ -36,7 +37,7 @@ public class SimpleProductService {
         return page;
     }
 
-//    상세 조회
+    //    상세조회(1건조회)
     public Optional<SimpleProduct> findById(int spno) {
         Optional<SimpleProduct> optionalSimpleProduct
                 = simpleProductRepository.findById(spno);
@@ -44,11 +45,13 @@ public class SimpleProductService {
         return optionalSimpleProduct;
     }
 
-//    저장함수(수정함수)
+    //    저장함수(수정함수)
     public SimpleProduct save(SimpleProduct simpleProduct) {
 
-        SimpleProduct simpleProduct2 = simpleProductRepository.save(simpleProduct);
+        SimpleProduct simpleProduct2
+                = simpleProductRepository.save(simpleProduct);
 
         return simpleProduct2; // 저장된 객체
     }
+
 }

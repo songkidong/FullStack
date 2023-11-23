@@ -1,6 +1,7 @@
 package com.example.simpledms.controller.shop;
 
 import com.example.simpledms.model.dto.shop.SimpleCartDto;
+import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.model.entity.shop.SimpleCart;
 import com.example.simpledms.service.shop.SimpleCartService;
 import lombok.extern.slf4j.Slf4j;
@@ -38,7 +39,7 @@ public class SimpleCartController {
     SimpleCartService simpleCartService; // DI
 
 
-//    상세 조회
+    // 상세조회
     @GetMapping("/simple-cart/{scno}")
     public ResponseEntity<Object> selectById(@PathVariable int scno) {
 
@@ -60,7 +61,7 @@ public class SimpleCartController {
         }
     }
 
-//    저장 함수
+    //    저장 함수
     @PostMapping("/simple-cart")
     public ResponseEntity<Object> create(@RequestBody SimpleCart simpleCart) {
 
@@ -80,15 +81,15 @@ public class SimpleCartController {
             @RequestParam(defaultValue = "") String title,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "3") int size
-    ) {
+    ){
         try {
             Pageable pageable = PageRequest.of(page, size);
 
             Page<SimpleCartDto> simpleCartDtoPage
                     = simpleCartService
-                    .selectByTitleContaining(title, pageable);
+                        .selectByTitleContaining(title, pageable);
 
-            Map<String, Object> response = new HashMap<>();
+            Map<String , Object> response = new HashMap<>();
             response.put("simpleCart", simpleCartDtoPage.getContent()); // simpleCart 배열
             response.put("currentPage", simpleCartDtoPage.getNumber()); // 현재페이지번호
             response.put("totalItems", simpleCartDtoPage.getTotalElements()); // 총건수(개수)
@@ -101,13 +102,13 @@ public class SimpleCartController {
 //                데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-        } catch (Exception e) {
+        }catch (Exception e) {
             log.debug(e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//    삭제 함수
+    // 삭제함수
     @DeleteMapping("/simple-cart/deletion/{scno}")
     public ResponseEntity<Object> delete(@PathVariable int scno) {
 
@@ -125,5 +126,7 @@ public class SimpleCartController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
 
 }

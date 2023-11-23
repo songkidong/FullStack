@@ -1,10 +1,10 @@
 package com.example.simpledms.repository.admin;
 
 import com.example.simpledms.model.entity.admin.CodeCategory;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.Page;
 
 /**
  * packageName : com.example.simpledms.repository.admin
@@ -20,7 +20,10 @@ import org.springframework.stereotype.Repository;
  * 2023-11-07         GGG          최초 생성
  */
 @Repository
-public interface CodeCategoryRepository extends JpaRepository<CodeCategory, Integer> {
-//    like 검색 : 쿼리메소드(JPQL)
+public interface CodeCategoryRepository extends JpaRepository<CodeCategory,Integer> {
+//    like 검색 : 쿼리메소드 (JPQL)
     Page<CodeCategory> findAllByCategoryNameContaining(String categoryName, Pageable pageable);
 }
+
+
+

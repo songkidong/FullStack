@@ -14,15 +14,12 @@ package com.example.simpledms.model.dto.shop;
  * 2023-11-09         GGG          최초 생성
  */
 public interface SimpleCartDto {
-    public Integer getScno();
 
+    public Integer getScno();
     public Integer getCodeId();
 
     public String getTitle();
-
     public String getImgPath();
-
     public Integer getUnitPrice();
-
     public Integer getCartCount();
 }

@@ -8,6 +8,7 @@ import IUser from "../../types/auth/IUser";
 import { register } from "../../store/slices/auth";
 
 function Register() {
+
   // todo: 변수 정의
   // 회원생성 성공 여부 변수
   const [successful, setSuccessful] = useState<boolean>(false);
@@ -21,16 +22,16 @@ function Register() {
   const initialValues = {
     username: "",
     email: "",
-    password: "", // 암호
-    repassword: "", // 확인 암호
-  };
+    password: "",    // 암호
+    repassword: "",  // 확인 암호
+  }
 
   // todo: 함수 정의
   // 유효성 체크 함수 : validationSchema(Formik & Yup 함수)
   // 에러에 대한 정의를 함수
   const validationSchema = Yup.object().shape({
     username: Yup.string()
-      // 유효성 조건을 개발자 직접 작성하는 함수
+    // 유효성 조건을 개발자 직접 작성하는 함수
       .test(
         "len",
         "username 은 3 ~ 20사이에 글자만 입력됩니다.",
@@ -46,12 +47,12 @@ function Register() {
           return false;
         }
       )
-      .required("필수 입력입니다."), // username 필수 입력
+      .required("필수 입력입니다."),        // username 필수 입력
     email: Yup.string()
       .email("email 를 정확하게 작성하세요") // email 틀리면
-      .required("필수 입력입니다."), // email 필수 입력
+      .required("필수 입력입니다."),        // email 필수 입력
     password: Yup.string()
-      // 개발자가 직접 유효성 체크 기능을 추가하는 방법
+    // 개발자가 직접 유효성 체크 기능을 추가하는 방법
       .test(
         "len",
         "password 6 ~ 40 문자를 입력해야 합니다.", // 에러메세지
@@ -67,9 +68,8 @@ function Register() {
           return false;
         }
       )
-      .required("필수 입력입니다."), // password 필수 입력
-    repassword: Yup.string().oneOf(
-      // repassword != password
+      .required("필수 입력입니다."),        // password 필수 입력
+    repassword: Yup.string().oneOf(        // repassword != password
       [Yup.ref("password")],
       "패스워드가 일치하지 않습니다."
     ),
@@ -77,31 +77,32 @@ function Register() {
 
   // 회원 가입 함수 : Formik 의 onSubmit(저장) 함수 바인딩
   //  formValue : (email, password, username, repassword)
-  const handleRegister = (formValue: any) => {
-    const { email, password, username } = formValue;
+  const handleRegister = (formValue: any) => { 
+      const { email, password, username } = formValue
 
-    // 임시 객체
-    const data: IUser = {
-      email,
-      password,
-      username,
-      codeName: "ROLE_USER", // 일반 유저 권한
-    };
+      // 임시 객체
+      const data: IUser = {
+        email,
+        password,
+        username,
+        codeName: "ROLE_USER" // 일반 유저 권한
+      }
 
-    // 성공여부 변수 초기화
-    setSuccessful(false);
-    // todo: 벡엔드 저장 요청 : 공유함수(register)
-    dispatch(register(data))
-      .unwrap() // 공유저장소 에러처리
-      .then(() => {
-        setSuccessful(true);
-        setMessage("유저가 생성되었습니다.");
-      })
-      .catch((e: Error) => {
-        console.log(e);
-        setSuccessful(false);
-      });
-  };
+      // 성공여부 변수 초기화
+      setSuccessful(false);
+      // todo: 벡엔드 저장 요청 : 공유함수(register)
+      dispatch(register(data))
+        .unwrap()     // 공유저장소 에러처리
+        .then(()=>{
+          setSuccessful(true);
+          setMessage("유저가 생성되었습니다.")
+        })
+        .catch((e:Error)=>{
+          console.log(e);
+          setSuccessful(false);
+        })
+   }
+
 
   return (
     // 여기

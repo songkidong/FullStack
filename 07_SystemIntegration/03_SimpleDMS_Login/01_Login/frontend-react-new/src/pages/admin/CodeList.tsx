@@ -7,9 +7,8 @@ import ICode from "../../types/admin/code/ICode";
 import CodeService from "../../services/admin/code/CodeService";
 
 function CodeList() {
-    
   // todo: 변수 정의
-  // 공통코드분류 배열 변수 정의
+  // 공통코드 배열 변수 정의
   const [code, setCode] = useState<Array<ICode>>([]);
   // 검색어 변수 정의
   const [searchCodeName, setSearchCodeName] = useState<string>("");
@@ -62,6 +61,7 @@ function CodeList() {
   };
 
   return (
+    // 여기
     <>
       {/* 제목 start */}
       <TitleCom title="Code List" />

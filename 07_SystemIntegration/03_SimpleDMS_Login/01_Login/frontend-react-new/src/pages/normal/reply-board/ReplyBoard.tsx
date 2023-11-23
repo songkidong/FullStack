@@ -6,7 +6,7 @@ import IReplyBoard from "../../../types/normal/IReplyBoard";
 import ReplyBoardService from "../../../services/normal/ReplyBoardService";
 
 function ReplyBoard() {
-  // TODO: 변수 정의
+  // todo: 변수 정의
   // 전체조회 페이지에서 전송한 기본키(bid, boardParent)
   const { bid, boardParent } = useParams();
   // 강제페이지 이동 함수
@@ -28,7 +28,7 @@ function ReplyBoard() {
   // 화면에 수정 성공에 메세지 찍기 변수
   const [message, setMessage] = useState<string>("");
 
-  // TODO: 함수 정의
+  // todo: 함수 정의
   // 상세조회 함수
   const getReplyBoard = (bid: string) => {
     ReplyBoardService.get(bid) // 벡엔드로 상세조회 요청

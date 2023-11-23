@@ -27,18 +27,19 @@ function CodeCategoryList() {
 
   //   전체조회 함수
   const retrieveCodeCategory = () => {
-    CodeCategoryService.getAll(searchCategoryName, page - 1, pageSize) // 벡엔드 전체조회요청
-      .then((response: any) => {
-        const { codeCategory, totalPages } = response.data;
-        // 저장
-        setCodeCategory(codeCategory);
-        setCount(totalPages);
-        // 로그 출력
-        console.log("response", response.data);
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
+    CodeCategoryService.getAll(searchCategoryName, page -1, pageSize) // 벡엔드 전체조회요청
+    .then((response: any)=>{
+      const { codeCategory, totalPages } = response.data;
+      // 저장
+      setCodeCategory(codeCategory);
+      setCount(totalPages);
+      // 로그 출력
+      console.log("response", response.data);
+
+    })
+    .catch((e: Error)=>{
+      console.log(e);
+    })
   };
 
   //  검색어 수동 바인딩 함수
@@ -47,19 +48,20 @@ function CodeCategoryList() {
   };
 
   // todo: handlePageSizeChange(공통) : pageSize 값 변경시 실행되는 함수
-  const handlePageSizeChange = (event: any) => {
-    setPageSize(event.target.value); // 1페이지당 개수저장(3,6,9)
-    setPage(1); // 현재페이지번호 : 1로 강제설정
-  };
+  const handlePageSizeChange = (event: any) => { 
+      setPageSize(event.target.value); // 1페이지당 개수저장(3,6,9)
+      setPage(1); // 현재페이지번호 : 1로 강제설정
+   }
 
   //  todo: Pagination 수동 바인딩(공통)
   //  페이지 번호를 누르면 => page 변수에 값 저장
-  const handlePageChange = (event: any, value: number) => {
-    // value == 화면의 페이지번호
-    setPage(value);
-  };
+  const handlePageChange = (event:any, value:number) => { 
+      // value == 화면의 페이지번호
+      setPage(value);
+   }
 
   return (
+    // 여기
     <>
       {/* 제목 start */}
       <TitleCom title="CodeCategory List" />

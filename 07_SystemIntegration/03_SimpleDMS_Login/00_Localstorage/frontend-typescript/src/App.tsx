@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom"
 import Home from './pages/Home';
 
 function App() {
@@ -11,9 +11,9 @@ function App() {
       </nav>
       {/* 본문 */}
       <div className='mt-5'>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
       </div>
     </div>
   );

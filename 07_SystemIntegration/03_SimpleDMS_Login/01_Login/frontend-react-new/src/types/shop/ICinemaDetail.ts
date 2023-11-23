@@ -1,3 +1,4 @@
+// ICinemaDetail.ts : 인터페이스
 export default interface ICinemaDetail {
     movieCd:string,        // 영화코드를 출력합니다.
     movieNm: string,       // 영화명(국문)을 출력합니다.

@@ -1,7 +1,7 @@
-// Code.tsx : rfce
+// Code.tsx : rfce : 상세조회
 import React, { useEffect, useState } from "react";
 import TitleCom from "../../components/common/TitleCom";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ICode from "../../types/admin/code/ICode";
 import CodeService from "../../services/admin/code/CodeService";
 
@@ -11,6 +11,7 @@ function Code() {
   const { codeId } = useParams();
 
   // 객체 초기화(상세조회 : 기본키 있음)
+  // todo: 객체 초기화
   const initialCode = {
     codeId: 0, // 공통코드ID
     codeName: "", // 공통코드명
@@ -19,7 +20,7 @@ function Code() {
     useYn: "Y", // 사용유무
   };
 
-  // 수정 될 객체
+  // 수정될객체
   const [code, setCode] = useState<ICode>(initialCode);
   // 화면에 수정 성공에 메세지 찍기 변수
   const [message, setMessage] = useState<string>("");
@@ -27,7 +28,7 @@ function Code() {
   // todo: 함수 정의
   // 상세조회 함수
   const getCode = (codeId: string) => {
-    CodeService.get(codeId) // 백엔드로 상세조회 요청
+    CodeService.get(codeId) // 벡엔드로 상세조회 요청
       .then((response: any) => {
         setCode(response.data);
         console.log(response.data);
@@ -48,15 +49,9 @@ function Code() {
     setCode({ ...code, [name]: value });
   };
 
-  // select 태그에 수동 바인딩
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = event.target; // 화면값
-    setCode({ ...code, [name]: value }); // 변수저장
-  };
-
   // 수정 함수
   const updateCode = () => {
-    CodeService.update(code.codeId, code) // 백엔드로 수정요청
+    CodeService.update(code.codeId, code) // 벡엔드로 수정요청
       .then((response: any) => {
         console.log(response.data);
         setMessage("The code was updated successfully!");
@@ -66,7 +61,14 @@ function Code() {
       });
   };
 
+  // todo: select 태그에 수동 바인딩
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = event.target; // 화면값
+    setCode({ ...code, [name]: value }); // 변수저장
+  };
+
   return (
+    // 여기
     <>
       {/* 제목 start */}
       <TitleCom title="Code Detail" />

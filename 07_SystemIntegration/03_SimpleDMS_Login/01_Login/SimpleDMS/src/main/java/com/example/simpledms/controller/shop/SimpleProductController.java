@@ -1,5 +1,6 @@
 package com.example.simpledms.controller.shop;
 
+import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.model.entity.shop.SimpleProduct;
 import com.example.simpledms.service.shop.SimpleProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +37,7 @@ public class SimpleProductController {
     @Autowired
     SimpleProductService simpleProductService; // DI
 
-//    title like 검색
+    //    like 검색
     @GetMapping("/simple-product")
     public ResponseEntity<Object> findAllByTitleContaining(
             @RequestParam(defaultValue = "") String title,
@@ -47,14 +48,14 @@ public class SimpleProductController {
             Pageable pageable = PageRequest.of(page, size);
 
             Page<SimpleProduct> simpleProductPage
-                    = simpleProductService.findAllByTitleContaining(title, pageable);
+                    = simpleProductService
+                        .findAllByTitleContaining(title, pageable);
 
-//          리액트 전송 : simpleProduct 배열 , 페이징정보 [자료구조 : Map<키이름, 값>]
             Map<String, Object> response = new HashMap<>();
-            response.put("simpleProduct", simpleProductPage.getContent());     // simpleProduct 배열
-            response.put("currentPage", simpleProductPage.getNumber());         // 현재페이지번호
-            response.put("totalItems", simpleProductPage.getTotalElements());   // 총건수(개수)
-            response.put("totalPages", simpleProductPage.getTotalPages());      // 총페이지수
+            response.put("simpleProduct", simpleProductPage.getContent()); // simpleProduct 배열
+            response.put("currentPage", simpleProductPage.getNumber()); // 현재페이지번호
+            response.put("totalItems", simpleProductPage.getTotalElements()); // 총건수(개수)
+            response.put("totalPages", simpleProductPage.getTotalPages()); // 총페이지수
 
             if (simpleProductPage.isEmpty() == false) {
 //                성공
@@ -69,7 +70,7 @@ public class SimpleProductController {
         }
     }
 
-//    저장 함수
+    //    저장 함수
     @PostMapping("/simple-product")
     public ResponseEntity<Object> create(@RequestBody SimpleProduct simpleProduct) {
 
@@ -83,14 +84,15 @@ public class SimpleProductController {
         }
     }
 
-//    수정 함수
+    //    수정 함수
     @PutMapping("/simple-product/{spno}")
     public ResponseEntity<Object> update(
             @PathVariable int spno,
             @RequestBody SimpleProduct simpleProduct) {
 
         try {
-            SimpleProduct simpleProduct2 = simpleProductService.save(simpleProduct); // db 수정
+            SimpleProduct simpleProduct2
+                    = simpleProductService.save(simpleProduct); // db 수정
 
             return new ResponseEntity<>(simpleProduct2, HttpStatus.OK);
         } catch (Exception e) {
@@ -99,13 +101,14 @@ public class SimpleProductController {
         }
     }
 
-//    상세조회
+    // 상세조회
     @GetMapping("/simple-product/{spno}")
     public ResponseEntity<Object> findById(@PathVariable int spno) {
 
         try {
 //            상세조회 실행
-            Optional<SimpleProduct> optionalSimpleProduct = simpleProductService.findById(spno);
+            Optional<SimpleProduct> optionalSimpleProduct
+                    = simpleProductService.findById(spno);
 
             if (optionalSimpleProduct.isPresent()) {
 //                성공
@@ -119,4 +122,6 @@ public class SimpleProductController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+
 }

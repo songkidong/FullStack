@@ -11,7 +11,7 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import NotFound from "./pages/common/NotFound";
 import DeptList from "./pages/basic/dept/DeptList";
 import EmpList from "./pages/basic/emp/EmpList";
-import AddDept from "./pages/basic/dept/AddDept";
+import AddDept from './pages/basic/dept/AddDept';
 import AddEmp from "./pages/basic/emp/AddEmp";
 import Dept from "./pages/basic/dept/Dept";
 import Emp from "./pages/basic/emp/Emp";
@@ -22,26 +22,25 @@ import AddCustomer from "./pages/basic/customer/AddCustomer";
 import Qna from "./pages/basic/qna/Qna";
 import Customer from "./pages/basic/customer/Customer";
 import FaqList from "./pages/normal/faq/FaqList";
-import AddFaq from "./pages/normal/faq/AddFaq";
 import CinemaFaqList from "./pages/normal/cinema/CinemaFaqList";
-import AddCinemaFaq from "./pages/normal/cinema/AddCinemaFaq";
+import AddFaq from "./pages/normal/faq/AddFaq";
+import AddCinemaFaq from './pages/normal/cinema/AddCinemaFaq';
 import Faq from "./pages/normal/faq/Faq";
 import CinemaFaq from "./pages/normal/cinema/CinemaFaq";
-import ReplyBoardList from "./pages/normal/reply-board/ReplyBoardList";
+import ReplyBoardList from './pages/normal/reply-board/ReplyBoardList';
 import ThreadBoardList from "./pages/normal/thread-board/ThreadBoardList";
 import AddReplyBoard from "./pages/normal/reply-board/AddReplyBoard";
 import AddThreadBoard from "./pages/normal/thread-board/AddThreadBoard";
 import ReplyBoard from "./pages/normal/reply-board/ReplyBoard";
-import ThreadBoard from "./pages/normal/thread-board/ThreadBoard";
 import CodeCategoryList from "./pages/admin/CodeCategoryList";
-import AddCodeCategory from "./pages/admin/AddCodeCategory";
+import AddCodeCategory from './pages/admin/AddCodeCategory';
 import CodeList from "./pages/admin/CodeList";
 import AddCode from "./pages/admin/AddCode";
 import Code from "./pages/admin/Code";
-import SimpleProductList from "./pages/shop/simple-product/SimpleProductList";
+import SimpleProductList from './pages/shop/simple-product/SimpleProductList';
 import ProductList from "./pages/shop/product/ProductList";
-import AddSimpleProduct from "./pages/shop/simple-product/AddSimpleProduct";
-import AddProduct from "./pages/shop/product/AddProduct";
+import AddSimpleProduct from './pages/shop/simple-product/AddSimpleProduct';
+import AddProduct from './pages/shop/product/AddProduct';
 import SimpleProduct from "./pages/shop/simple-product/SimpleProduct";
 import Product from "./pages/shop/product/Product";
 import SimpleCart from "./pages/shop/simple-product/SimpleCart";
@@ -69,6 +68,8 @@ function App() {
         <Routes>
           {/* login */}
           <Route path="/" element={<Home />} />
+          {/* 별칭 라우터  */}
+          <Route path="/home" element={<Home />} /> 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -106,20 +107,13 @@ function App() {
           {/* reply-board */}
           <Route path="/reply-board" element={<ReplyBoardList />} />
           <Route path="/add-reply-board" element={<AddReplyBoard />} />
-          {/* boardParent = 0 이면 부모글을 클릭 */}
-          {/* boardParent = 0 이 아니면 자식글을 클릭 */}
-          <Route
-            path="/reply-board/bid/:bid/boardParent/:boardParent"
-            element={<ReplyBoard />}
-          />
+          {/* 정리 : boardParent = 0 이면 부모글을 클릭 */}
+          {/* 정리 : boardParent = 0 아니면 자식글을 클릭 */}
+          <Route path="/reply-board/bid/:bid/boardParent/:boardParent" element={<ReplyBoard />} />
 
           {/* thread-board */}
           <Route path="/thread-board" element={<ThreadBoardList />} />
           <Route path="/add-thread-board" element={<AddThreadBoard />} />
-          <Route
-            path="/thread-board/tid/:tid/tparent/:tparent"
-            element={<ThreadBoard />}
-          />
 
           {/* codeCategory(대분류 공통코드(부모)) */}
           <Route path="/code-category" element={<CodeCategoryList />} />

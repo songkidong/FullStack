@@ -4,8 +4,6 @@ import IEmp from "../../../types/basic/IEmp";
 import EmpService from "../../../services/basic/EmpService";
 
 function AddEmp() {
-
-  // 객체 초기화
   const initialEmp = {
     eno: null,
     ename: "",
@@ -17,20 +15,16 @@ function AddEmp() {
     dno: null,
   };
 
-  // 사원 객체
   const [emp, setEmp] = useState<IEmp>(initialEmp);
-  // 저장버튼 클릭 후 submitted == true 변경됨
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  // input 태그에 수동 바인딩
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target; // 화면값
-    setEmp({ ...emp, [name]: value }); // 변수저장
+    const { name, value } = event.target;
+    setEmp({ ...emp, [name]: value });
   };
 
-  // 저장 함수
   const saveEmp = () => {
-    EmpService.create(emp) // 저장 요청
+    EmpService.create(emp)
       .then((response: any) => {
         setSubmitted(true);
         console.log(response.data);
@@ -40,10 +34,9 @@ function AddEmp() {
       });
   };
 
-  // 새폼 보여주기 함수 : 변수값 변경 -> 화면 자동 갱신(리액트 특징)
   const newEmp = () => {
-    setEmp(initialEmp); // 사원 초기화
-    setSubmitted(false); // submitted 변수 초기화
+    setEmp(initialEmp);
+    setSubmitted(false);
   };
 
   return (

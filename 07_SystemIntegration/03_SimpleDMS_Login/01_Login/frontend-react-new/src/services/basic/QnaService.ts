@@ -1,13 +1,12 @@
-// QnaService.ts : axios 공통함수 (백엔드 CRUD 연동 함수)
-
+// QnaService.ts : axios 공통함수 (벡엔드 CRUD 연동 함수)
 import IQna from "../../types/basic/IQna";
 import http from "../../utils/http-common";
 
-// 전체 조회 + like 검색(paging 기능: page(현재페이지), size(1페이지당개수))
-// select박스 : (question) 입력창 : 질문 like 검색
-// select박스 : (questioner) 입력창 : 질문자 like 검색
-//       변수 : searchSelect(question, questioner)
-//       변수 : searchKeyword : 검색어
+// 전체 조회 + like 검색(paging 기능 : page(현재페이지), size(1페이지당개수))
+// 셀렉트박스 : (question)   입력창 : 질문 like 검색
+// 셀렉트박스 : (questioner) 입력창 : 질문자 like 검색
+//   변수 : searchSelect (question, questioner)
+//   변수 : searchKeyword : 검색어
 const getAll = (searchSelect:string, searchKeyword:string, page:number, size:number) => {
     return http.get<Array<IQna>>(`/basic/qna?searchSelect=${searchSelect}&searchKeyword=${searchKeyword}&page=${page}&size=${size}`);
   };
@@ -17,17 +16,15 @@ const getAll = (searchSelect:string, searchKeyword:string, page:number, size:num
     return http.get<IQna>(`/basic/qna/${qno}`);
   };
   
-  // 저장 함수
+  // 저장함수
   const create = (data:IQna) => {
     return http.post<IQna>("/basic/qna", data);
   };
-  
-  // 수정 함수
+  // 수정함수
   const update = (qno:any, data:IQna) => {
     return http.put<any>(`/basic/qna/${qno}`, data);
   };
-  
-  // 삭제 함수
+  // 삭제함수
   const remove = (qno:any) => {
     return http.delete<any>(`/basic/qna/deletion/${qno}`);
   };

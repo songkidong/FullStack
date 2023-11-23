@@ -22,11 +22,11 @@ function AddFileDb() {
   const [selectedFiles, setSelectedFiles] = useState<FileList>();
 
   // todo: 함수 정의
-
+  
   // todo: input 태그에 수동 바인딩
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target; // 화면값
-    setUploadFileDb({ ...uploadFileDb, [name]: value }); // 변수저장
+    setUploadFileDb({ ...uploadFileDb, [name]: value });  // 변수저장
   };
 
   // 저장 함수
@@ -35,9 +35,9 @@ function AddFileDb() {
     // 변수명? => 옵셔널체이닝 , 변수의 값이 null 이면 undefined 바꾸어줌
     let currentFile = selectedFiles?.[0]; // 1st 선택된 파일
 
-    FileDbService.upload(uploadFileDb, currentFile) // 저장 요청
+    FileDbService.upload(uploadFileDb, currentFile)    // 저장 요청
       .then((response: any) => {
-        setMessage("성공했습니다.");
+        setMessage("성공했습니다.")
         console.log(response.data);
       })
       .catch((e: Error) => {
@@ -45,14 +45,14 @@ function AddFileDb() {
       });
   };
 
-  //   todo: 파일 선택상자에서 이미지 선택시 실행되는 함수
-  // 파일 선택상자 html 태그 : <input type="file" />
-  const selectFile = (event: any) => {
+//   todo: 파일 선택상자에서 이미지 선택시 실행되는 함수
+// 파일 선택상자 html 태그 : <input type="file" />
+const selectFile = (event:any) => { 
     // 화면에서 이미지 선택시 저장된 객체 : event.target.files
     // 변수명 as 타입 : 개발자가 변수가 무조건 특정 타입이라고 보증함
     //                 (타입스크립트에서 체크 안함)
-    setSelectedFiles(event.target.files as FileList);
-  };
+    setSelectedFiles(event.target.files as FileList)
+ }
 
   return (
     // 여기

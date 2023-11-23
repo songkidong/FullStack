@@ -1,3 +1,4 @@
+// IThemaLoad.ts : 인터페이스
 export default interface IThemaLoad {
     "식당(ID)": number;      // 식당 ID
     "식당명": string;           // 식당명

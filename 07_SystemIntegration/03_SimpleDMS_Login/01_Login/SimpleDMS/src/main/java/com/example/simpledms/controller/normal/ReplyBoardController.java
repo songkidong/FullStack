@@ -38,7 +38,7 @@ public class ReplyBoardController {
     @Autowired
     ReplyBoardService replyBoardService;
 
-//  전체 조회(계층형, dto) : like 검색
+    //    전체 조회(계층형, dto) : like 검색
     @GetMapping("/reply-board")
     public ResponseEntity<Object> selectByConnectByPage(
             @RequestParam(defaultValue = "") String boardTitle,
@@ -59,10 +59,10 @@ public class ReplyBoardController {
             response.put("totalPages", replyBoardDtoPage.getTotalPages()); // 총페이지수
 
             if (replyBoardDtoPage.isEmpty() == false) {
-//              성공
+//                성공
                 return new ResponseEntity<>(response, HttpStatus.OK);
             } else {
-//              데이터 없음
+//                데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public class ReplyBoardController {
         }
     }
 
-//  답변글 저장
+    //    답변글 저장
     @PostMapping("/reply")
     public ResponseEntity<Object> create(@RequestBody ReplyBoard replyBoard) {
 
@@ -80,12 +80,12 @@ public class ReplyBoardController {
 
             return new ResponseEntity<>(replyBoard2, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  게시물 저장
+    //    게시물 저장
     @PostMapping("/reply-board")
     public ResponseEntity<Object> createBoard(@RequestBody ReplyBoard replyBoard) {
 
@@ -94,12 +94,12 @@ public class ReplyBoardController {
 
             return new ResponseEntity<>(insertCount, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  수정함수
+    //    수정함수
     @PutMapping("/reply-board/{bid}")
     public ResponseEntity<Object> update(
             @PathVariable int bid,
@@ -110,24 +110,24 @@ public class ReplyBoardController {
 
             return new ResponseEntity<>(replyBoard2, HttpStatus.OK);
         } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
+//            DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  상세조회
+    //    상세조회
     @GetMapping("/reply-board/{bid}")
     public ResponseEntity<Object> findById(@PathVariable int bid) {
 
         try {
-//          상세조회 실행
+//            상세조회 실행
             Optional<ReplyBoard> optionalReplyBoard = replyBoardService.findById(bid);
 
             if (optionalReplyBoard.isPresent()) {
-//              성공
+//                성공
                 return new ResponseEntity<>(optionalReplyBoard.get(), HttpStatus.OK);
             } else {
-//              데이터 없음
+//                데이터 없음
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
         } catch (Exception e) {
@@ -137,47 +137,47 @@ public class ReplyBoardController {
     }
 
 
-//  답변만 삭제
-//  TODO: /reply-board/{bid} => /reply/deletion/{bid} 수정
+    //    답변만 삭제
+//            todo: /reply-board/{bid} => /reply/deletion/{bid} 수정
     @DeleteMapping("/reply/deletion/{bid}")
     public ResponseEntity<Object> delete(@PathVariable int bid) {
 
-//      프론트엔드 쪽으로 상태정보를 보내줌
+//        프론트엔드 쪽으로 상태정보를 보내줌
         try {
-//          삭제함수 호출
+//            삭제함수 호출
             boolean bSuccess = replyBoardService.removeById(bid);
 
             if (bSuccess == true) {
-//              delete 문이 성공했을 경우
+//                delete 문이 성공했을 경우
                 return new ResponseEntity<>(HttpStatus.OK);
             }
-//          delete 실패했을 경우( 0건 삭제가 될경우 )
+//            delete 실패했을 경우( 0건 삭제가 될경우 )
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-//          DB 에러가 날경우
+//            DB 에러가 날경우
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-//  게시물 + 답변 2개이상 삭제
-//  TODO: /reply-board/deletion/{boardGroup}
+    //    게시물 + 답변 2개이상 삭제
+//        todo: /reply-board/deletion/{boardGroup}
     @DeleteMapping("/reply-board/deletion/{boardGroup}")
     public ResponseEntity<Object> deleteBoard(@PathVariable int boardGroup) {
 
-//      프론트엔드 쪽으로 상태정보를 보내줌
+//        프론트엔드 쪽으로 상태정보를 보내줌
         try {
-//          삭제함수 호출
-//          TODO: removeById() =>  removeAllByBoardGroup 수정
+//            삭제함수 호출
+//            todo: removeById() =>  removeAllByBoardGroup 수정
             boolean bSuccess = replyBoardService.removeAllByBoardGroup(boardGroup);
 
             if (bSuccess == true) {
-//              delete 문이 성공했을 경우
+//                delete 문이 성공했을 경우
                 return new ResponseEntity<>(HttpStatus.OK);
             }
-//          delete 실패했을 경우( 0건 삭제가 될경우 )
+//            delete 실패했을 경우( 0건 삭제가 될경우 )
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
-//          DB 에러가 날경우
+//            DB 에러가 날경우
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

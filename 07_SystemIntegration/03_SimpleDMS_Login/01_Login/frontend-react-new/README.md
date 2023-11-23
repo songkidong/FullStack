@@ -18,6 +18,7 @@ import Pagination from '@mui/material/Pagination';
 # 5) typescript jquery, jqueryui type 넣기
 # 5-1) typescript jquery 사용
 npm i --save-dev @types/jquery
+npm i @types/jqueryui
 
 
 # 6) 공통코드 : 프로젝트 시작 시 코드체계를 정의하고 
@@ -31,6 +32,7 @@ npm i --save-dev @types/jquery
 #               확정 == 10004
 #  - 관리 개선(공통 코드 적용) : 상품명(아우터) - 상태명(10002)
 
+
 # 6) 공유라이브러리 리덕스-툴킷 설치
 npm i react-redux @reduxjs/toolkit
 
@@ -42,11 +44,15 @@ npm i formik
 npm i yup
 npm i @types/yup
 
+
 # 로그인 추가 순서
 0) App.tsx : /home 라우터  추가
 0) index.tsx : <Provider store={store}></Provider> 추가
+  - 리덕스 추가(공유저장소)
 1) types - auth 생성
 2) store 생성
 3) services - auth 생성
 4) pages - auth 생성
 5) components/common - HeaderCom.tsx : 추가 로직 작성
+- 로그인되면(true) : 회원가입(숨김) - 로그인(숨김 : 로그아웃)
+- 로그아웃되면     : 회원가입(보임) - 로그인(보임 : 로그아웃(숨김))

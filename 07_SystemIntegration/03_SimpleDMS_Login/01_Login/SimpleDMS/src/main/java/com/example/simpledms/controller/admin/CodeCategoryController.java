@@ -37,7 +37,9 @@ public class CodeCategoryController {
     @Autowired
     CodeCategoryService codeCategoryService; // DI
 
-    /** like 검색 : 페이징 */
+    /**
+     * like 검색 : 페이징
+     */
 //    전체 조회 + categoryName like 검색
     @GetMapping("/code-category")
     public ResponseEntity<Object> findAllByCategoryNameContaining(
@@ -49,7 +51,8 @@ public class CodeCategoryController {
             Pageable pageable = PageRequest.of(page, size);
 
             Page<CodeCategory> codeCategoryPage
-                    = codeCategoryService.findAllByCategoryNameContaining(categoryName, pageable);
+                    = codeCategoryService
+                    .findAllByCategoryNameContaining(categoryName, pageable);
 
             Map<String, Object> response = new HashMap<>();
             response.put("codeCategory", codeCategoryPage.getContent()); // 대분류코드배열
@@ -70,7 +73,10 @@ public class CodeCategoryController {
         }
     }
 
-    /** 저장 함수 */
+    /**
+     * 저장 함수
+     */
+//    저장 함수
     @PostMapping("/code-category")
     public ResponseEntity<Object> create(@RequestBody CodeCategory codeCategory) {
 
@@ -84,7 +90,7 @@ public class CodeCategoryController {
         }
     }
 
-//    전체 조회 : 페이징 없음
+    //    전체 조회 : 페이징 없음
     @GetMapping("/code-category/all")
     public ResponseEntity<Object> findAllByNoPage() {
         try {
@@ -102,5 +108,4 @@ public class CodeCategoryController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }

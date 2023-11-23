@@ -28,16 +28,17 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    UserRepository userRepository; // DI
+    private UserRepository userRepository; // DI
 
-//    전체 조회 + 페이징
+
+    //    전체 조회 + 페이징
     public Page<User> findAll(Pageable pageable) {
         Page<User> page = userRepository.findAll(pageable);
 
         return page;
     }
 
-//    username like 조회 + 페이징
+    //    dname like 조회 + 페이징
     public Page<User> findAllByUsernameContaining(String username, Pageable pageable) {
         Page<User> page
                 = userRepository.findAllByUsernameContaining(username, pageable);
@@ -45,7 +46,7 @@ public class UserService {
         return page;
     }
 
-//    저장함수(수정함수)
+    //    저장함수(수정함수)
     public User save(User user) {
 
         User user2 = userRepository.save(user);
@@ -53,7 +54,7 @@ public class UserService {
         return user2;
     }
 
-//    상세조회(1건조회)
+    //    상세조회(1건조회)
     public Optional<User> findById(String email) {
         Optional<User> optionalUser
                 = userRepository.findById(email);
@@ -61,7 +62,7 @@ public class UserService {
         return optionalUser;
     }
 
-//    삭제함수
+    //    삭제함수
     public boolean removeById(String email) {
         if(userRepository.existsById(email)) { // email 있는지 확인
             userRepository.deleteById(email); // 삭제 진행
@@ -70,10 +71,19 @@ public class UserService {
         return false;
     }
 
-//    TODO: email 있는지 확인하는 함수
+//    todo: email 있는지 확인하는 함수
     public boolean existsById(String email) {
         boolean bResult = userRepository.existsById(email);
 
         return bResult;
     }
 }
+
+
+
+
+
+
+
+
+

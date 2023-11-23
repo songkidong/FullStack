@@ -10,8 +10,9 @@ import IUser from "../../types/auth/IUser";
 import { login } from "../../store/slices/auth";
 
 // 1) 로그인 로직
-// 2) 유효성 체크 lib 사용 : Yup & Formik
+// 2) 유효성 체크 lib 사용 : Yup & Formik 
 function Login() {
+
   // todo: 변수 정의
   // 강제 페이지 이동 함수
   let navigate = useNavigate();
@@ -19,7 +20,7 @@ function Login() {
   // todo: 공유저장소 변수(state.변수명) 가져오기
   // todo: 사용법 : useSelector((state)=> state.변수명)
   // 로그인 정보 상태변수(true/false)
-  const { isLoggedIn } = useSelector((state: RootState) => state.auth);
+  const { isLoggedIn } = useSelector((state: RootState)=> state.auth);
 
   // todo: 공유저장소 함수 가져오기
   // todo: 사용법 : useAppDispatch() 함수 이용 : dispatch(함수명)
@@ -31,8 +32,8 @@ function Login() {
   // todo: 체크 대상 (email, password : input태그(==Field태그))
   const initialValues = {
     email: "",
-    password: "",
-  };
+    password: ""
+  }
 
   // todo: 함수 정의
   // todo: 유효성 체크 lib 함수(Formit lib : validationSchema )
@@ -48,41 +49,42 @@ function Login() {
 
   // isLoggedIn = true (로그인 상태변수(true/false))
   // 강제로 /home 이동
-  if (isLoggedIn) {
+  if(isLoggedIn) {
     navigate("/home"); // 강제 페이지 이동
   }
 
   // 로그인 버튼 클릭시 실행되는 함수 : submit(Formit)
   // Formit lib 에서 자동으로 email, password 값을 넘겨줌
-  const handleLogin = (formValue: any) => {
+  const handleLogin = (formValue: any) => { 
     // Formit 넘겨준 email, password 값 저장
-    const { email, password } = formValue;
+      const { email, password } = formValue;
 
-    // 임시 객체
+    // 임시 객체 
     const data: IUser = {
       // 예) email:email => email (간략 표기 가능)
       email,
       password,
       username: "",
-      codeName: "ROLE_USER", // 일반 유저 권한
-    };
+      codeName: "ROLE_USER"   // 일반 유저 권한       
+    }
 
     // todo: 벡엔드 로그인 함수(공유 로그인 함수) 호출
     dispatch(login(data))
-      .unwrap() // 리덕스의 공유함수 에러처리를 실행하게 하는 함수
-      .then(() => {
+      .unwrap()    // 리덕스의 공유함수 에러처리를 실행하게 하는 함수
+      .then(()=>{
         alert("로그인 성공했습니다.");
         // 강제 /home 페이지 이동
         navigate("/home");
         // js : 페이지 새로고침
         window.location.reload();
       })
-      .catch((e: Error) => {
+      .catch((e:Error)=>{
         console.log(e);
       });
-  };
+   }
 
   return (
+    // 여기
     <div>
       <div className="row justify-content-center">
         <div className="col-xl-10 col-lg-12 col-md-9">
@@ -97,10 +99,10 @@ function Login() {
                       <h1 className="h4 mb-4">Welcome Back!</h1>
                     </div>
                     {/* validationSchema : Formik 유효성 체크 함수 */}
-                    <Formik // 유효성 체크가 있는 Formik lib
-                      initialValues={initialValues} // 객체(체크 대상:email,password) 초기값
-                      validationSchema={validationSchema} // 유효성 체크 함수
-                      onSubmit={handleLogin} // 로그인함수 실행(벡엔드 전송)
+                    <Formik                          // 유효성 체크가 있는 Formik lib                        
+                      initialValues={initialValues}  // 객체(체크 대상:email,password) 초기값
+                      validationSchema={validationSchema}  // 유효성 체크 함수
+                      onSubmit={handleLogin}               // 로그인함수 실행(벡엔드 전송)
                     >
                       {/* Form  : form 태그와 같음 */}
                       {/* Field : input 태그와 같음 */}
@@ -200,7 +202,7 @@ function Login() {
           </div>
         </div>
       </div>
-    </div>
+    </div>    
   );
 }
 

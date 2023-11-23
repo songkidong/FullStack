@@ -1,36 +1,29 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+﻿import React, { useEffect, useState } from "react";
 import TitleCom from "../../../components/common/TitleCom";
+import { useNavigate, useParams } from "react-router-dom";
 import IEmp from "../../../types/basic/IEmp";
 import EmpService from "../../../services/basic/EmpService";
 
 function Emp() {
-
-  // 전체조회 페이지에서 전송한 기본키(eno)
   const { eno } = useParams();
-  // 강제페이지 이동 함수
   let navigate = useNavigate();
 
-  // 객체 초기화(상세조회 : 기본키 있음)
   const initialEmp = {
-    eno: "",
+    eno: null,
     ename: "",
     job: "",
-    manager: "",
+    manager: null,
     hiredate: "",
-    salary: "",
-    commission: "",
-    dno: "",
+    salary: null,
+    commission: null,
+    dno: null,
   };
 
-  // 수정 될 객체
   const [emp, setEmp] = useState<IEmp>(initialEmp);
-  // 화면에 수정 성공에 메세지 찍기 변수
   const [message, setMessage] = useState<string>("");
 
-  // 상세조회 함수
-  const getEmp = (eno: string) => {
-    EmpService.get(eno) // 백엔드로 상세조회 요청
+  const getEmp = (eno: any) => {
+    EmpService.get(eno)
       .then((response: any) => {
         setEmp(response.data);
         console.log(response.data);
@@ -40,32 +33,28 @@ function Emp() {
       });
   };
 
-  // 화면이 뜰때 실행되는 이벤트 + eno 값이 바뀌면 실행
   useEffect(() => {
     if (eno) getEmp(eno);
   }, [eno]);
 
-  // input 태그 수동 바인딩
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setEmp({ ...emp, [name]: value });
   };
 
-  // 수정 함수
   const updateEmp = () => {
-    EmpService.update(emp.eno, emp) // 백엔드로 수정요청
+    EmpService.update(emp.eno, emp)
       .then((response: any) => {
         console.log(response.data);
-        setMessage("The emp was updated successfully!");
+        setMessage("The dept was updated successfully!");
       })
       .catch((e: Error) => {
         console.log(e);
       });
   };
 
-  // 삭제 함수
   const deleteEmp = () => {
-    EmpService.remove(emp.eno) // 백엔드로 삭제요청
+    EmpService.remove(emp.eno)
       .then((response: any) => {
         console.log(response.data);
         // 페이지 이동
@@ -109,11 +98,10 @@ function Emp() {
 
               <div className="row g-3 align-items-center mb-3">
                 <div className="col-3">
-                  <label htmlFor="job" className="col-form-label">
+                  <label htmlFor="loc" className="col-form-label">
                     Job
                   </label>
                 </div>
-
                 <div className="col-9">
                   <input
                     type="text"
@@ -130,11 +118,10 @@ function Emp() {
 
               <div className="row g-3 align-items-center mb-3">
                 <div className="col-3">
-                  <label htmlFor="manager" className="col-form-label">
-                  Manager
+                  <label htmlFor="loc" className="col-form-label">
+                    Manager
                   </label>
                 </div>
-
                 <div className="col-9">
                   <input
                     type="text"
@@ -151,11 +138,10 @@ function Emp() {
 
               <div className="row g-3 align-items-center mb-3">
                 <div className="col-3">
-                  <label htmlFor="hiredate" className="col-form-label">
+                  <label htmlFor="loc" className="col-form-label">
                     Hiredate
                   </label>
                 </div>
-
                 <div className="col-9">
                   <input
                     type="text"
@@ -172,11 +158,10 @@ function Emp() {
 
               <div className="row g-3 align-items-center mb-3">
                 <div className="col-3">
-                  <label htmlFor="salary" className="col-form-label">
+                  <label htmlFor="loc" className="col-form-label">
                     Salary
                   </label>
                 </div>
-
                 <div className="col-9">
                   <input
                     type="text"
@@ -193,18 +178,17 @@ function Emp() {
 
               <div className="row g-3 align-items-center mb-3">
                 <div className="col-3">
-                  <label htmlFor="commission" className="col-form-label">
-                  Commission
+                  <label htmlFor="loc" className="col-form-label">
+                    Commission
                   </label>
                 </div>
-
                 <div className="col-9">
                   <input
                     type="text"
                     id="commission"
                     required
                     className="form-control"
-                    value={emp.commission}
+                    value={emp.commission?? ""}
                     onChange={handleInputChange}
                     placeholder="commission"
                     name="commission"
@@ -214,11 +198,10 @@ function Emp() {
 
               <div className="row g-3 align-items-center mb-3">
                 <div className="col-3">
-                  <label htmlFor="dno" className="col-form-label">
-                  Dno
+                  <label htmlFor="loc" className="col-form-label">
+                    Dno
                   </label>
                 </div>
-
                 <div className="col-9">
                   <input
                     type="text"
@@ -235,10 +218,7 @@ function Emp() {
             </form>
 
             <div className="row g-3 mt-3 mb-3">
-              <button
-                onClick={deleteEmp}
-                className="btn btn-outline-danger ms-3 col"
-              >
+              <button onClick={deleteEmp} className="btn btn-outline-danger ms-3 col">
                 Delete
               </button>
 

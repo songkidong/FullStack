@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
  * 2023-10-27         GGG          최초 생성
  */
 public interface ThreadBoardDto {
-    //    속성 x -> getter 함수
+//    속성 x -> getter 함수
     public Integer getTid();
     public String getSubject();
     public String getMainText();

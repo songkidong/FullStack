@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 public interface ThreadBoardRepository extends JpaRepository<ThreadBoard, Integer> {
-//    계층형 쿼리(Connect by)
+    //    계층형 쿼리(Connect by)
     @Query(value = "SELECT tid           AS tid  " +
             "     , LPAD('⤵', (LEVEL-1))|| subject   AS subject  " +
             "     , main_text     AS mainText  " +
@@ -46,11 +46,7 @@ public interface ThreadBoardRepository extends JpaRepository<ThreadBoard, Intege
             Pageable pageable
     );
 
-//  게시물 저장 함수 : 최초 생성 (tgroup(그룹번호), tparent(부모번호))
-//    => tgroup(부모번호 == 자식번호(tid)), tparent(0(최초생성), 부모번호)
-//  todo: JPA insert 문 직접 작성 (dml: 테이블 데이터 변경, 트랜잭션을 동반)
-//    ==> @Transactional(트랜잭션을 동반), @Modifying(테이블 데이터 변경)
-//    ==> 예) 변수 전달 - :#{#threadBoard.subject}
+    //  게시물 저장 함수 : 최초 저장 (tparent = 0, tgroup=tid)
     @Transactional
     @Modifying
     @Query(value = "INSERT INTO TB_THREAD_BOARD " +
@@ -61,15 +57,4 @@ public interface ThreadBoardRepository extends JpaRepository<ThreadBoard, Intege
             "            TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), NULL, NULL) ",
             nativeQuery = true)
     int insertByBoard(@Param("threadBoard") ThreadBoard threadBoard);
-
-//    게시물 + 답변글 2개 삭제 함수 : 소프트 삭제 (update 문 직접 작성)
-    @Transactional
-    @Modifying
-    @Query(value = "UPDATE TB_THREAD_BOARD " +
-            "SET DELETE_YN = 'Y' " +
-            "  , DELETE_TIME = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') " +
-            "WHERE tgroup = :tgroup", nativeQuery = true)
-    int removeAllByTgroup(@Param("tgroup") int tgroup);
-
-
 }

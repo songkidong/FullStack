@@ -6,7 +6,7 @@ import IQna from "../../../types/basic/IQna";
 import QnaService from "../../../services/basic/QnaService";
 
 function Qna() {
-  // 변수 정의
+  // todo: 변수 정의
   // 전체조회 페이지에서 전송한 기본키(qno)
   const { qno } = useParams();
   // 강제페이지 이동 함수
@@ -76,6 +76,7 @@ function Qna() {
   };
 
   return (
+    // 여기
     <>
       {/* 제목 start */}
       <TitleCom title="Qna Detail" />
@@ -108,29 +109,6 @@ function Qna() {
               </div>
               {/* question 입력창 끝 */}
 
-              {/* questioner 입력창 시작 */}
-              <div className="row g-3 align-items-center mb-3">
-                <div className="col-3">
-                  <label htmlFor="questioner" className="col-form-label">
-                    Questioner
-                  </label>
-                </div>
-
-                <div className="col-9">
-                  <input
-                    type="text"
-                    id="questioner"
-                    required
-                    className="form-control"
-                    value={qna.questioner}
-                    onChange={handleInputChange}
-                    placeholder="questioner"
-                    name="questioner"
-                  />
-                </div>
-              </div>
-              {/* questioner 입력창 끝 */}
-
               {/* answer 입력창 시작 */}
               <div className="row g-3 align-items-center mb-3">
                 <div className="col-3">
@@ -153,6 +131,29 @@ function Qna() {
                 </div>
               </div>
               {/* answer 입력창 끝 */}
+
+              {/* questioner 입력창 시작 */}
+              <div className="row g-3 align-items-center mb-3">
+                <div className="col-3">
+                  <label htmlFor="questioner" className="col-form-label">
+                    Questioner
+                  </label>
+                </div>
+
+                <div className="col-9">
+                  <input
+                    type="text"
+                    id="questioner"
+                    required
+                    className="form-control"
+                    value={qna.questioner}
+                    onChange={handleInputChange}
+                    placeholder="questioner"
+                    name="questioner"
+                  />
+                </div>
+              </div>
+              {/* questioner 입력창 끝 */}
 
               {/* answerer 입력창 시작 */}
               <div className="row g-3 align-items-center mb-3">

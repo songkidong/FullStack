@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * packageName : com.example.simpledms.controller.normal
@@ -100,85 +99,5 @@ public class ThreadBoardController {
         }
     }
 
-//  수정함수
-    @PutMapping("/thread-board/{tid}")
-    public ResponseEntity<Object> update(
-            @PathVariable int tid,
-            @RequestBody ThreadBoard threadBoard) {
 
-        try {
-            ThreadBoard threadBoard2 = threadBoardService.save(threadBoard); // db 수정
-
-            return new ResponseEntity<>(threadBoard2, HttpStatus.OK);
-        } catch (Exception e) {
-//          DB 에러가 났을경우 : INTERNAL_SERVER_ERROR 프론트엔드로 전송
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-//  상세조회
-    @GetMapping("/thread-board/{tid}")
-    public ResponseEntity<Object> findById(@PathVariable int tid) {
-
-        try {
-//          상세조회 실행
-            Optional<ThreadBoard> optionalThreadBoard = threadBoardService.findById(tid);
-
-            if (optionalThreadBoard.isPresent()) {
-//              성공
-                return new ResponseEntity<>(optionalThreadBoard.get(), HttpStatus.OK);
-            } else {
-//              데이터 없음
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-        } catch (Exception e) {
-//            서버 에러
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-//  답변만 삭제
-//  TODO: /thread-board/{tid} => /thread/deletion/{tid} 수정
-    @DeleteMapping("/thread/deletion/{tid}")
-    public ResponseEntity<Object> delete(@PathVariable int tid) {
-
-//      프론트엔드 쪽으로 상태정보를 보내줌
-        try {
-//          삭제함수 호출
-            boolean bSuccess = threadBoardService.removeById(tid);
-
-            if (bSuccess == true) {
-//              delete 문이 성공했을 경우
-                return new ResponseEntity<>(HttpStatus.OK);
-            }
-//          delete 실패했을 경우( 0건 삭제가 될경우 )
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-//          DB 에러가 날경우
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-//  게시물 + 답변 2개이상 삭제
-//  TODO: /thread-board/deletion/{tgroup}
-    @DeleteMapping("/thread-board/deletion/{tgroup}")
-    public ResponseEntity<Object> deleteBoard(@PathVariable int tgroup) {
-
-//      프론트엔드 쪽으로 상태정보를 보내줌
-        try {
-//          삭제함수 호출
-//          TODO: removeById() =>  removeAllByTgroup 수정
-            boolean bSuccess = threadBoardService.removeAllByTgroup(tgroup);
-
-            if (bSuccess == true) {
-//              delete 문이 성공했을 경우
-                return new ResponseEntity<>(HttpStatus.OK);
-            }
-//          delete 실패했을 경우( 0건 삭제가 될경우 )
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-//          DB 에러가 날경우
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
 }

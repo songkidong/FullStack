@@ -7,10 +7,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * packageName : com.example.simpledms.model.entity.advanced
@@ -20,7 +17,7 @@ import javax.persistence.Table;
  * description : 첨부파일 엔티티
  * 요약 :
  *      1) 시퀀스 안씀 -> uuid 사용 (전세계 유일한 값)
- *      2) 저장될 첨부파일명 -> uuid명 으로 저장
+ *      2) 저장될 첨부파일명 -> uuid 명으로 저장
  * <p>
  * ===========================================================
  * DATE            AUTHOR             NOTE
@@ -41,18 +38,18 @@ import javax.persistence.Table;
 @Where(clause = "DELETE_YN = 'N'")
 @SQLDelete(sql = "UPDATE TB_FILE_DB SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE UUID = ?")
 public class FileDb extends BaseTimeEntity {
-//    속성 === TB_FILE_DB 테이블 컬럼명
+//    속성 === TB_FILE_DB 테이블 컬럼명(일치)
     @Id
-    private String uuid;        // 기본키
+    private String uuid;          // 기본키
 
-    private String fileTitle;   // 제목
+    private String fileTitle;
 
-    private String fileContent; // 내용
+    private String fileContent;
 
-    private String fileName;    // 파일명
+    private String fileName;
 
     @Lob
-    private byte[] fileData;    // 첨부파일(이진(바이너리)파일)
+    private byte[] fileData;     // 첨부파일(이진파일)
 
-    private String fileUrl;     // 파일 다운로드 URL
+    private String fileUrl;      // 파일 다운로드 URL
 }

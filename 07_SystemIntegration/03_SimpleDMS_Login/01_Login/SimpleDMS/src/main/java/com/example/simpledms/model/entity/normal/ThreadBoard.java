@@ -42,7 +42,7 @@ import javax.persistence.*;
 @Where(clause = "DELETE_YN = 'N'")
 @SQLDelete(sql = "UPDATE TB_THREAD_BOARD SET DELETE_YN = 'Y', DELETE_TIME=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') WHERE TID = ?")
 public class ThreadBoard extends BaseTimeEntity {
-    //    속성
+//    속성
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE
             , generator = "SQ_THREAD_BOARD_GENERATOR")

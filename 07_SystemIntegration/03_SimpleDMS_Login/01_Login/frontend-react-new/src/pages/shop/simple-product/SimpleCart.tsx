@@ -8,7 +8,7 @@ import SimpleProductService from "../../../services/shop/SimpleProductService";
 import SimpleCartService from "../../../services/shop/SimpleCartService";
 
 function SimpleCart() {
-  // TODO: 변수 정의
+  // todo: 변수 정의
   // 전체조회 페이지에서 전송한 기본키(spno)
   const { spno } = useParams();
   // 강제페이지 이동 함수
@@ -33,7 +33,7 @@ function SimpleCart() {
   // todo: 장바구니 물품 개수를 저장할 변수
   let [cartCount, setCartCount] = useState<number>(0);
 
-  // TODO: 함수 정의
+  // todo: 함수 정의
   // simpleProduct 상세조회 함수
   const getSimpleProduct = (spno: string) => {
     SimpleProductService.get(spno) // 벡엔드로 상세조회 요청
@@ -78,30 +78,31 @@ function SimpleCart() {
     navigate("/simple-cart");
   };
 
-  // todo: 장바구니 개수 증가 함수
+  //  todo: 장바구니 개수 증가 함수
   const increaseCount = () => {
     cartCount += 1;
     setCartCount(cartCount); // 현재 증가값 저장
   };
 
-  // todo: 장바구니 개수 감소 함수
+  //  todo: 장바구니 개수 감소 함수
   const decreaseCount = () => {
-    if (cartCount > 0) {
+    if(cartCount > 0) {
       cartCount -= 1;
       setCartCount(cartCount); // 현재 감소값 저장
     }
   };
 
-  // todo: 주문하기 페이지로 이동 함수
-  const goOrder = () => {
-    if (cartCount == 0) {
-      setMessage("장바구니 개수를 증가시켜주세요");
-      return; // 함수에서 강제 중단(==break)
-    }
-    alert(`주문했습니다. ${simpleProduct.title}, ${cartCount}`);
-  };
+  // todo: 주문 결과 표시 함수
+  const goOrder = () => { 
+     if(cartCount == 0) {
+      setMessage("장바구니 개수를 증가시켜주세요")
+      return; // 함수에서 강제 중단 (==break)
+     }
+     alert(`주문했습니다. ${simpleProduct.title}, ${cartCount}`)
+   }
 
   return (
+    // 여기
     <div>
       {/* 제목 start */}
       <TitleCom title="SimpleProduct Detail" />

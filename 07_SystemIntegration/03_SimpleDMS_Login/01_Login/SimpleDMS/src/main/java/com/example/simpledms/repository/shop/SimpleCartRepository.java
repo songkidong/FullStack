@@ -26,7 +26,7 @@ import java.util.Optional;
  */
 @Repository
 public interface SimpleCartRepository extends JpaRepository<SimpleCart, Integer> {
-//    like 검색 : 상품테이블(TB_SIMPLE_PRODUCT) 조인
+    //    like 검색 : 상품테이블(TB_SIMPLE_PRODUCT) 조인
     @Query(value = "SELECT SC.SCNO       AS scno " +
             "     , SP.CODE_ID    AS codeId " +
             "     , SP.TITLE      as title " +
@@ -50,7 +50,7 @@ public interface SimpleCartRepository extends JpaRepository<SimpleCart, Integer>
             Pageable pageable
     );
 
-//    상품 + 장바구니(조인) 상세조회 : 페이징없음(객체)
+    //    상품 + 장바구니(조인) 상세조회 : 페이징없음(객체)
     @Query(value = "SELECT SC.SCNO       AS scno " +
             "     , SP.CODE_ID    AS codeId " +
             "     , SP.TITLE      as title " +
@@ -64,3 +64,10 @@ public interface SimpleCartRepository extends JpaRepository<SimpleCart, Integer>
             "AND  SC.DELETE_YN = 'N'", nativeQuery = true)
     Optional<SimpleCartDto> selectById(@Param("scno") int scno);
 }
+
+
+
+
+
+
+

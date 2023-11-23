@@ -29,30 +29,31 @@ public class ReplyBoardService {
     @Autowired
     ReplyBoardRepository replyBoardRepository;
 
-//    계층형 쿼리 조회(dto) : like 검색
+    //    계층형 쿼리 조회(dto) : like 검색
     public Page<ReplyBoardDto> selectByConnectByPage(String boardTitle, Pageable pageable) {
 
         Page<ReplyBoardDto> page
-                = replyBoardRepository.selectByConnectByPage(boardTitle,pageable);
+                = replyBoardRepository.selectByConnectByPage(boardTitle, pageable);
 
         return page;
     }
 
-//    답변 글 저장(수정함수)
+    //    답변 글 저장(수정함수)
     public ReplyBoard save(ReplyBoard replyBoard) {
         ReplyBoard replyBoard2 = replyBoardRepository.save(replyBoard);
 
         return replyBoard2;
     }
 
-//    게시물 저장
+    //    게시물 저장
     public int saveBoard(ReplyBoard replyBoard) {
-        int insertCount = replyBoardRepository.insertByBoard(replyBoard);
+        int insertCount
+                = replyBoardRepository.insertByBoard(replyBoard);
 
         return insertCount;
     }
 
-//    상세조회 함수
+    //    상세조회 함수
     public Optional<ReplyBoard> findById(int bid) {
         Optional<ReplyBoard> optionalReplyBoard
                 = replyBoardRepository.findById(bid);
@@ -60,7 +61,7 @@ public class ReplyBoardService {
         return optionalReplyBoard;
     }
 
-//    답변만 삭제
+    //    답변만 삭제
     public boolean removeById(int bid) {
         if (replyBoardRepository.existsById(bid)) { // bid 있는지 확인
             replyBoardRepository.deleteById(bid); // 삭제 진행
@@ -68,7 +69,6 @@ public class ReplyBoardService {
         }
         return false;
     }
-
 
 //    게시물 + 답변 2개이상 삭제 : 그룹번호로(boardGroup) 삭제
     public boolean removeAllByBoardGroup(int boardGroup) {
@@ -82,7 +82,6 @@ public class ReplyBoardService {
             return false;
         }
     }
-
 
 
 }

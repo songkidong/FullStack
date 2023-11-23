@@ -1,11 +1,11 @@
-// AddCustomer.tsx
-
+// AddCustomer.tsx : rfce
 import React, { useState } from "react";
+import TitleCom from "../../../components/common/TitleCom";
 import ICustomer from "../../../types/basic/ICustomer";
 import CustomerService from "../../../services/basic/CustomerService";
-import TitleCom from "../../../components/common/TitleCom";
 
 function AddCustomer() {
+  // 변수 정의
   // 객체 초기화
   const initialCustomer = {
     cid: null,
@@ -16,9 +16,10 @@ function AddCustomer() {
 
   // customer 객체
   const [customer, setCustomer] = useState<ICustomer>(initialCustomer);
-  // 저장버튼 클릭 후 submitted == true 변경됨
+  // 저장버튼 클릭후 submitted = true 변경됨
   const [submitted, setSubmitted] = useState<boolean>(false);
 
+  // 함수 정의
   // input 태그에 수동 바인딩
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target; // 화면값
@@ -29,9 +30,9 @@ function AddCustomer() {
   const saveCustomer = () => {
     // 임시 customer 객체
     var data = {
-      fullName: customer.fullName,
-      email: customer.email,
-      phone: customer.phone,
+        fullName: customer.fullName,
+        email: customer.email,
+        phone: customer.phone
     };
 
     CustomerService.create(data) // 저장 요청
@@ -46,11 +47,12 @@ function AddCustomer() {
 
   // 새폼 보여주기 함수 : 변수값 변경 -> 화면 자동 갱신(리액트 특징)
   const newCustomer = () => {
-    setCustomer(initialCustomer); // customer 초기화
+    setCustomer(initialCustomer); // Customer 초기화
     setSubmitted(false); // submitted 변수 초기화
   };
 
   return (
+    // 여기
     <div className="row">
       {submitted ? (
         <div className="col-6 mx-auto">
@@ -71,7 +73,7 @@ function AddCustomer() {
               {/* 라벨 시작 */}
               <div className="col-3">
                 <label htmlFor="fullName" className="col-form-label">
-                  FullName
+                  Full Name
                 </label>
               </div>
               {/* 라벨 끝 */}
@@ -93,11 +95,14 @@ function AddCustomer() {
 
             {/* email 입력창 시작 */}
             <div className="row g-3 align-items-center mb-3">
+              {/* 라벨 시작 */}
               <div className="col-3">
                 <label htmlFor="email" className="col-form-label">
-                  Email
+                    Email
                 </label>
               </div>
+              {/* 라벨 끝 */}
+
               <div className="col-9">
                 <input
                   type="text"
@@ -115,11 +120,14 @@ function AddCustomer() {
 
             {/* phone 입력창 시작 */}
             <div className="row g-3 align-items-center mb-3">
+              {/* 라벨 시작 */}
               <div className="col-3">
                 <label htmlFor="phone" className="col-form-label">
-                  Phone
+                    Phone
                 </label>
               </div>
+              {/* 라벨 끝 */}
+
               <div className="col-9">
                 <input
                   type="text"
@@ -135,6 +143,7 @@ function AddCustomer() {
             </div>
             {/* phone 입력창 끝 */}
 
+            {/* 저장 버튼 시작 */}
             <div className="row g-3 mt-3 mb-3">
               <button
                 onClick={saveCustomer}
@@ -143,6 +152,7 @@ function AddCustomer() {
                 Submit
               </button>
             </div>
+            {/* 저장 버튼 끝 */}
           </div>
         </>
       )}

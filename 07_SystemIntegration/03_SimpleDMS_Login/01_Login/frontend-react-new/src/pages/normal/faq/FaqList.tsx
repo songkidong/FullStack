@@ -7,37 +7,38 @@ import FaqService from "../../../services/normal/FaqService";
 import { Link } from "react-router-dom";
 
 function FaqList() {
-  // 변수 정의
+  // todo: 변수 정의
   // faq 배열 변수
   const [faq, setFaq] = useState<Array<IFaq>>([]);
   // 검색어 변수
   const [searchTitle, setSearchTitle] = useState<string>("");
 
-  // TODO: 공통 변수 : page(현재페이지번호), count(총페이지건수), pageSize(3,6,9 배열)
+  // todo: 공통 변수 : page(현재페이지번호), count(총페이지건수), pageSize(3,6,9 배열)
   const [page, setPage] = useState<number>(1);
   const [count, setCount] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(3); // 1페이지당개수
-  // TODO: 공통 pageSizes : 배열 (셀렉트 박스 사용)
+  // todo: 공통 pageSizes : 배열 (셀렉트 박스 사용)
   const pageSizes = [3, 6, 9];
 
-  // TODO: 함수 정의
+  // todo: 함수 정의
   useEffect(() => {
     retrieveFaq(); // 전체 조회
   }, [page, pageSize]);
 
   //   전체조회 함수
   const retrieveFaq = () => {
-    FaqService.getAll(searchTitle, page - 1, pageSize) // 벡엔드 전체조회요청
-      .then((response: any) => {
-        const { faq, totalPages } = response.data;
-        setFaq(faq);
-        setCount(totalPages);
-        console.log("response", response.data);
-      })
-      .catch((e: Error) => {
-        // 벡엔드 실패시 실행됨
-        console.log(e);
-      });
+    FaqService.getAll(searchTitle, page -1, pageSize) // 벡엔드 전체조회요청
+    .then((response: any)=>{
+      const { faq, totalPages } = response.data;
+      setFaq(faq);
+      setCount(totalPages);
+      console.log("response", response.data);
+
+    })
+    .catch((e: Error)=>{
+      // 벡엔드 실패시 실행됨
+      console.log(e);
+    })
   };
 
   //  검색어 수동 바인딩 함수
@@ -45,19 +46,19 @@ function FaqList() {
     setSearchTitle(e.target.value);
   };
 
-  // TODO: handlePageSizeChange(공통) : pageSize 값 변경시 실행되는 함수
+  // todo: handlePageSizeChange(공통) : pageSize 값 변경시 실행되는 함수
   //  select 태그 수동 바인딩 : 화면값 -> 변수에 저장
-  const handlePageSizeChange = (event: any) => {
-    setPageSize(event.target.value); // 1페이지당 개수저장(3,6,9)
-    setPage(1); // 현재페이지번호 : 1로 강제설정
-  };
+  const handlePageSizeChange = (event: any) => { 
+      setPageSize(event.target.value); // 1페이지당 개수저장(3,6,9)
+      setPage(1); // 현재페이지번호 : 1로 강제설정
+   }
 
-  //  TODO: Pagination 수동 바인딩(공통)
+  //  todo: Pagination 수동 바인딩(공통)
   //  페이지 번호를 누르면 => page 변수에 값 저장
-  const handlePageChange = (event: any, value: number) => {
-    // value == 화면의 페이지번호
-    setPage(value);
-  };
+  const handlePageChange = (event:any, value:number) => { 
+      // value == 화면의 페이지번호
+      setPage(value);
+   }
 
   return (
     // 여기
@@ -120,7 +121,7 @@ function FaqList() {
           {faq &&
             faq.map((data, index) => (
               // 여기
-              <div className="accordion-item">
+              <div className="accordion-item" key={data.no}>
                 {/* 사용법 : 변수명 유일 : 1) h2(제목) : id="heading0" */}
                 {/*                       div(본문) : aria-labelledby="heading0" */}
                 {/*                  2) h2(제목)  : data-bs-target="#collapse0" */}
@@ -134,15 +135,11 @@ function FaqList() {
                 {/* 제목 시작 */}
                 <h2 className="accordion-header" id={"heading" + index}>
                   <button
-                    className={
-                      index == 0
-                        ? "accordion-button"
-                        : "accordion-button collapsed"
-                    }
+                    className={index==0?"accordion-button" : "accordion-button collapsed"}
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target={"#collapse" + index}
-                    aria-expanded={index == 0 ? "true" : "false"}
+                    aria-expanded={index==0?"true" : "false"}
                     aria-controls={"collapse" + index}
                   >
                     {/* 벡엔드 데이터 */}
@@ -154,17 +151,13 @@ function FaqList() {
                 {/* 본문(data.content) 시작 */}
                 <div
                   id={"collapse" + index}
-                  className={
-                    index == 0
-                      ? "accordion-collapse collapse show"
-                      : "accordion-collapse collapse"
-                  }
+                  className={index==0?"accordion-collapse collapse show": "accordion-collapse collapse"}
                   aria-labelledby={"heading" + index}
                   data-bs-parent="#accordionExample"
                 >
                   <div className="accordion-body">
                     {/* 벡엔드 데이터 코딩 */}
-                    {data.content}
+                    {data.content} &nbsp;
                     <Link to={"/faq/" + data.no}>
                       <span className="badge bg-success">Edit</span>
                     </Link>

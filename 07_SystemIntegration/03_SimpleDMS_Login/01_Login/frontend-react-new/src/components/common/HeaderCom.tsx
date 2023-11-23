@@ -5,25 +5,26 @@ import { RootState, useAppDispatch } from "../../store/store";
 import { logout } from "../../store/slices/auth";
 
 function HeaderCom() {
-  // TODO: 변수 정의
-  // todo: 공유저장소 변수 가져오기 : useSelector((state:RootState) => state.변수명);
+
+  // todo: 변수 정의 
+  // todo: 공유저장소 변수 가져오기 : useSelector((state:RootState)=>state.변수명);
   // todo: auth = { isLoggedIn:true/false, user:user/null }
-  const { user: currentUser } = useSelector((state: RootState) => state.auth);
+  const { user: currentUser } = useSelector((state:RootState)=> state.auth);
 
   // todo: 공유저장소 함수 가져오기 : logout()
   const dispatch = useAppDispatch();
 
-  // TODO: 함수 정의
+  // todo: 함수 정의 
   // todo: 공유저장소 함수 사용하기 : 로그아웃 정의
   // todo: 사용법 : dispatch(공유함수명());
   // 리액트 성능개선을 위한 함수 : useCallback() : 캐싱됨
-  const logOut = useCallback(() => {
+  const logOut = useCallback(() => { 
     dispatch(logout());
-  }, [dispatch]);
+   },[dispatch]);
 
   useEffect(() => {
     initMain();
-  }, [currentUser, logOut]);
+  },[currentUser, logOut]);
 
   return (
     <div>
@@ -31,7 +32,7 @@ function HeaderCom() {
       <div className="nav-wrapper bg-light">
         <nav className="navbar navbar-expand-lg p-2">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="*">
               <img
                 src={require("../../assets/img/simple-coding2.png")}
                 alt=""
@@ -113,7 +114,7 @@ function HeaderCom() {
                       {/* <!-- 3행 시작--> */}
                       <li className="sidebar-nav-item col-3">
                         <a href="/qna" className="nav-link active ms-2">
-                          Qna(다양한검색)
+                          Qna(다양한검색))
                         </a>
                       </li>
                       <li className="sidebar-nav-item col-3">
@@ -477,6 +478,7 @@ function HeaderCom() {
 
                 {/* 로그인 시작 */}
                 {!currentUser && (
+                  // 여기
                   <>
                     <li className="nav-item">
                       <a className="nav-link active" href="/register">
@@ -492,6 +494,7 @@ function HeaderCom() {
                 )}
                 {/* 로그인 끝 */}
 
+                {/* 여기 */}
                 {/* 로그아웃 시작 */}
                 {currentUser && (
                   <li className="nav-item">

@@ -8,8 +8,8 @@ import SimpleProductService from "../../../services/shop/SimpleProductService";
 import CodeService from "../../../services/admin/code/CodeService";
 
 function AddSimpleProduct() {
-  // TODO: 변수 정의
-  // 객체 초기화
+  // todo: 변수 정의
+  // todo: 객체 초기화
   const initialSimpleProduct = {
     spno: null,
     codeId: 0,
@@ -19,30 +19,24 @@ function AddSimpleProduct() {
     useYn: "Y",
   };
 
-  // select : code 데이터(배열) (반복문) 화면에 출력할 변수
+  // todo: select : code 데이터(배열) (반복문) 화면에 출력할 변수
   const [code, setCode] = useState<Array<ICode>>([]);
   // simpleProduct 객체
   const [simpleProduct, setSimpleProduct] =
     useState<ISimpleProduct>(initialSimpleProduct);
-  // 저장버튼 클릭 후 submitted == true 변경됨
+  // 저장버튼 클릭후 submitted = true 변경됨
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  // TODO: 함수 정의
-  // input 태그에 수동 바인딩
+  // todo: 함수 정의
+  // todo: input 태그에 수동 바인딩
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target; // 화면값
     setSimpleProduct({ ...simpleProduct, [name]: value }); // 변수저장
   };
-  
-  // select 수동 바인딩 함수
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { name, value } = event.target;
-    setSimpleProduct({ ...simpleProduct, [name]: value });
-  };
 
   // 저장 함수
   const saveSimpleProduct = () => {
-    // 임시 객체 : 화면값 -> 변수
+    // 임시 객체 : 변수 <- 화면값
     var data = {
       codeId: simpleProduct.codeId,
       title: simpleProduct.title,
@@ -67,8 +61,8 @@ function AddSimpleProduct() {
     setSubmitted(false); // submitted 변수 초기화
   };
 
-  // select 태그에 반복문으로 code 데이터를 출력하는 함수
-  // code 전체 조회 함수(페이징 없음)
+  //   todo: select 태그 에 반복문으로 code 데이터를 출력하는 함수
+  //   todo: code 전체 조회 함수(페이징 없음)
   const retrieveCodeAll = () => {
     CodeService.getAllNoPage()
       .then((response) => {
@@ -84,7 +78,14 @@ function AddSimpleProduct() {
     retrieveCodeAll(); // code 전체조회(페이징 없음)
   }, []);
 
+  //    select 수동 바인딩 함수
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setSimpleProduct({ ...simpleProduct, [name]: value });
+  };
+
   return (
+    // 여기
     <div className="row">
       {submitted ? (
         <div className="col-6 mx-auto">
@@ -130,7 +131,6 @@ function AddSimpleProduct() {
               </div>
             </div>
             {/* select 끝 */}
-
             <div className="row g-3 align-items-center mb-3">
               <div className="col-3">
                 <label htmlFor="title" className="col-form-label">

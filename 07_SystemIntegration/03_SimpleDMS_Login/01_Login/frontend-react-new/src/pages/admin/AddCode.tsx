@@ -45,7 +45,7 @@ function AddCode() {
       codeName: code.codeName, // 공통코드명
       categoryId: code.categoryId, // 대분류코드ID
       categoryName: "", // 대분류코드명(Code 테이블에 없음)
-      useYn: code.useYn, // 사용유무
+      useYn: code.useYn, // 사용유무      
     };
 
     CodeService.create(data) // 저장 요청
@@ -66,21 +66,21 @@ function AddCode() {
 
   // todo: select 태그의 값(대분류 코드) : 전체조회
   // todo: 대분류코드 : codeCategory
-  const retrieveCodeCategoryAll = () => {
+  const retrieveCodeCategoryAll = () => { 
     CodeCategoryService.getAllNoPage()
-      .then((response: any) => {
-        const codeCategory = response.data;
-        setCodeCategory(codeCategory);
-        console.log("response.data", response.data);
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
-  };
+    .then((response: any)=>{
+      const codeCategory = response.data;
+      setCodeCategory(codeCategory);
+      console.log("response.data", response.data);
+    })
+    .catch((e:Error)=>{
+      console.log(e);
+    })
+   }
 
-  useEffect(() => {
+   useEffect(()=>{
     retrieveCodeCategoryAll(); // 대분류 전제 조회
-  }, []);
+   },[])
 
   return (
     // 여기

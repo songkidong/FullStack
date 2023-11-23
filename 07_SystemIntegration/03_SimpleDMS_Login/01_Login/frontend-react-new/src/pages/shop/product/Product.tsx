@@ -1,21 +1,21 @@
 // Product.tsx : rfce
 // 상세조회 페이지(연습)
 import React, { useEffect, useState } from "react";
+import TitleCom from "../../../components/common/TitleCom";
 import { useParams } from "react-router-dom";
 import ICode from "../../../types/admin/code/ICode";
 import IProduct from "../../../types/shop/IProduct";
-import TitleCom from "../../../components/common/TitleCom";
 import ProductService from "../../../services/shop/ProductService";
 import CodeService from "../../../services/admin/code/CodeService";
 
 function Product() {
-  // TODO: 변수 정의
+  // todo: 변수 정의
   // 전체조회 페이지에서 전송한 기본키(pno)
   const { pno } = useParams();
   // 강제페이지 이동 함수
   //   let navigate = useNavigate();
 
-  // 객체 초기화(상세조회 : 기본키 있음)
+  // todo: 객체 초기화
   const initialProduct = {
     pno: null,
     kindCode: 0,
@@ -26,17 +26,17 @@ function Product() {
     useYn: "Y",
   };
 
-  // code 배열 변수 : select 태그용
+  //   todo: code 배열 변수 : select 태그용
   const [code, setCode] = useState<Array<ICode>>([]);
-  // 수정 될 객체
+  // 수정될객체 : product
   const [product, setProduct] = useState<IProduct>(initialProduct);
   // 화면에 수정 성공에 메세지 찍기 변수
   const [message, setMessage] = useState<string>("");
 
-  // TODO: 함수 정의
+  // todo: 함수 정의
   // 상세조회 함수
-  const getProduct = (pno: string) => {
-    ProductService.get(pno) // 백엔드로 상세조회 요청
+  const getProduct = (spno: string) => {
+    ProductService.get(spno) // 벡엔드로 상세조회 요청
       .then((response: any) => {
         setProduct(response.data);
         console.log(response.data);
@@ -45,6 +45,7 @@ function Product() {
         console.log(e);
       });
   };
+
   // 화면이 뜰때 실행되는 이벤트 + pno 값이 바뀌면 실행
   useEffect(() => {
     if (pno) getProduct(pno);
@@ -56,7 +57,7 @@ function Product() {
     setProduct({ ...product, [name]: value });
   };
 
-  // select 태그 수동 바인딩
+  // todo: select 태그 수동 바인딩
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target;
     setProduct({ ...product, [name]: value });
@@ -64,7 +65,7 @@ function Product() {
 
   // 수정 함수
   const updateProduct = () => {
-    ProductService.update(product.pno, product) // 백엔드로 수정요청
+    ProductService.update(product.pno, product) // 벡엔드로 수정요청
       .then((response: any) => {
         console.log(response.data);
         setMessage("수정되었습니다.");
@@ -74,8 +75,8 @@ function Product() {
       });
   };
 
-  // select 태그에 반복문으로 code 데이터를 출력하는 함수
-  // code 전체 조회 함수(페이징 없음)
+  //   todo: select 태그 에 반복문으로 code 데이터를 출력하는 함수
+  //   todo: code 전체 조회 함수(페이징 없음)
   const retrieveCodeAll = () => {
     CodeService.getAllNoPage()
       .then((response) => {
@@ -90,7 +91,9 @@ function Product() {
   useEffect(() => {
     retrieveCodeAll(); // code 전체조회(페이징 없음)
   }, []);
+
   return (
+    // 여기
     <>
       {/* 제목 start */}
       <TitleCom title="Product Detail" />

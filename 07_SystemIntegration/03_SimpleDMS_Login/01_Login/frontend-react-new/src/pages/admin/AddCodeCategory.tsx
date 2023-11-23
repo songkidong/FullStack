@@ -5,21 +5,21 @@ import ICodeCategory from "../../types/admin/code/ICodeCategory";
 import CodeCategoryService from "../../services/admin/code/CodeCategoryService";
 
 function AddCodeCategory() {
-
-  // TODO: 변수 정의
-  // 객체 초기화
+  // todo: 변수 정의
+  // todo: 객체 초기화
   const initialCodeCategory = {
     categoryId: 0,
     categoryName: "",
   };
 
-  // 저장 객체
-  const [codeCategory, setCodeCategory] = useState<ICodeCategory>(initialCodeCategory);
-  // 저장버튼 클릭 후 submitted == true 변경됨
+  // 저장객체
+  const [codeCategory, setCodeCategory] =
+    useState<ICodeCategory>(initialCodeCategory);
+  // 저장버튼 클릭후 submitted = true 변경됨
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  // TODO: 함수 정의
-  // input 태그에 수동 바인딩
+  // todo: 함수 정의
+  // todo: input 태그에 수동 바인딩
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target; // 화면값
     setCodeCategory({ ...codeCategory, [name]: value }); // 변수저장

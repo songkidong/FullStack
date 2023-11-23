@@ -1,6 +1,7 @@
 package com.example.simpledms.service.shop;
 
 import com.example.simpledms.model.dto.shop.SimpleCartDto;
+import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.model.entity.shop.SimpleCart;
 import com.example.simpledms.repository.shop.SimpleCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,18 +30,19 @@ public class SimpleCartService {
     @Autowired
     SimpleCartRepository simpleCartRepository; // DI
 
-//    전체 조회(like) + 페이징(조인)
+
+    //    전체 조회(like) + 페이징(조인) + DTO
     public Page<SimpleCartDto> selectByTitleContaining(
             String title,
             Pageable pageable) {
         Page<SimpleCartDto> page
                 = simpleCartRepository
-                .selectByTitleContaining(title, pageable);
+                    .selectByTitleContaining(title, pageable);
 
         return page;
     }
 
-//    저장함수(수정함수)
+    //    저장함수(수정함수)
     public SimpleCart save(SimpleCart simpleCart) {
 
         SimpleCart simpleCart2 = simpleCartRepository.save(simpleCart);
@@ -48,7 +50,7 @@ public class SimpleCartService {
         return simpleCart2;
     }
 
-//    조인 상세조회(1건조회)
+    //    조인 상세조회(1건조회)
     public Optional<SimpleCartDto> selectById(int scno) {
         Optional<SimpleCartDto> optionalSimpleCart
                 = simpleCartRepository.selectById(scno);
@@ -56,13 +58,15 @@ public class SimpleCartService {
         return optionalSimpleCart;
     }
 
-//    삭제함수
+    //    삭제함수
     public boolean removeById(int scno) {
-        if (simpleCartRepository.existsById(scno)) { // scno 있는지 확인
+        if(simpleCartRepository.existsById(scno)) { // scno 있는지 확인
             simpleCartRepository.deleteById(scno); // 삭제 진행
             return true;
         }
         return false;
     }
+
+
 
 }

@@ -15,14 +15,9 @@ package com.example.simpledms.model.dto.admin;
  */
 public interface CodeDto {
 //    getter 함수 정의
-//    private Integer codeId; // 기본키
-//    private String codeName;
-//    private Integer categoryId; // 참조키
-//    private String useYn;
-//    private String categoryName;
     public Integer getCodeId();
     public String getCodeName();
     public Integer getCategoryId();
-    public String getUseYn();
     public String getCategoryName();
+    public String getUseYn();
 }

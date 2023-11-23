@@ -1,6 +1,8 @@
 package com.example.simpledms.controller.advanced;
 
 import com.example.simpledms.model.entity.advanced.FileDb;
+import com.example.simpledms.model.entity.basic.Dept;
+import com.example.simpledms.repository.advanced.FileDbRepository;
 import com.example.simpledms.service.advanced.FileDbService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,7 @@ public class FileDbController {
     @Autowired
     FileDbService fileDbService; // DI
 
-//    전체 조회 + fileTitle like 검색
+    //    전체 조회 + fileTitle like 검색
     @GetMapping("/fileDb")
     public ResponseEntity<Object> findAllByFileTitleContaining(
             @RequestParam(defaultValue = "") String fileTitle,
@@ -71,7 +73,7 @@ public class FileDbController {
         }
     }
 
-//    저장 함수
+    //    저장 함수
     @PostMapping("/fileDb/upload")
     public ResponseEntity<Object> create(
             @RequestParam String fileTitle,
@@ -94,7 +96,7 @@ public class FileDbController {
         }
     }
 
-//    다운로드 url 에 따라 자동으로 첨부파일 다운로드 받게 해주는 함수(자동 실행)
+    //    다운로드 url 에 따라 자동으로 첨부파일 다운로드 받게 해주는 함수(자동 실행)
 //    예) <img src="url"/> => 이미지 자동 다운로드해서 화면에 이미지 표시됨
 //    http://localhost:8000/api/advanced/fileDb/{uuid} : 현재 함수 url
 //    현재 함수 url === 다운로드 url
@@ -113,7 +115,7 @@ public class FileDbController {
     }
 
 
-//    상세조회
+    // 상세조회
     @GetMapping("/fileDb/get/{uuid}")
     public ResponseEntity<Object> findById(@PathVariable String uuid) {
 
@@ -134,7 +136,7 @@ public class FileDbController {
         }
     }
 
-//    수정함수
+    //    수정함수
     @PutMapping("/fileDb/{uuid}")
     public ResponseEntity<Object> create(
             @PathVariable String uuid,        // 기본키
@@ -182,6 +184,7 @@ public class FileDbController {
 
 
 }
+
 
 
 

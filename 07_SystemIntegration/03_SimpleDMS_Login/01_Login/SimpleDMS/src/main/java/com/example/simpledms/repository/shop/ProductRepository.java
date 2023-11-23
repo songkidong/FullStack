@@ -21,6 +21,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-//    pname like 검색 : 쿼리메소드(JPQL)
+//    pname like 검색
     Page<Product> findAllByPnameContaining(String pname, Pageable pageable);
 }

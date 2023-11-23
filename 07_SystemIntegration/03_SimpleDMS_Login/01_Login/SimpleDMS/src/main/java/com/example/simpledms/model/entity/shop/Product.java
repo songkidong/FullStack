@@ -13,8 +13,8 @@ import javax.persistence.*;
  * date : 2023-11-08
  * description : Product 엔티티 클래스
  * 요약 :
- *      1) 삭제 없음
- *      2) 공통 컬럼 없음
+ * 1) 삭제 없음
+ * 2) 공통 컬럼 없음
  * <p>
  * ===========================================================
  * DATE            AUTHOR             NOTE
@@ -38,22 +38,22 @@ import javax.persistence.*;
 @DynamicInsert
 @DynamicUpdate
 public class Product {
-//    속성
+    //    속성
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE
             , generator = "SQ_PRODUCT_GENERATOR"
     )
-    private Integer pno;       // 기본키(@Id), 시퀀스
+    private Integer pno; // 기본키(@Id) , 시퀀스
 
-    private Integer kindCode;  // 상품종류코드
+    private Integer kindCode;
 
-    private String pname;      // 상품명
+    private String  pname;
 
-    private String image;      // 이미지 경로
+    private String  image;
 
-    private Integer unitPrice; // 단가
+    private Integer  unitPrice;
 
-    private Integer statusCode; // 상품상태코드(20001(신상), 20002(이월상품), 20003(전시품))
+    private Integer  statusCode;
 
-    private String useYn;      // 사용여부
+    private String  useYn;
 }

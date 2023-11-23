@@ -1,15 +1,15 @@
 // AddProduct.tsx : rfce
-// 상품추가 페이지(연습), 관리자용
+// 상품추가 페이지(연습) , 관리자용
 import React, { useEffect, useState } from "react";
-import IProduct from "../../../types/shop/IProduct";
-import ICode from "../../../types/admin/code/ICode";
 import TitleCom from "../../../components/common/TitleCom";
+import IProduct from "./../../../types/shop/IProduct";
+import ICode from "../../../types/admin/code/ICode";
 import ProductService from "../../../services/shop/ProductService";
 import CodeService from "../../../services/admin/code/CodeService";
 
 function AddProduct() {
-  // TODO: 변수 정의
-  // 객체 초기화
+  // todo: 변수 정의
+  // todo: 객체 초기화
   const initialProduct = {
     pno: null,
     kindCode: 0,
@@ -20,21 +20,21 @@ function AddProduct() {
     useYn: "Y",
   };
 
-  // code 배열 객체 : select 태그의 값으로 들어갈 변수
+  // todo: code 배열객체 : select 태그의 값으로 들어갈 변수
   const [code, setCode] = useState<Array<ICode>>([]);
   // product 객체
   const [product, setProduct] = useState<IProduct>(initialProduct);
   // 저장버튼 클릭후 submitted = true 변경됨
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  // TODO: 함수 정의
+  // todo: 함수 정의
   // input 태그에 수동 바인딩
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target; // 화면값
     setProduct({ ...product, [name]: value }); // 변수저장
   };
 
-  // select 태그에 수동 바인딩
+  // todo: select 태그에 수동 바인딩
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = event.target; // 화면값
     setProduct({ ...product, [name]: value }); // 변수저장
@@ -50,7 +50,7 @@ function AddProduct() {
       image: product.image,
       unitPrice: product.unitPrice,
       statusCode: product.statusCode,
-      useYn: product.useYn,
+      useYn: product.useYn,      
     };
 
     ProductService.create(data) // 저장 요청
@@ -69,8 +69,8 @@ function AddProduct() {
     setSubmitted(false); // submitted 변수 초기화
   };
 
-  // select 태그에 반복문으로 code 데이터를 출력하는 함수
-  // code 전체 조회 함수(페이징 없음)
+   //   todo: select 태그 에 반복문으로 code 데이터를 출력하는 함수
+  //   todo: code 전체 조회 함수(페이징 없음)
   const retrieveCodeAll = () => {
     CodeService.getAllNoPage()
       .then((response) => {
@@ -87,6 +87,7 @@ function AddProduct() {
   }, []);
 
   return (
+    // 여기
     <div className="row">
       {submitted ? (
         <div className="col-6 mx-auto">

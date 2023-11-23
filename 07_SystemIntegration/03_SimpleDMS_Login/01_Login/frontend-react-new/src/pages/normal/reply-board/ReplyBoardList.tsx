@@ -1,27 +1,27 @@
 // ReplyBoardList.tsx : rfce
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Pagination } from "@mui/material";
-import ReplyBoardService from "../../../services/normal/ReplyBoardService";
 import TitleCom from "../../../components/common/TitleCom";
+import { Link } from "react-router-dom";
 import IReplyBoard from "../../../types/normal/IReplyBoard";
+import ReplyBoardService from "../../../services/normal/ReplyBoardService";
+import { Pagination } from "@mui/material";
 
 function ReplyBoardList() {
-  // TODO: 변수 정의
+  // todo: 변수 정의
   // replyBoard(게시물+답변) 배열 변수
   //   답변글 1개만 달리게 제한
   const [replyBoard, setReplyBoard] = useState<Array<IReplyBoard>>([]);
   // 검색어 변수
   const [searchBoardTitle, setSearchBoardTitle] = useState<string>("");
 
-  // TODO: 공통 변수 : page(현재페이지번호), count(총페이지건수), pageSize(3,6,9 배열)
+  // todo: 공통 변수 : page(현재페이지번호), count(총페이지건수), pageSize(3,6,9 배열)
   const [page, setPage] = useState<number>(1);
   const [count, setCount] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(3); // 1페이지당개수
-  // TODO: 공통 pageSizes : 배열 (셀렉트 박스 사용)
+  // todo: 공통 pageSizes : 배열 (셀렉트 박스 사용)
   const pageSizes = [3, 6, 9];
 
-  // TODO: 함수 정의
+  // todo: 함수 정의
   useEffect(() => {
     retrieveReplyBoard(); // 전체 조회
   }, [page, pageSize]);
@@ -46,14 +46,14 @@ function ReplyBoardList() {
     setSearchBoardTitle(e.target.value);
   };
 
-  // TODO: handlePageSizeChange(공통) : pageSize 값 변경시 실행되는 함수
+  // todo: handlePageSizeChange(공통) : pageSize 값 변경시 실행되는 함수
   //  select 태그 수동 바인딩 : 화면값 -> 변수에 저장
   const handlePageSizeChange = (event: any) => {
     setPageSize(event.target.value); // 1페이지당 개수저장(3,6,9)
     setPage(1); // 현재페이지번호 : 1로 강제설정
   };
 
-  //  TODO: Pagination 수동 바인딩(공통)
+  //  todo: Pagination 수동 바인딩(공통)
   //  페이지 번호를 누르면 => page 변수에 값 저장
   const handlePageChange = (event: any, value: number) => {
     // value == 화면의 페이지번호
@@ -61,7 +61,7 @@ function ReplyBoardList() {
   };
 
   // ---------------------------------------
-  // TODO: 답변 변수 정의
+  // todo: 답변 변수 정의
   // reply 객체 초기화
   const initialReply = {
     bid: null,
@@ -77,7 +77,7 @@ function ReplyBoardList() {
   // reply 버튼 클릭시 상태 저장할 변수 : true/false
   const [replyClicked, setReplyClicked] = useState(false);
 
-  // TODO: 답변 함수 정의
+  // todo: 답변 함수 정의
   // input 수동 바인딩 함수
   const handleInputChange = (event: any) => {
     const { name, value } = event.target; // 화면값
@@ -88,6 +88,7 @@ function ReplyBoardList() {
   const saveReply = () => {
     // 임시 객체
     let data = {
+      // reply.boardTitle 부모제목, reply.boardContent (부모내용), reply.bid(부모번호)
       boardTitle: reply.boardTitle,
       boardContent: reply.boardContent,
       boardWriter: reply.boardWriter,
@@ -117,6 +118,7 @@ function ReplyBoardList() {
   //  게시물 reply 버튼 클릭시 화면에 답변입력창 보이게 하는 함수
   const newReply = (data: any) => {
     // 매개변수 데이터(객체) 수정 : boardContent: "" 수정
+    // data == 부모글 객체임, reply = 부모글객체 저장
     setReply({ ...data, boardContent: "" });
     // 답변 입력창 화면보이기 : replyClicked = true
     setReplyClicked(true);

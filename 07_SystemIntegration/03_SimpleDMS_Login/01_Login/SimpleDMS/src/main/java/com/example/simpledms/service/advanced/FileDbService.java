@@ -1,6 +1,7 @@
 package com.example.simpledms.service.advanced;
 
 import com.example.simpledms.model.entity.advanced.FileDb;
+import com.example.simpledms.model.entity.basic.Dept;
 import com.example.simpledms.repository.advanced.FileDbRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.IOException;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -33,14 +35,14 @@ public class FileDbService {
     @Autowired
     FileDbRepository fileDbRepository; // DI
 
-//    전체 조회 + 페이징
+    //    전체 조회 + 페이징
     public Page<FileDb> findAll(Pageable pageable) {
         Page<FileDb> page = fileDbRepository.findAll(pageable);
 
         return page;
     }
 
-//    fileTitle like 조회 + 페이징
+    //    fileTitle like 조회 + 페이징
     public Page<FileDb> findAllByFileTitleContaining(String fileTitle, Pageable pageable) {
         Page<FileDb> page
                 = fileDbRepository.findAllByFileTitleContaining(fileTitle, pageable);
@@ -48,7 +50,7 @@ public class FileDbService {
         return page;
     }
 
-//    상세조회(1건조회)
+    //    상세조회(1건조회)
     public Optional<FileDb> findById(String uuid) {
         Optional<FileDb> optionalDept
                 = fileDbRepository.findById(uuid);
@@ -56,7 +58,7 @@ public class FileDbService {
         return optionalDept;
     }
 
-//    삭제함수
+    //    삭제함수
     public boolean removeById(String uuid) {
         if(fileDbRepository.existsById(uuid)) { // uuid 있는지 확인
             fileDbRepository.deleteById(uuid); // 삭제 진행
@@ -70,7 +72,7 @@ public class FileDbService {
                        String fileTitle,
                        String fileContent,
                        MultipartFile file  // 첨부파일 객체
-    ) {
+                       ) {
         FileDb fileDb2 = null;
 
         try {
@@ -81,7 +83,7 @@ public class FileDbService {
 //             2) DB 에 이미지를 다운로드 할수 있는 url 저장
 //                (다운로드 url 만들기 필요)
 //             3) 파일명(중복이 안되는) : uuid(기본키) 사용(유일값)
-//              todo: 1) uuid 만들기
+//             todo: 1) uuid 만들기
                 String tmpUuid
                         = UUID.randomUUID()// uuid 랜덤 생성함수
                         .toString()        // 문자열 변환
@@ -129,7 +131,9 @@ public class FileDbService {
         return fileDb2;
     }
 
+
 }
+
 
 
 

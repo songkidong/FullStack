@@ -6,8 +6,8 @@ import IReplyBoard from "../../../types/normal/IReplyBoard";
 import ReplyBoardService from "../../../services/normal/ReplyBoardService";
 
 function AddReplyBoard() {
-  // TODO: 변수 정의
-  // TODO: 객체 초기화
+  // todo: 변수 정의
+  // todo: 객체 초기화
   const initialReplyBoard = {
     bid: null,
     boardTitle: "",
@@ -23,7 +23,7 @@ function AddReplyBoard() {
   // 저장버튼 클릭후 submitted = true 변경됨
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  // TODO: 함수 정의
+  // todo: 함수 정의
   // input 태그에 수동 바인딩
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target; // 화면값
