@@ -56,3 +56,13 @@ npm i @types/yup
 5) components/common - HeaderCom.tsx : 추가 로직 작성
 - 로그인되면(true) : 회원가입(숨김) - 로그인(숨김 : 로그아웃)
 - 로그아웃되면     : 회원가입(보임) - 로그인(보임 : 로그아웃(숨김))
+# TODO:8) 로그인 관련/공유라이브러리 리덕스-툴킷 설치
+npm i react-redux @reduxjs/toolkit
+
+# TODO:9) 로그인 관련/폼 유효성 체크 라이브러리 설치
+# TODO:9-1) formik
+npm i formik
+
+# TODO:9-2) 로그인 관련/yup
+npm i yup
+npm i @types/yup

@@ -38,7 +38,7 @@ public class UserService {
         return page;
     }
 
-    //    dname like 조회 + 페이징
+    //    username like 조회 + 페이징
     public Page<User> findAllByUsernameContaining(String username, Pageable pageable) {
         Page<User> page
                 = userRepository.findAllByUsernameContaining(username, pageable);

@@ -9,6 +9,7 @@ import lombok.*;
  * date : 2023/07/29
  * description : UserReq
  * 요약 : 클라이언트 요청 매개변수값을 전달받을 클래스 DTO
+ *    1) 리액트 속성 : 로그인 / 회원가입
  * <p>
  * ===========================================================
  * DATE            AUTHOR             NOTE
@@ -30,5 +31,5 @@ public class UserReq {
 
   private String password;
 
-  private boolean changePwd; // 프론트에서 패스워드 수정 했다는것을 나타내는 옵션(true, false)
+//  private boolean changePwd; // 프론트에서 패스워드 수정 했다는것을 나타내는 옵션(true, false)
 }

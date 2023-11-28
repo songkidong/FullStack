@@ -41,7 +41,7 @@ public class User extends BaseTimeEntity {
 
     private String codeName; // 권한컬럼(속성) : ROLE_USER, ROLE_ADMIN
 
-//    생성자 : 3개짜리(codeName 제외)
+//    생성자 : 3개짜리(codeName 제외) : 회원가입시 사용
     public User(String email, String password, String username) {
         this.email = email;
         this.password = password;
